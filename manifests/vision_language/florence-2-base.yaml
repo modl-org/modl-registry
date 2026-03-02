@@ -1,0 +1,24 @@
+id: florence-2-base
+name: Florence-2 Base
+type: vision_language
+architecture: florence-2
+author: Microsoft
+license: MIT
+homepage: https://huggingface.co/microsoft/Florence-2-base
+description: |
+  Florence-2 Base — smaller variant of Microsoft's vision-language model.
+  Same capabilities as Florence-2 Large but with fewer parameters (~0.8 GB).
+  Faster inference, slightly lower caption quality.
+
+huggingface_repo: microsoft/Florence-2-base
+
+tags:
+  - vision-language
+  - captioning
+  - florence
+  - dataset-tools
+  - microsoft
+  - lightweight
+
+added: "2026-03-01"
+updated: "2026-03-01"

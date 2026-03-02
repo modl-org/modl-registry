@@ -34,6 +34,7 @@ VALID_TYPES = {
     "embedding",
     "ipadapter",
     "segmentation",
+    "vision_language",
     "recipe",
 }
 
@@ -48,6 +49,7 @@ TYPE_DIR_MAP = {
     "embeddings": "embedding",
     "ipadapters": "ipadapter",
     "segmentation": "segmentation",
+    "vision_language": "vision_language",
     "recipes": "recipe",
 }
 
@@ -97,6 +99,7 @@ def validate_manifest(manifest: dict, filepath: Path) -> list[str]:
 
         # Recipe type: must have recipe config, doesn't need file/variants
         is_recipe = manifest["type"] == "recipe"
+        is_vl = manifest["type"] == "vision_language"
 
         # Check for variants/file presence (used by non-recipe types and validation below)
         has_variants = "variants" in manifest and len(manifest.get("variants", [])) > 0
@@ -107,6 +110,9 @@ def validate_manifest(manifest: dict, filepath: Path) -> list[str]:
                 errors.append("Recipe type must have a 'recipe' config section")
             elif "base_model" not in manifest.get("recipe", {}):
                 errors.append("Recipe 'recipe' section must have 'base_model'")
+        elif is_vl:
+            if "huggingface_repo" not in manifest:
+                errors.append("Vision-language type must have 'huggingface_repo' field")
         else:
             if not has_variants and not has_file:
                 errors.append("Must have either 'variants' (non-empty) or 'file'")

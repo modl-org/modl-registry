@@ -1,0 +1,23 @@
+id: blip2-opt-2-7b
+name: BLIP-2 OPT 2.7B
+type: vision_language
+architecture: blip2
+author: Salesforce
+license: MIT
+homepage: https://huggingface.co/Salesforce/blip2-opt-2.7b
+description: |
+  BLIP-2 with OPT-2.7B language model from Salesforce.
+  General-purpose image captioning model.
+  Larger download (~6 GB) but produces natural language captions.
+
+huggingface_repo: Salesforce/blip2-opt-2.7b
+
+tags:
+  - vision-language
+  - captioning
+  - blip
+  - dataset-tools
+  - salesforce
+
+added: "2026-03-01"
+updated: "2026-03-01"

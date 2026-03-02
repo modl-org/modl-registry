@@ -28,6 +28,7 @@
         "embedding",
         "ipadapter",
         "segmentation",
+        "vision_language",
         "recipe"
       ],
       "description": "Asset type. Determines which directory the manifest lives in."
@@ -127,6 +128,10 @@
     "file": {
       "$ref": "#/$defs/fileInfo",
       "description": "Single file for simple assets (LoRAs, VAEs, etc.)."
+    },
+    "huggingface_repo": {
+      "type": "string",
+      "description": "HuggingFace repository ID (e.g., 'microsoft/Florence-2-large'). Used for vision_language models that are multi-file transformer checkpoints."
     },
     "requires": {
       "type": "array",
@@ -263,7 +268,7 @@
     {
       "description": "Model/asset type — must have variants or file.",
       "not": {
-        "properties": { "type": { "const": "recipe" } }
+        "properties": { "type": { "enum": ["recipe", "vision_language"] } }
       },
       "anyOf": [
         { "required": ["variants"] },
@@ -276,6 +281,13 @@
         "type": { "const": "recipe" }
       },
       "required": ["recipe"]
+    },
+    {
+      "description": "Vision-language type — uses huggingface_repo instead of file/variants.",
+      "properties": {
+        "type": { "const": "vision_language" }
+      },
+      "required": ["huggingface_repo"]
     }
   ],
   "$defs": {
