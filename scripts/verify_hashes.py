@@ -25,7 +25,7 @@ def compute_sha256(url: str, filename: str) -> str:
     print(f"  Downloading: {filename}")
     print(f"  URL: {url}")
 
-    req = Request(url, headers={"User-Agent": "mods-registry/1.0"})
+    req = Request(url, headers={"User-Agent": "modl-registry/1.0"})
 
     hasher = hashlib.sha256()
     downloaded = 0

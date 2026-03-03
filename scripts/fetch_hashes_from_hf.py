@@ -32,7 +32,7 @@ def get_sha256_from_hf(url: str) -> str | None:
         print(f"    SKIP: Not a HuggingFace URL")
         return None
 
-    req = Request(url, method="HEAD", headers={"User-Agent": "mods-registry/1.0"})
+    req = Request(url, method="HEAD", headers={"User-Agent": "modl-registry/1.0"})
     try:
         resp = urlopen(req, timeout=30)
         etag = resp.headers.get("x-linked-etag") or resp.headers.get("etag")
