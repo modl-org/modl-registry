@@ -284,7 +284,7 @@ def build_index(output_path: Path = DEFAULT_OUTPUT) -> bool:
         "total_count": len(items),
         "type_counts": type_counts,
         "cloud_available_count": cloud_count,
-        "schema_url": "https://registry.mods.sh/schemas/manifest.schema.json",
+        "schema_url": "https://registry.modl.run/schemas/manifest.schema.json",
         "items": items,
     }
 

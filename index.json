@@ -16,7 +16,7 @@
     "lora": 4
   },
   "cloud_available_count": 8,
-  "schema_url": "https://registry.mods.sh/schemas/manifest.schema.json",
+  "schema_url": "https://registry.modl.run/schemas/manifest.schema.json",
   "items": [
     {
       "id": "4x-ultrasharp",
@@ -174,7 +174,7 @@
       "author": "Microsoft",
       "license": "MIT",
       "homepage": "https://huggingface.co/microsoft/Florence-2-large",
-      "description": "Florence-2 Large is a foundation vision-language model from Microsoft.\nSupports captioning, object detection, grounding, and OCR tasks.\nUsed by mods for auto-captioning datasets with detailed descriptions.\n~1.5 GB download, runs on fp16 CUDA.\n",
+      "description": "Florence-2 Large is a foundation vision-language model from Microsoft.\nSupports captioning, object detection, grounding, and OCR tasks.\nUsed by modl for auto-captioning datasets with detailed descriptions.\n~1.5 GB download, runs on fp16 CUDA.\n",
       "huggingface_repo": "microsoft/Florence-2-large",
       "tags": [
         "vision-language",
@@ -362,7 +362,7 @@
       "name": "Face/Portrait LoRA (Flux)",
       "type": "recipe",
       "architecture": "flux",
-      "author": "mods",
+      "author": "modl",
       "license": "mit",
       "description": "Training recipe for face/portrait LoRAs on Flux models.\nOptimized for learning a specific person's likeness from 10-20 photos.\nProduces a LoRA that generates consistent portraits with a trigger word.\nWorks with both flux-schnell (fast) and flux-dev (quality).\n",
       "category": "character",
@@ -598,7 +598,7 @@
       "name": "Product Photography LoRA (Flux)",
       "type": "recipe",
       "architecture": "flux",
-      "author": "mods",
+      "author": "modl",
       "license": "mit",
       "description": "Training recipe for product photography LoRAs on Flux models.\nLearn a specific product's appearance from 10-15 product photos.\nGenerate the product in new scenes, angles, and contexts.\nIdeal for e-commerce, marketing, and social media content.\n",
       "category": "product",
@@ -782,7 +782,7 @@
       "name": "Style Transfer LoRA (Flux)",
       "type": "recipe",
       "architecture": "flux",
-      "author": "mods",
+      "author": "modl",
       "license": "mit",
       "description": "Training recipe for style transfer LoRAs on Flux models.\nLearn an artistic style (illustration, anime, watercolor, etc.) from\n15-30 reference images. The LoRA applies the learned aesthetic to any subject.\n",
       "category": "style",
@@ -3829,7 +3829,7 @@
       "name": "Face/Portrait LoRA (Z-Image Turbo)",
       "type": "recipe",
       "architecture": "z-image",
-      "author": "mods",
+      "author": "modl",
       "license": "mit",
       "description": "Training recipe for face/portrait LoRAs on Z-Image Turbo.\nSimilar to the Flux face recipe but optimized for Z-Image Turbo's\narchitecture — faster training, faster inference, lower VRAM.\nGood option for 16GB GPU users.\n",
       "category": "character",

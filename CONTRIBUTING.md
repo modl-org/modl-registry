@@ -1,6 +1,6 @@
-# Contributing to mods-registry
+# Contributing to modl-registry
 
-Thank you for contributing model manifests! This registry powers the `mods` CLI model manager.
+Thank you for contributing model manifests! This registry powers the `modl` CLI model manager.
 
 ## Adding a Model
 
@@ -82,7 +82,7 @@ python scripts/build_index.py  # Make sure it compiles
 
 ## Adding a Community LoRA
 
-Trained a LoRA with `mods train`? Publish it to share with others.
+Trained a LoRA with `modl train`? Publish it to share with others.
 
 ```yaml
 id: my-portrait-lora

@@ -8,7 +8,7 @@ homepage: https://huggingface.co/microsoft/Florence-2-large
 description: |
   Florence-2 Large is a foundation vision-language model from Microsoft.
   Supports captioning, object detection, grounding, and OCR tasks.
-  Used by mods for auto-captioning datasets with detailed descriptions.
+  Used by modl for auto-captioning datasets with detailed descriptions.
   ~1.5 GB download, runs on fp16 CUDA.
 
 huggingface_repo: microsoft/Florence-2-large

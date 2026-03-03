@@ -2,7 +2,7 @@ id: flux-face-lora
 name: "Face/Portrait LoRA (Flux)"
 type: recipe
 architecture: flux
-author: mods
+author: modl
 license: mit
 description: |
   Training recipe for face/portrait LoRAs on Flux models.

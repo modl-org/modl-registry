@@ -1,10 +1,10 @@
-# mods-registry
+# modl-registry
 
-Model registry for [mods](https://github.com/modshq-org/mods) — the CLI model manager for AI image generation.
+Model registry for [modl](https://github.com/modl-org/modl) — the CLI model manager for AI image generation.
 
-**[Website](https://mods.pedroalonso.net)** · **[Browse Models](https://mods.pedroalonso.net/models)** · **[CLI Docs](https://mods.pedroalonso.net/docs)** · **[CLI Repo](https://github.com/modshq-org/mods)**
+**[Website](https://modl.run)** · **[Browse Models](https://modl.run/models)** · **[CLI Docs](https://modl.run/docs)** · **[CLI Repo](https://github.com/modl-org/modl)**
 
-This repository contains YAML manifest files that describe models, LoRAs, VAEs, text encoders, recipes, and other assets. The `mods` CLI fetches a compiled index from this registry to know what's available and how to download it.
+This repository contains YAML manifest files that describe models, LoRAs, VAEs, text encoders, recipes, and other assets. The `modl` CLI fetches a compiled index from this registry to know what's available and how to download it.
 
 ## Current Registry
 
@@ -23,7 +23,7 @@ This repository contains YAML manifest files that describe models, LoRAs, VAEs, 
 
 ### Cloud-Available Models
 
-These models are available on [mods cloud](https://mods.pedroalonso.net/docs/cloud) for training and inference:
+These models are available on [modl cloud](https://modl.run/docs/cloud) for training and inference:
 
 | Model | Training GPU | Est. Time | Inference GPU |
 |-------|-------------|-----------|---------------|
@@ -37,8 +37,8 @@ These models are available on [mods cloud](https://mods.pedroalonso.net/docs/clo
 Recipes are training presets — shareable, version-controlled best practices for LoRA training. Instead of guessing parameters, pick a recipe:
 
 ```bash
-mods train --recipe flux-face-lora --dataset ./photos
-mods train --recipe flux-product-lora --dataset ./products
+modl train --recipe flux-face-lora --dataset ./photos
+modl train --recipe flux-product-lora --dataset ./products
 ```
 
 Each recipe specifies:
@@ -54,13 +54,13 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for how to submit your own recipes.
 
 ## For Users
 
-You don't interact with this repo directly. Just use the `mods` CLI:
+You don't interact with this repo directly. Just use the `modl` CLI:
 
 ```bash
-mods update              # Fetch latest index from this registry
-mods search flux         # Search available models
-mods install flux-dev    # Install a model
-mods info flux-dev       # View model details, cloud availability
+modl update              # Fetch latest index from this registry
+modl search flux         # Search available models
+modl install flux-dev    # Install a model
+modl info flux-dev       # View model details, cloud availability
 ```
 
 ## For Contributors
@@ -69,8 +69,8 @@ Want to add a model or recipe? See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ```bash
 # Quick start
-git clone https://github.com/modshq-org/mods-registry
-cd mods-registry
+git clone https://github.com/modl-org/modl-registry
+cd modl-registry
 pip install pyyaml
 
 # Add your manifest

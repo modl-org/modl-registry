@@ -2,7 +2,7 @@ id: z-image-turbo-face-lora
 name: "Face/Portrait LoRA (Z-Image Turbo)"
 type: recipe
 architecture: z-image
-author: mods
+author: modl
 license: mit
 description: |
   Training recipe for face/portrait LoRAs on Z-Image Turbo.

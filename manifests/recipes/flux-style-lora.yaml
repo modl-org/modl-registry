@@ -2,7 +2,7 @@ id: flux-style-lora
 name: "Style Transfer LoRA (Flux)"
 type: recipe
 architecture: flux
-author: mods
+author: modl
 license: mit
 description: |
   Training recipe for style transfer LoRAs on Flux models.

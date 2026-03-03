@@ -2,7 +2,7 @@ id: flux-product-lora
 name: "Product Photography LoRA (Flux)"
 type: recipe
 architecture: flux
-author: mods
+author: modl
 license: mit
 description: |
   Training recipe for product photography LoRAs on Flux models.

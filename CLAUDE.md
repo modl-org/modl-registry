@@ -1,13 +1,13 @@
-# CLAUDE.md — Mods Registry
+# CLAUDE.md — Modl Registry
 
 ## What is this?
 
-This is the **model registry** for [mods](https://github.com/modshq/mods) — the CLI model manager for AI image generation. It contains YAML manifest files describing models, LoRAs, VAEs, text encoders, recipes, and other assets, along with tooling to compile them into an `index.json` that the `mods` CLI fetches.
+This is the **model registry** for [modl](https://github.com/modshq/modl) — the CLI model manager for AI image generation. It contains YAML manifest files describing models, LoRAs, VAEs, text encoders, recipes, and other assets, along with tooling to compile them into an `index.json` that the `modl` CLI fetches.
 
 ## Repository Structure
 
 ```
-mods-registry/
+modl-registry/
   manifests/
     checkpoints/        # Checkpoint model manifests
     diffusion_models/   # Diffusion model manifests (FLUX Kontext, Z-Image, etc.)
@@ -47,7 +47,7 @@ mods-registry/
    - Validates them
    - Compiles into a single `index.json` (v2 with metadata)
    - Publishes as a GitHub Release asset
-4. The `mods` CLI fetches this `index.json` via `mods update`
+4. The `modl` CLI fetches this `index.json` via `modl update`
 
 ## Index Format (v2)
 
@@ -60,7 +60,7 @@ The compiled `index.json` includes metadata:
   "total_count": 65,
   "type_counts": { "checkpoint": 8, "diffusion_model": 17, "recipe": 4, ... },
   "cloud_available_count": 4,
-  "schema_url": "https://registry.mods.sh/schemas/manifest.schema.json",
+  "schema_url": "https://registry.modl.run/schemas/manifest.schema.json",
   "items": [...]
 }
 ```
@@ -103,7 +103,7 @@ Every manifest is a YAML file. Required fields:
 
 ### Cloud Fields
 
-- `cloud_available` — Boolean, model is on mods cloud
+- `cloud_available` — Boolean, model is on modl cloud
 - `cloud_training` — GPU tier, estimated time, supported ranks
 - `cloud_inference` — GPU tier, supports_lora, cold start time
 

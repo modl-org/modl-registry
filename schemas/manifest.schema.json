@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://registry.mods.sh/schemas/manifest.schema.json",
-  "title": "Mods Registry Manifest",
-  "description": "Schema for model, LoRA, recipe, and asset manifests in the mods registry.",
+  "$id": "https://registry.modl.run/schemas/manifest.schema.json",
+  "title": "Modl Registry Manifest",
+  "description": "Schema for model, LoRA, recipe, and asset manifests in the modl registry.",
   "type": "object",
   "required": ["id", "name", "type"],
   "properties": {
@@ -78,7 +78,7 @@
     "cloud_available": {
       "type": "boolean",
       "default": false,
-      "description": "Whether this model is available on mods cloud for training and/or inference."
+      "description": "Whether this model is available on modl cloud for training and/or inference."
     },
     "cloud_inference": {
       "type": "object",
@@ -201,7 +201,7 @@
         },
         "cloud_trained": {
           "type": "boolean",
-          "description": "Whether this was trained on mods cloud."
+          "description": "Whether this was trained on modl cloud."
         },
         "recipe_id": {
           "type": "string",
