@@ -12,7 +12,7 @@ description: |
 file:
   url: https://huggingface.co/Comfy-Org/flux2-klein-4B/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors
   sha256: "f459cd74b7868799ea82f97601a650afcedc399596dc262f302e3505761c9995"
-  size: 9800000000
+  size: 8044982048
   format: safetensors
 
 tags: [flux2, text-encoder, qwen, klein-4b]
