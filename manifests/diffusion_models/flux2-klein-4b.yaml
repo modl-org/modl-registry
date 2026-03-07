@@ -3,7 +3,7 @@ name: "FLUX.2 Klein 4B"
 type: diffusion_model
 architecture: flux2
 author: black-forest-labs / Comfy-Org / unsloth
-license: flux-2-klein-non-commercial
+license: apache-2.0
 homepage: https://huggingface.co/Comfy-Org/flux2-klein-4B
 description: |
   FLUX.2 Klein 4B — the fastest model in the FLUX family.
@@ -119,11 +119,6 @@ requires:
   - id: flux2-qwen3-4b-text-encoder
     type: text_encoder
     reason: "Qwen 3 4B text encoder for prompt processing"
-
-auth:
-  provider: huggingface
-  terms_url: https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8
-  gated: true
 
 defaults:
   steps: 4

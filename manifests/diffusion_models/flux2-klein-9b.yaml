@@ -1,7 +1,7 @@
 id: flux2-klein-9b
 name: "FLUX.2 Klein 9B"
 type: diffusion_model
-architecture: flux
+architecture: flux2
 author: black-forest-labs / unsloth
 license: flux-2-klein-non-commercial
 homepage: https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF
@@ -187,13 +187,25 @@ requires:
     type: text_encoder
     reason: "Qwen 3 8B text encoder for prompt processing"
 
+auth:
+  provider: huggingface
+  terms_url: https://huggingface.co/black-forest-labs/FLUX.2-klein-9B
+  gated: true
+
+defaults:
+  steps: 4
+  cfg: 1.0
+  sampler: euler
+  scheduler: simple
+
 tags:
-  - flux
+  - flux2
+  - klein
   - text-to-image
   - image-editing
   - gguf
+  - 9b
   - comfyui
-  - unsloth
 
 rating: 4.7
 downloads: 0
