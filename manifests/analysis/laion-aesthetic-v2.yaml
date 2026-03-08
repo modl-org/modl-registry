@@ -1,0 +1,31 @@
+id: laion-aesthetic-v2
+name: "LAION Aesthetic Predictor v2"
+type: analysis
+architecture: aesthetic-predictor
+author: LAION
+license: MIT
+homepage: https://github.com/christophschuhmann/improved-aesthetic-predictor
+description: |
+  Tiny MLP that predicts aesthetic scores (1-10) from CLIP ViT-L/14
+  embeddings. ~3MB download. Requires clip-vit-large-patch14 for
+  feature extraction.
+
+file:
+  url: https://github.com/christophschuhmann/improved-aesthetic-predictor/raw/main/sac+logos+ava1-l14-linearMSE.pth
+  sha256: "VERIFY_laion_aesthetic_v2"
+  size: 3056
+  format: pth
+
+requires:
+  - id: clip-vit-large-patch14
+    type: analysis
+
+tags:
+  - aesthetic
+  - scoring
+  - quality
+  - laion
+  - analysis
+
+added: "2026-03-08"
+updated: "2026-03-08"

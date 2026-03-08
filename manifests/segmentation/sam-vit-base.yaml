@@ -1,0 +1,27 @@
+id: sam-vit-base
+name: "Segment Anything (SAM) ViT-B"
+type: segmentation
+architecture: sam
+author: Meta
+license: Apache-2.0
+homepage: https://github.com/facebookresearch/segment-anything
+description: |
+  Segment Anything Model (ViT-Base) from Meta. Given a point, box, or
+  automatic prompt, produces precise segmentation masks. Used for
+  targeted inpainting region selection.
+
+file:
+  url: https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth
+  sha256: "ec2df62732614e57411cdcf32a23f849c2f1f603aba2d77a97629fcb4e948e20"
+  size: 375042383
+  format: pth
+
+tags:
+  - segmentation
+  - sam
+  - meta
+  - mask
+  - inpainting
+
+added: "2026-03-08"
+updated: "2026-03-08"

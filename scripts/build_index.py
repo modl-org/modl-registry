@@ -35,6 +35,7 @@ VALID_TYPES = {
     "ipadapter",
     "segmentation",
     "vision_language",
+    "analysis",
     "recipe",
 }
 
@@ -50,6 +51,7 @@ TYPE_DIR_MAP = {
     "ipadapters": "ipadapter",
     "segmentation": "segmentation",
     "vision_language": "vision_language",
+    "analysis": "analysis",
     "recipes": "recipe",
 }
 
@@ -100,6 +102,7 @@ def validate_manifest(manifest: dict, filepath: Path) -> list[str]:
         # Recipe type: must have recipe config, doesn't need file/variants
         is_recipe = manifest["type"] == "recipe"
         is_vl = manifest["type"] == "vision_language"
+        is_analysis = manifest["type"] == "analysis"
 
         # Check for variants/file presence (used by non-recipe types and validation below)
         has_variants = "variants" in manifest and len(manifest.get("variants", [])) > 0
@@ -113,6 +116,10 @@ def validate_manifest(manifest: dict, filepath: Path) -> list[str]:
         elif is_vl:
             if "huggingface_repo" not in manifest:
                 errors.append("Vision-language type must have 'huggingface_repo' field")
+        elif is_analysis:
+            # Analysis models can have file, variants, or huggingface_repo
+            if not has_variants and not has_file and "huggingface_repo" not in manifest:
+                errors.append("Analysis type must have 'variants', 'file', or 'huggingface_repo'")
         else:
             if not has_variants and not has_file:
                 errors.append("Must have either 'variants' (non-empty) or 'file'")
