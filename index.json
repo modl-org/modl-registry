@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "generated_at": "2026-03-01T23:12:18Z",
-  "total_count": 68,
+  "generated_at": "2026-03-08T01:20:49Z",
+  "total_count": 73,
   "type_counts": {
     "upscaler": 3,
-    "segmentation": 1,
+    "segmentation": 2,
     "vision_language": 3,
     "text_encoder": 10,
+    "analysis": 4,
     "diffusion_model": 16,
     "controlnet": 6,
     "checkpoint": 9,
@@ -144,6 +145,50 @@
       "downloads": 2600000,
       "added": "2024-08-01",
       "updated": "2024-08-01"
+    },
+    {
+      "id": "clip-vit-large-patch14",
+      "name": "CLIP ViT-L/14",
+      "type": "analysis",
+      "architecture": "clip",
+      "author": "OpenAI",
+      "license": "MIT",
+      "homepage": "https://huggingface.co/openai/clip-vit-large-patch14",
+      "description": "OpenAI CLIP ViT-L/14 vision-language model. Used for aesthetic scoring,\nimage similarity comparison, and zero-shot classification. Foundation\nmodel for the LAION aesthetic predictor.\n",
+      "huggingface_repo": "openai/clip-vit-large-patch14",
+      "tags": [
+        "clip",
+        "scoring",
+        "similarity",
+        "zero-shot",
+        "analysis"
+      ],
+      "added": "2026-03-08",
+      "updated": "2026-03-08"
+    },
+    {
+      "id": "codeformer",
+      "name": "CodeFormer",
+      "type": "analysis",
+      "architecture": "codeformer",
+      "author": "Shangchen Zhou",
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/sczhou/CodeFormer",
+      "description": "Face restoration model using codebook lookup transformers.\nAuto-detects faces and restores artifacts, blur, and damage.\nNo mask needed. Adjustable fidelity parameter (0=quality, 1=faithful).\n",
+      "file": {
+        "url": "https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth",
+        "sha256": "VERIFY_codeformer",
+        "size": 376838912,
+        "format": "pth"
+      },
+      "tags": [
+        "face-restoration",
+        "codeformer",
+        "enhancement",
+        "analysis"
+      ],
+      "added": "2026-03-08",
+      "updated": "2026-03-08"
     },
     {
       "id": "florence-2-base",
@@ -1016,7 +1061,7 @@
       "type": "diffusion_model",
       "architecture": "flux2",
       "author": "black-forest-labs / Comfy-Org / unsloth",
-      "license": "flux-2-klein-non-commercial",
+      "license": "apache-2.0",
       "homepage": "https://huggingface.co/Comfy-Org/flux2-klein-4B",
       "description": "FLUX.2 Klein 4B — the fastest model in the FLUX family.\nUnifies text-to-image and image editing in one compact architecture.\nTwo variants: Base (undistilled, best for fine-tuning) and Distilled (4-step, ~1.2s on 5090).\nOnly 8.4 GB VRAM for distilled variant. Supports style transforms, semantic edits,\nobject replacement/removal, multi-reference composition, and iterative edits.\n",
       "variants": [
@@ -1141,11 +1186,6 @@
           "reason": "Qwen 3 4B text encoder for prompt processing"
         }
       ],
-      "auth": {
-        "provider": "huggingface",
-        "terms_url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8",
-        "gated": true
-      },
       "defaults": {
         "steps": 4,
         "cfg": 1.0,
@@ -1171,7 +1211,7 @@
       "id": "flux2-klein-9b",
       "name": "FLUX.2 Klein 9B",
       "type": "diffusion_model",
-      "architecture": "flux",
+      "architecture": "flux2",
       "author": "black-forest-labs / unsloth",
       "license": "flux-2-klein-non-commercial",
       "homepage": "https://huggingface.co/unsloth/FLUX.2-klein-9B-GGUF",
@@ -1370,13 +1410,25 @@
           "reason": "Qwen 3 8B text encoder for prompt processing"
         }
       ],
+      "auth": {
+        "provider": "huggingface",
+        "terms_url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-9B",
+        "gated": true
+      },
+      "defaults": {
+        "steps": 4,
+        "cfg": 1.0,
+        "sampler": "euler",
+        "scheduler": "simple"
+      },
       "tags": [
-        "flux",
+        "flux2",
+        "klein",
         "text-to-image",
         "image-editing",
         "gguf",
-        "comfyui",
-        "unsloth"
+        "9b",
+        "comfyui"
       ],
       "rating": 4.7,
       "downloads": 0,
@@ -1424,7 +1476,7 @@
       "file": {
         "url": "https://huggingface.co/Comfy-Org/flux2-klein-4B/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors",
         "sha256": "f459cd74b7868799ea82f97601a650afcedc399596dc262f302e3505761c9995",
-        "size": 9800000000,
+        "size": 8044982048,
         "format": "safetensors"
       },
       "tags": [
@@ -1450,7 +1502,7 @@
       "file": {
         "url": "https://huggingface.co/Comfy-Org/flux2-klein-9B/resolve/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors",
         "sha256": "334d028c0191eb19d32a26f45a2e426d0a33284b33d5da5595f402c206419105",
-        "size": 8500000000,
+        "size": 8664848742,
         "format": "safetensors"
       },
       "tags": [
@@ -1477,7 +1529,7 @@
       "file": {
         "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors",
         "sha256": "bb534d41e8e6f92dc8636b914489b7167aeb950418183ffc10768c573185683a",
-        "size": 335000000,
+        "size": 336211292,
         "format": "safetensors"
       },
       "tags": [
@@ -1489,6 +1541,25 @@
       "downloads": 0,
       "added": "2025-07-01",
       "updated": "2025-07-01"
+    },
+    {
+      "id": "insightface-buffalo-l",
+      "name": "InsightFace Buffalo-L",
+      "type": "analysis",
+      "architecture": "insightface",
+      "author": "InsightFace",
+      "license": "MIT",
+      "homepage": "https://github.com/deepinsight/insightface",
+      "description": "Face analysis model pack including SCRFD face detector, ArcFace\nrecognizer, and 2D/3D landmark predictors. Used for face detection,\nidentity matching, and face quality assessment in generated images.\n",
+      "huggingface_repo": "deepinsight/buffalo_l",
+      "tags": [
+        "face-detection",
+        "face-recognition",
+        "insightface",
+        "analysis"
+      ],
+      "added": "2026-03-08",
+      "updated": "2026-03-08"
     },
     {
       "id": "ip-adapter-faceid-sdxl",
@@ -1548,6 +1619,37 @@
       "downloads": 1200000,
       "added": "2023-08-20",
       "updated": "2024-06-01"
+    },
+    {
+      "id": "laion-aesthetic-v2",
+      "name": "LAION Aesthetic Predictor v2",
+      "type": "analysis",
+      "architecture": "aesthetic-predictor",
+      "author": "LAION",
+      "license": "MIT",
+      "homepage": "https://github.com/christophschuhmann/improved-aesthetic-predictor",
+      "description": "Tiny MLP that predicts aesthetic scores (1-10) from CLIP ViT-L/14\nembeddings. ~3MB download. Requires clip-vit-large-patch14 for\nfeature extraction.\n",
+      "file": {
+        "url": "https://github.com/christophschuhmann/improved-aesthetic-predictor/raw/main/sac+logos+ava1-l14-linearMSE.pth",
+        "sha256": "VERIFY_laion_aesthetic_v2",
+        "size": 3056,
+        "format": "pth"
+      },
+      "requires": [
+        {
+          "id": "clip-vit-large-patch14",
+          "type": "analysis"
+        }
+      ],
+      "tags": [
+        "aesthetic",
+        "scoring",
+        "quality",
+        "laion",
+        "analysis"
+      ],
+      "added": "2026-03-08",
+      "updated": "2026-03-08"
     },
     {
       "id": "lcm-lora-sd15",
@@ -2531,6 +2633,31 @@
       "downloads": 4500000,
       "added": "2022-06-01",
       "updated": "2024-01-01"
+    },
+    {
+      "id": "sam-vit-base",
+      "name": "Segment Anything (SAM) ViT-B",
+      "type": "segmentation",
+      "architecture": "sam",
+      "author": "Meta",
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/facebookresearch/segment-anything",
+      "description": "Segment Anything Model (ViT-Base) from Meta. Given a point, box, or\nautomatic prompt, produces precise segmentation masks. Used for\ntargeted inpainting region selection.\n",
+      "file": {
+        "url": "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth",
+        "sha256": "ec2df62732614e57411cdcf32a23f849c2f1f603aba2d77a97629fcb4e948e20",
+        "size": 375042383,
+        "format": "pth"
+      },
+      "tags": [
+        "segmentation",
+        "sam",
+        "meta",
+        "mask",
+        "inpainting"
+      ],
+      "added": "2026-03-08",
+      "updated": "2026-03-08"
     },
     {
       "id": "sd-1.5",

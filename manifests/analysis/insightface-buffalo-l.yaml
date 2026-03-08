@@ -1,0 +1,22 @@
+id: insightface-buffalo-l
+name: "InsightFace Buffalo-L"
+type: analysis
+architecture: insightface
+author: InsightFace
+license: MIT
+homepage: https://github.com/deepinsight/insightface
+description: |
+  Face analysis model pack including SCRFD face detector, ArcFace
+  recognizer, and 2D/3D landmark predictors. Used for face detection,
+  identity matching, and face quality assessment in generated images.
+
+huggingface_repo: deepinsight/buffalo_l
+
+tags:
+  - face-detection
+  - face-recognition
+  - insightface
+  - analysis
+
+added: "2026-03-08"
+updated: "2026-03-08"

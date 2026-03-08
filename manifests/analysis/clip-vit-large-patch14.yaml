@@ -1,0 +1,23 @@
+id: clip-vit-large-patch14
+name: "CLIP ViT-L/14"
+type: analysis
+architecture: clip
+author: OpenAI
+license: MIT
+homepage: https://huggingface.co/openai/clip-vit-large-patch14
+description: |
+  OpenAI CLIP ViT-L/14 vision-language model. Used for aesthetic scoring,
+  image similarity comparison, and zero-shot classification. Foundation
+  model for the LAION aesthetic predictor.
+
+huggingface_repo: openai/clip-vit-large-patch14
+
+tags:
+  - clip
+  - scoring
+  - similarity
+  - zero-shot
+  - analysis
+
+added: "2026-03-08"
+updated: "2026-03-08"
