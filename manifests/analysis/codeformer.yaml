@@ -1,0 +1,26 @@
+id: codeformer
+name: "CodeFormer"
+type: analysis
+architecture: codeformer
+author: Shangchen Zhou
+license: Apache-2.0
+homepage: https://github.com/sczhou/CodeFormer
+description: |
+  Face restoration model using codebook lookup transformers.
+  Auto-detects faces and restores artifacts, blur, and damage.
+  No mask needed. Adjustable fidelity parameter (0=quality, 1=faithful).
+
+file:
+  url: https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth
+  sha256: "1009e537e0c2a07d4cabce6355f53cb66767cd4b4297ec7a4a64ca4b8a5684b7"
+  size: 376637898
+  format: pth
+
+tags:
+  - face-restoration
+  - codeformer
+  - enhancement
+  - analysis
+
+added: "2026-03-08"
+updated: "2026-03-08"
