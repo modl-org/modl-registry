@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-03-08T01:20:49Z",
+  "generated_at": "2026-03-08T06:14:54Z",
   "total_count": 73,
   "type_counts": {
     "upscaler": 3,
@@ -177,8 +177,8 @@
       "description": "Face restoration model using codebook lookup transformers.\nAuto-detects faces and restores artifacts, blur, and damage.\nNo mask needed. Adjustable fidelity parameter (0=quality, 1=faithful).\n",
       "file": {
         "url": "https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth",
-        "sha256": "VERIFY_codeformer",
-        "size": 376838912,
+        "sha256": "1009e537e0c2a07d4cabce6355f53cb66767cd4b4297ec7a4a64ca4b8a5684b7",
+        "size": 376637898,
         "format": "pth"
       },
       "tags": [
@@ -2645,7 +2645,7 @@
       "description": "Segment Anything Model (ViT-Base) from Meta. Given a point, box, or\nautomatic prompt, produces precise segmentation masks. Used for\ntargeted inpainting region selection.\n",
       "file": {
         "url": "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth",
-        "sha256": "ec2df62732614e57411cdcf32a23f849c2f1f603aba2d77a97629fcb4e948e20",
+        "sha256": "ec2df62732614e57411cdcf32a23ffdf28910380d03139ee0f4fcbe91eb8c912",
         "size": 375042383,
         "format": "pth"
       },
