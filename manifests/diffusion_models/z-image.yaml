@@ -1,0 +1,53 @@
+id: z-image
+name: "Z-Image"
+type: diffusion_model
+architecture: z-image
+author: Tongyi-MAI / Comfy-Org
+license: apache-2.0
+homepage: https://huggingface.co/Tongyi-MAI/Z-Image
+description: |
+  Z-Image — undistilled 6B parameter foundation model from Alibaba Tongyi Lab.
+  Single-Stream DiT (S3-DiT) architecture. Supports full Classifier-Free Guidance
+  and negative prompting for precise control. High output diversity across seeds.
+  Better base for LoRA training and ControlNet than the turbo variant.
+  28-50 steps, CFG 3.0-5.0. Bilingual (English + Chinese) text rendering.
+  Z-Image-Turbo is a distilled version of this model for faster inference.
+
+file:
+  name: z_image_bf16.safetensors
+  url: https://huggingface.co/Comfy-Org/z_image/resolve/main/split_files/diffusion_models/z_image_bf16.safetensors
+  sha256: "996a67d3ff666946b1c25cbc16d1b1918b6cc0ac166309e23fe3b3d830263dee"
+  size: 12309866400
+  format: safetensors
+  precision: bf16
+  vram_required: 16384
+  vram_recommended: 24576
+
+requires:
+  - id: z-image-text-encoder
+    type: text_encoder
+    reason: "Qwen 3 4B text encoder for prompt processing"
+  - id: z-image-vae
+    type: vae
+    reason: "Z-Image VAE for decoding latents to images"
+
+defaults:
+  steps: 30
+  cfg: 4.0
+  sampler: euler
+  scheduler: simple
+
+tags:
+  - z-image
+  - text-to-image
+  - foundation
+  - cfg
+  - negative-prompting
+  - bilingual
+  - lora-base
+  - comfyui
+
+rating: 4.8
+downloads: 99000
+added: "2026-03-09"
+updated: "2026-03-09"
