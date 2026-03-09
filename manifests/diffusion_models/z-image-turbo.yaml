@@ -134,7 +134,7 @@ requires:
     type: vae
     reason: "Z-Image VAE for decoding latents to images"
 
-recommended:
+defaults:
   steps: 8
   cfg: 0.0
   sampler: euler
@@ -163,3 +163,5 @@ preview_images:
   - https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/z_image_turbo_example.png
 
 rating: 4.9
+added: "2025-07-15"
+updated: "2026-03-08"
