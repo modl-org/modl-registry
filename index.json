@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-03-09T09:25:04Z",
+  "generated_at": "2026-03-09T09:38:11Z",
   "total_count": 74,
   "type_counts": {
     "upscaler": 3,
@@ -1631,7 +1631,7 @@
       "description": "Tiny MLP that predicts aesthetic scores (1-10) from CLIP ViT-L/14\nembeddings. ~3MB download. Requires clip-vit-large-patch14 for\nfeature extraction.\n",
       "file": {
         "url": "https://github.com/christophschuhmann/improved-aesthetic-predictor/raw/main/sac+logos+ava1-l14-linearMSE.pth",
-        "sha256": "VERIFY_laion_aesthetic_v2",
+        "sha256": "21dd590f3ccdc646f0d53120778b296013b096a035a2718c9cb0d511bff0f1e0",
         "size": 3056,
         "format": "pth"
       },
@@ -2205,7 +2205,8 @@
         "comfyui"
       ],
       "rating": 4.7,
-      "added": "2026-03-09"
+      "added": "2026-03-09",
+      "updated": "2026-03-09"
     },
     {
       "id": "qwen-image-edit",
@@ -2497,6 +2498,7 @@
       "license": "apache-2.0",
       "homepage": "https://huggingface.co/lightx2v/Qwen-Image-Lightning",
       "description": "Distillation LoRA for Qwen Image Edit that reduces inference from ~50 steps to 4-8 steps.\nMultiple versions available: V1.0 and V2.0, in 4-step and 8-step variants.\nAlso includes Edit-specific variants for image editing (vs generation).\nbf16 variants are half the size (~850 MB) with no quality loss on bf16/fp8 base models.\n",
+      "architecture": "qwen-image",
       "base_models": [
         "qwen-image-edit"
       ],
@@ -2848,8 +2850,8 @@
       "preprocessor": "depth_midas",
       "file": {
         "url": "https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11f1p_sd15_depth.pth",
-        "sha256": "c48b0e8e0e22db42b8c6532b75cae8e8e8e8e0e25c8e4c2b8e6b1c0a0e0e0e0",
-        "size": 1557135360,
+        "sha256": "761077ffe369fe8cf16ae353f8226bd4ca29805b161052f82c0170c7b50f1d99",
+        "size": 1445235365,
         "format": "pth"
       },
       "tags": [
@@ -3749,7 +3751,9 @@
         "qwen3",
         "comfyui"
       ],
-      "rating": 4.8
+      "rating": 4.8,
+      "added": "2025-07-15",
+      "updated": "2026-03-08"
     },
     {
       "id": "z-image-turbo",
@@ -3894,7 +3898,7 @@
           "reason": "Z-Image VAE for decoding latents to images"
         }
       ],
-      "recommended": {
+      "defaults": {
         "steps": 8,
         "cfg": 0.0,
         "sampler": "euler",
@@ -3928,7 +3932,9 @@
       "preview_images": [
         "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/z_image_turbo_example.png"
       ],
-      "rating": 4.9
+      "rating": 4.9,
+      "added": "2025-07-15",
+      "updated": "2026-03-08"
     },
     {
       "id": "z-image-turbo-controlnet-union",
@@ -3961,7 +3967,9 @@
         "pose",
         "comfyui"
       ],
-      "rating": 4.6
+      "rating": 4.6,
+      "added": "2025-08-01",
+      "updated": "2026-03-08"
     },
     {
       "id": "z-image-turbo-distill-lora",
@@ -3986,7 +3994,9 @@
         "distillation",
         "comfyui"
       ],
-      "rating": 4.7
+      "rating": 4.7,
+      "added": "2025-07-15",
+      "updated": "2026-03-08"
     },
     {
       "id": "z-image-turbo-face-lora",
@@ -4071,7 +4081,9 @@
         "vae",
         "comfyui"
       ],
-      "rating": 5.0
+      "rating": 5.0,
+      "added": "2025-07-15",
+      "updated": "2026-03-08"
     }
   ]
 }

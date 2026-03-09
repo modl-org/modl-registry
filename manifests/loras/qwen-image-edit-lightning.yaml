@@ -10,6 +10,7 @@ description: |
   Also includes Edit-specific variants for image editing (vs generation).
   bf16 variants are half the size (~850 MB) with no quality loss on bf16/fp8 base models.
 
+architecture: qwen-image
 base_models: [qwen-image-edit]
 
 variants:

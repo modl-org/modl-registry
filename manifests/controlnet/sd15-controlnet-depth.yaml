@@ -14,8 +14,8 @@ preprocessor: depth_midas
 
 file:
   url: https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11f1p_sd15_depth.pth
-  sha256: "c48b0e8e0e22db42b8c6532b75cae8e8e8e8e0e25c8e4c2b8e6b1c0a0e0e0e0"
-  size: 1557135360
+  sha256: "761077ffe369fe8cf16ae353f8226bd4ca29805b161052f82c0170c7b50f1d99"
+  size: 1445235365
   format: pth
 
 tags: [sd15, controlnet, depth, midas]
