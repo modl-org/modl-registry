@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "generated_at": "2026-03-08T06:14:54Z",
-  "total_count": 73,
+  "generated_at": "2026-03-09T09:25:04Z",
+  "total_count": 74,
   "type_counts": {
     "upscaler": 3,
     "segmentation": 2,
@@ -9,7 +9,7 @@
     "text_encoder": 10,
     "analysis": 4,
     "diffusion_model": 16,
-    "controlnet": 6,
+    "controlnet": 7,
     "checkpoint": 9,
     "recipe": 4,
     "ipadapter": 3,
@@ -2169,6 +2169,43 @@
       "downloads": 275000,
       "added": "2025-07-01",
       "updated": "2025-07-01"
+    },
+    {
+      "id": "qwen-image-controlnet-union",
+      "name": "Qwen Image ControlNet Union",
+      "type": "controlnet",
+      "architecture": "qwen-image",
+      "author": "InstantX",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/InstantX/Qwen-Image-ControlNet-Union",
+      "description": "ControlNet union model for Qwen Image by InstantX.\nSupports multiple control conditions in a single model: canny, depth, inpaint,\nlineart, softedge, normal, and openpose.\nWorks with the DiffSynth pipeline for structure-guided generation.\nUse with detailed prompts for best results.\n",
+      "file": {
+        "name": "diffusion_pytorch_model.safetensors",
+        "url": "https://huggingface.co/InstantX/Qwen-Image-ControlNet-Union/resolve/main/diffusion_pytorch_model.safetensors",
+        "sha256": "d51dca0073366a675108d5b83c3b7ef941cf2214c9a1c95c23f1e9a228ddbdb0",
+        "size": 3536027816,
+        "format": "safetensors"
+      },
+      "requires": [
+        {
+          "id": "qwen-image",
+          "type": "diffusion_model",
+          "reason": "Requires Qwen Image as the base diffusion model"
+        }
+      ],
+      "tags": [
+        "qwen-image",
+        "controlnet",
+        "canny",
+        "depth",
+        "inpaint",
+        "openpose",
+        "lineart",
+        "union",
+        "comfyui"
+      ],
+      "rating": 4.7,
+      "added": "2026-03-09"
     },
     {
       "id": "qwen-image-edit",
