@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-03-10T14:22:40Z",
+  "generated_at": "2026-03-10T17:56:22Z",
   "total_count": 76,
   "type_counts": {
     "upscaler": 3,
@@ -1985,97 +1985,133 @@
     },
     {
       "id": "qwen-image",
-      "name": "Qwen Image",
+      "name": "Qwen Image 2512",
       "type": "diffusion_model",
       "architecture": "qwen-image",
-      "author": "Qwen / city96",
+      "author": "Qwen / unsloth",
       "license": "apache-2.0",
-      "homepage": "https://huggingface.co/Qwen/Qwen-Image",
-      "description": "Qwen Image — 20B parameter text-to-image generation model by Qwen (Alibaba).\nBased on Qwen 2.5 VL architecture. Generates high-quality images from text prompts.\nThis is the base text-to-image model, distinct from Qwen Image Edit which is\nspecialized for image editing tasks. Apache 2.0 license — free for commercial use.\nGGUF variants require the ComfyUI-GGUF custom node.\n",
+      "homepage": "https://huggingface.co/Qwen/Qwen-Image-2512",
+      "description": "Qwen Image 2512 — 20B parameter text-to-image generation model by Qwen (Alibaba).\nUpdated 2512 revision with improved quality over the original Qwen-Image.\nBased on Qwen 2.5 VL architecture. Generates high-quality images from text prompts.\nThis is the base text-to-image model, distinct from Qwen Image Edit which is\nspecialized for image editing tasks. Apache 2.0 license — free for commercial use.\nAvailable as GGUF quantizations (Q2_K through Q8_0) via unsloth Dynamic 2.0.\n",
       "variants": [
         {
           "id": "bf16",
-          "file": "qwen-image-BF16.gguf",
-          "url": "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-BF16.gguf",
-          "sha256": "ebb2508748bc52ee5756fa5f43a4da1818bd495a3068c8d1021909f004976107",
+          "file": "qwen-image-2512-BF16.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-BF16.gguf",
+          "sha256": "",
           "size": 40872114720,
           "format": "gguf",
           "precision": "bf16",
           "vram_required": 40960,
           "vram_recommended": 49152,
-          "note": "Full precision bf16 GGUF. Best quality, needs A100 40GB+."
+          "note": "Full precision bf16 GGUF (2512). Best quality, needs A100 40GB+."
         },
         {
           "id": "gguf-q8-0",
-          "file": "qwen-image-Q8_0.gguf",
-          "url": "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-Q8_0.gguf",
-          "sha256": "d4e13114622b523027ec358e4d806f5c3db34dbcbeafaf0ce2420999a343f81d",
+          "file": "qwen-image-2512-Q8_0.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q8_0.gguf",
+          "sha256": "",
           "size": 21761817120,
           "format": "gguf",
           "precision": "q8_0",
           "vram_required": 24576,
           "vram_recommended": 32768,
-          "note": "GGUF Q8_0 — best quantized quality."
+          "note": "GGUF Q8_0 (2512) — best quantized quality, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q6-k",
-          "file": "qwen-image-Q6_K.gguf",
-          "url": "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-Q6_K.gguf",
-          "sha256": "1a35a094d6da1f1b170afcd93174db71d2d74adc5f1c99b3595961be507e99a5",
+          "file": "qwen-image-2512-Q6_K.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q6_K.gguf",
+          "sha256": "",
           "size": 16824990240,
           "format": "gguf",
           "precision": "q6_k",
           "vram_required": 20480,
           "vram_recommended": 24576,
-          "note": "GGUF Q6_K — great quality/size balance."
+          "note": "GGUF Q6_K (2512) — great quality/size balance, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q5-k-m",
-          "file": "qwen-image-Q5_K_M.gguf",
-          "url": "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-Q5_K_M.gguf",
-          "sha256": "196c8c14aaef4febd18432e8775104313439b842b9383d0b7d0d1c13f7eeca55",
-          "size": 14934899232,
+          "file": "qwen-image-2512-Q5_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q5_K_M.gguf",
+          "sha256": "",
+          "size": 15000074784,
           "format": "gguf",
           "precision": "q5_k_m",
           "vram_required": 16384,
           "vram_recommended": 20480,
-          "note": "GGUF Q5_K_M — recommended for 16GB+ GPUs."
+          "note": "GGUF Q5_K_M (2512) — recommended for 16GB+ GPUs, unsloth Dynamic 2.0."
+        },
+        {
+          "id": "gguf-q5-k-s",
+          "file": "qwen-image-2512-Q5_K_S.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q5_K_S.gguf",
+          "sha256": "",
+          "size": 14298184224,
+          "format": "gguf",
+          "precision": "q5_k_s",
+          "vram_required": 16384,
+          "vram_recommended": 20480,
+          "note": "GGUF Q5_K_S (2512) — smaller Q5, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q4-k-m",
-          "file": "qwen-image-Q4_K_M.gguf",
-          "url": "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-Q4_K_M.gguf",
-          "sha256": "a3cb9363825152ce6b7430d5cd7fe47dc84cbe6a30c6baffa1ba32b938c1e866",
-          "size": 13065746976,
+          "file": "qwen-image-2512-Q4_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q4_K_M.gguf",
+          "sha256": "",
+          "size": 13244758560,
           "format": "gguf",
           "precision": "q4_k_m",
           "vram_required": 12288,
           "vram_recommended": 16384,
-          "note": "GGUF Q4_K_M — good for 12GB GPUs."
+          "note": "GGUF Q4_K_M (2512) — good for 12GB GPUs, unsloth Dynamic 2.0."
+        },
+        {
+          "id": "gguf-q4-k-s",
+          "file": "qwen-image-2512-Q4_K_S.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q4_K_S.gguf",
+          "sha256": "",
+          "size": 12268010016,
+          "format": "gguf",
+          "precision": "q4_k_s",
+          "vram_required": 12288,
+          "vram_recommended": 16384,
+          "note": "GGUF Q4_K_S (2512) — smaller Q4, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q3-k-m",
-          "file": "qwen-image-Q3_K_M.gguf",
-          "url": "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-Q3_K_M.gguf",
-          "sha256": "f08d9e2cdc411cff1ca228eb5e8ea4c449a285d92545f81d4007100064b2c017",
-          "size": 9679567392,
+          "file": "qwen-image-2512-Q3_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q3_K_M.gguf",
+          "sha256": "",
+          "size": 9932896800,
           "format": "gguf",
           "precision": "q3_k_m",
           "vram_required": 10240,
           "vram_recommended": 12288,
-          "note": "GGUF Q3_K_M — budget option. Uses dynamic precision on first/last layers."
+          "note": "GGUF Q3_K_M (2512) — budget option, unsloth Dynamic 2.0."
+        },
+        {
+          "id": "gguf-q3-k-s",
+          "file": "qwen-image-2512-Q3_K_S.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q3_K_S.gguf",
+          "sha256": "",
+          "size": 9223928352,
+          "format": "gguf",
+          "precision": "q3_k_s",
+          "vram_required": 10240,
+          "vram_recommended": 12288,
+          "note": "GGUF Q3_K_S (2512) — smaller Q3, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q2-k",
-          "file": "qwen-image-Q2_K.gguf",
-          "url": "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-Q2_K.gguf",
-          "sha256": "ab2ae71efaa260f45b6f503af18dd560c24b499e4ef674821bcb56dc312badfe",
-          "size": 7062518304,
+          "file": "qwen-image-2512-Q2_K.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q2_K.gguf",
+          "sha256": "",
+          "size": 7333837344,
           "format": "gguf",
           "precision": "q2_k",
           "vram_required": 8192,
           "vram_recommended": 10240,
-          "note": "GGUF Q2_K — smallest. Dynamic precision keeps it usable."
+          "note": "GGUF Q2_K (2512) — smallest, unsloth Dynamic 2.0."
         }
       ],
       "requires": [
@@ -2091,8 +2127,10 @@
         }
       ],
       "defaults": {
-        "steps": 30,
-        "cfg": 7.0
+        "steps": 25,
+        "cfg": 3.0,
+        "sampler": "euler",
+        "scheduler": "simple"
       },
       "cloud_available": true,
       "cloud_training": {
@@ -2121,7 +2159,7 @@
       "rating": 4.8,
       "downloads": 12000,
       "added": "2026-02-24",
-      "updated": "2026-02-24"
+      "updated": "2026-03-10"
     },
     {
       "id": "qwen-image-2512-lightning",
@@ -2283,11 +2321,11 @@
       "id": "qwen-image-edit",
       "name": "Qwen Image Edit",
       "type": "checkpoint",
-      "architecture": "qwen-image",
-      "author": "Comfy-Org / QuantStack",
+      "architecture": "qwen-image-edit",
+      "author": "Comfy-Org / unsloth",
       "license": "apache-2.0",
       "homepage": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI",
-      "description": "AI-powered image editing model based on Qwen 2.5 VL architecture.\nSupports outpainting, format/ratio changes, AI scene generation, and in-place enhancement.\nBest with 8 steps using Lightning LoRA, euler sampler, CFG 1.0.\nAvailable as native safetensors (bf16/fp8) or GGUF quantizations (Q2_K through Q8_0).\n",
+      "description": "AI-powered image editing model based on Qwen 2.5 VL architecture.\nSupports outpainting, format/ratio changes, AI scene generation, and in-place enhancement.\nBest with 8 steps using Lightning LoRA, euler sampler, CFG 1.0.\nNative safetensors are original 2509 (Comfy-Org). GGUF quantizations are the improved\n2511 \"Plus\" version (unsloth Dynamic 2.0) with significantly better instruction following.\n",
       "variants": [
         {
           "id": "bf16",
@@ -2375,34 +2413,34 @@
         },
         {
           "id": "gguf-q8-0",
-          "file": "Qwen_Image_Edit-Q8_0.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q8_0.gguf",
-          "sha256": "e875c08781c562182cdc64939aab70ccfae3c44d9484e3c3d9429bad8682cf71",
+          "file": "qwen-image-edit-2511-Q8_0.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q8_0.gguf",
+          "sha256": "",
           "size": 23405215744,
           "format": "gguf",
           "precision": "q8_0",
           "vram_required": 24576,
           "vram_recommended": 32768,
-          "note": "GGUF Q8_0 — best GGUF quality. Requires ComfyUI-GGUF custom node."
+          "note": "GGUF Q8_0 (2511) — best GGUF quality, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q6-k",
-          "file": "Qwen_Image_Edit-Q6_K.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q6_K.gguf",
-          "sha256": "2a6952b23262b881dfb681791482f00cbd4dc2f59016e55c14a09d5c2a9cc8b2",
+          "file": "qwen-image-edit-2511-Q6_K.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q6_K.gguf",
+          "sha256": "",
           "size": 18039808000,
           "format": "gguf",
           "precision": "q6_k",
           "vram_required": 20480,
           "vram_recommended": 24576,
-          "note": "GGUF Q6_K — good quality/size balance."
+          "note": "GGUF Q6_K (2511) — good quality/size balance, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q5-k-m",
-          "file": "Qwen_Image_Edit-Q5_K_M.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_K_M.gguf",
-          "sha256": "b398a64e4334c2d8cae676ce64534a38d3ebdd3d0878b57071620485e56211ce",
-          "size": 16000204800,
+          "file": "qwen-image-edit-2511-Q5_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_K_M.gguf",
+          "sha256": "",
+          "size": 15027501664,
           "format": "gguf",
           "precision": "q5_k_m",
           "vram_required": 16384,
@@ -2411,123 +2449,123 @@
         },
         {
           "id": "gguf-q5-k-s",
-          "file": "Qwen_Image_Edit-Q5_K_S.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_K_S.gguf",
-          "sha256": "286571d761951e43853a1cec129c741cc7f541fb70b203f4131c84cafd8585f0",
-          "size": 15140249600,
+          "file": "qwen-image-edit-2511-Q5_K_S.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_K_S.gguf",
+          "sha256": "",
+          "size": 14325611104,
           "format": "gguf",
           "precision": "q5_k_s",
           "vram_required": 16384,
           "vram_recommended": 20480,
-          "note": "GGUF Q5_K_S — smaller Q5 variant."
+          "note": "GGUF Q5_K_S (2511) — smaller Q5, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q5-0",
-          "file": "Qwen_Image_Edit-Q5_0.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_0.gguf",
-          "sha256": "a8ace3d71b9b8e87859b330923f2d40421116a4548ad5fff180fad730cb29352",
-          "size": 15461882880,
+          "file": "qwen-image-edit-2511-Q5_0.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_0.gguf",
+          "sha256": "",
+          "size": 14400813664,
           "format": "gguf",
           "precision": "q5_0",
           "vram_required": 16384,
           "vram_recommended": 20480,
-          "note": "GGUF Q5_0."
+          "note": "GGUF Q5_0 (2511), unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q5-1",
-          "file": "Qwen_Image_Edit-Q5_1.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_1.gguf",
-          "sha256": "4006179697444691f31e0fbb7a8beb6d373d1a0d6ff4f34a2e3efa5e8d9c0f85",
-          "size": 16536027136,
+          "file": "qwen-image-edit-2511-Q5_1.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_1.gguf",
+          "sha256": "",
+          "size": 15391717984,
           "format": "gguf",
           "precision": "q5_1",
           "vram_required": 16384,
           "vram_recommended": 20480,
-          "note": "GGUF Q5_1."
+          "note": "GGUF Q5_1 (2511), unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q4-k-m",
-          "file": "Qwen_Image_Edit-Q4_K_M.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q4_K_M.gguf",
-          "sha256": "bee346224c34ec00991aa1d75a0fd4c259c4ac375ad346edf4c3fff7ec30be1c",
-          "size": 14066032640,
+          "file": "qwen-image-edit-2511-Q4_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_K_M.gguf",
+          "sha256": "",
+          "size": 13244758624,
           "format": "gguf",
           "precision": "q4_k_m",
           "vram_required": 12288,
           "vram_recommended": 16384,
-          "note": "GGUF Q4_K_M — good for 12GB GPUs."
+          "note": "GGUF Q4_K_M (2511) — good for 12GB GPUs, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q4-k-s",
-          "file": "Qwen_Image_Edit-Q4_K_S.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q4_K_S.gguf",
-          "sha256": "44301250d40bfbe53c9d2b62028bab576c52605b471b1a11ea0f9f1036b19743",
-          "size": 12994428928,
+          "file": "qwen-image-edit-2511-Q4_K_S.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_K_S.gguf",
+          "sha256": "",
+          "size": 12410747488,
           "format": "gguf",
           "precision": "q4_k_s",
           "vram_required": 12288,
           "vram_recommended": 16384,
-          "note": "GGUF Q4_K_S — smaller Q4 variant."
+          "note": "GGUF Q4_K_S (2511) — smaller Q4, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q4-0",
-          "file": "Qwen_Image_Edit-Q4_0.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q4_0.gguf",
-          "sha256": "40d9298d5a7881afdf62e9bfa9581cbbe435fb2038448dde8f0a127a48c49fbb",
-          "size": 12776923136,
+          "file": "qwen-image-edit-2511-Q4_0.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_0.gguf",
+          "sha256": "",
+          "size": 11852773984,
           "format": "gguf",
           "precision": "q4_0",
           "vram_required": 12288,
           "vram_recommended": 16384,
-          "note": "GGUF Q4_0."
+          "note": "GGUF Q4_0 (2511), unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q4-1",
-          "file": "Qwen_Image_Edit-Q4_1.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q4_1.gguf",
-          "sha256": "55ed396b0ed764a5f237b87307ec0679e4d59b71e984ef61ea89d46457017eb5",
-          "size": 13743095808,
+          "file": "qwen-image-edit-2511-Q4_1.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_1.gguf",
+          "sha256": "",
+          "size": 12843678304,
           "format": "gguf",
           "precision": "q4_1",
           "vram_required": 12288,
           "vram_recommended": 16384,
-          "note": "GGUF Q4_1."
+          "note": "GGUF Q4_1 (2511), unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q3-k-m",
-          "file": "Qwen_Image_Edit-Q3_K_M.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q3_K_M.gguf",
-          "sha256": "056411f536e5b6ef6efa08d3c773911d9ec0945dbfce9be0f43c5519c525b3ee",
-          "size": 10394116096,
+          "file": "qwen-image-edit-2511-Q3_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q3_K_M.gguf",
+          "sha256": "",
+          "size": 9920805472,
           "format": "gguf",
           "precision": "q3_k_m",
           "vram_required": 10240,
           "vram_recommended": 12288,
-          "note": "GGUF Q3_K_M — for 10GB+ GPUs. Noticeable quality reduction."
+          "note": "GGUF Q3_K_M (2511) — for 10GB+ GPUs, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q3-k-s",
-          "file": "Qwen_Image_Edit-Q3_K_S.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q3_K_S.gguf",
-          "sha256": "c2e82411c73d1cc98db87bfc640381eb211f9c28ba57e943e3fe71283cf97cf6",
-          "size": 9609625600,
+          "file": "qwen-image-edit-2511-Q3_K_S.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q3_K_S.gguf",
+          "sha256": "",
+          "size": 9218914912,
           "format": "gguf",
           "precision": "q3_k_s",
           "vram_required": 10240,
           "vram_recommended": 12288,
-          "note": "GGUF Q3_K_S — smaller Q3 variant."
+          "note": "GGUF Q3_K_S (2511) — smaller Q3, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q2-k",
-          "file": "Qwen_Image_Edit-Q2_K.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q2_K.gguf",
-          "sha256": "a449446a0fedad1949032f32f70ef5f8514e699ad0c3f27d8ab04b9f87b6d992",
-          "size": 7580321792,
+          "file": "qwen-image-edit-2511-Q2_K.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q2_K.gguf",
+          "sha256": "",
+          "size": 7468022368,
           "format": "gguf",
           "precision": "q2_k",
           "vram_required": 8192,
           "vram_recommended": 10240,
-          "note": "GGUF Q2_K — minimum quality. Fits on 8GB GPUs but significant quality loss."
+          "note": "GGUF Q2_K (2511) — minimum quality, unsloth Dynamic 2.0."
         }
       ],
       "requires": [
@@ -2543,8 +2581,8 @@
         }
       ],
       "defaults": {
-        "steps": 8,
-        "cfg": 1.0,
+        "steps": 50,
+        "cfg": 4.0,
         "sampler": "euler",
         "scheduler": "simple"
       },
@@ -2559,7 +2597,7 @@
       "rating": 4.8,
       "downloads": 275000,
       "added": "2025-07-01",
-      "updated": "2026-01-15"
+      "updated": "2026-03-10"
     },
     {
       "id": "qwen-image-edit-lightning",

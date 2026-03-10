@@ -1,15 +1,16 @@
 id: qwen-image-edit
 name: "Qwen Image Edit"
 type: checkpoint
-architecture: qwen-image
-author: Comfy-Org / QuantStack
+architecture: qwen-image-edit
+author: Comfy-Org / unsloth
 license: apache-2.0
 homepage: https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI
 description: |
   AI-powered image editing model based on Qwen 2.5 VL architecture.
   Supports outpainting, format/ratio changes, AI scene generation, and in-place enhancement.
   Best with 8 steps using Lightning LoRA, euler sampler, CFG 1.0.
-  Available as native safetensors (bf16/fp8) or GGUF quantizations (Q2_K through Q8_0).
+  Native safetensors are original 2509 (Comfy-Org). GGUF quantizations are the improved
+  2511 "Plus" version (unsloth Dynamic 2.0) with significantly better instruction following.
 
 variants:
   # --- Native safetensors (Comfy-Org, loaded via UnetLoader) ---
@@ -91,34 +92,34 @@ variants:
     vram_recommended: 24576
     note: "2512 revision, fp8 quantized."
 
-  # --- GGUF quantizations (QuantStack, loaded via UnetLoaderGGUF) ---
+  # --- GGUF quantizations (unsloth/2511 Dynamic 2.0) ---
   - id: gguf-q8-0
-    file: Qwen_Image_Edit-Q8_0.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q8_0.gguf
-    sha256: "e875c08781c562182cdc64939aab70ccfae3c44d9484e3c3d9429bad8682cf71"
+    file: qwen-image-edit-2511-Q8_0.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q8_0.gguf
+    sha256: ""
     size: 23405215744
     format: gguf
     precision: q8_0
     vram_required: 24576
     vram_recommended: 32768
-    note: "GGUF Q8_0 — best GGUF quality. Requires ComfyUI-GGUF custom node."
+    note: "GGUF Q8_0 (2511) — best GGUF quality, unsloth Dynamic 2.0."
 
   - id: gguf-q6-k
-    file: Qwen_Image_Edit-Q6_K.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q6_K.gguf
-    sha256: "2a6952b23262b881dfb681791482f00cbd4dc2f59016e55c14a09d5c2a9cc8b2"
+    file: qwen-image-edit-2511-Q6_K.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q6_K.gguf
+    sha256: ""
     size: 18039808000
     format: gguf
     precision: q6_k
     vram_required: 20480
     vram_recommended: 24576
-    note: "GGUF Q6_K — good quality/size balance."
+    note: "GGUF Q6_K (2511) — good quality/size balance, unsloth Dynamic 2.0."
 
   - id: gguf-q5-k-m
-    file: Qwen_Image_Edit-Q5_K_M.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_K_M.gguf
-    sha256: "b398a64e4334c2d8cae676ce64534a38d3ebdd3d0878b57071620485e56211ce"
-    size: 16000204800
+    file: qwen-image-edit-2511-Q5_K_M.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_K_M.gguf
+    sha256: ""
+    size: 15027501664
     format: gguf
     precision: q5_k_m
     vram_required: 16384
@@ -126,114 +127,114 @@ variants:
     note: "GGUF Q5_K_M — recommended for 16GB+ GPUs."
 
   - id: gguf-q5-k-s
-    file: Qwen_Image_Edit-Q5_K_S.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_K_S.gguf
-    sha256: "286571d761951e43853a1cec129c741cc7f541fb70b203f4131c84cafd8585f0"
-    size: 15140249600
+    file: qwen-image-edit-2511-Q5_K_S.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_K_S.gguf
+    sha256: ""
+    size: 14325611104
     format: gguf
     precision: q5_k_s
     vram_required: 16384
     vram_recommended: 20480
-    note: "GGUF Q5_K_S — smaller Q5 variant."
+    note: "GGUF Q5_K_S (2511) — smaller Q5, unsloth Dynamic 2.0."
 
   - id: gguf-q5-0
-    file: Qwen_Image_Edit-Q5_0.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_0.gguf
-    sha256: "a8ace3d71b9b8e87859b330923f2d40421116a4548ad5fff180fad730cb29352"
-    size: 15461882880
+    file: qwen-image-edit-2511-Q5_0.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_0.gguf
+    sha256: ""
+    size: 14400813664
     format: gguf
     precision: q5_0
     vram_required: 16384
     vram_recommended: 20480
-    note: "GGUF Q5_0."
+    note: "GGUF Q5_0 (2511), unsloth Dynamic 2.0."
 
   - id: gguf-q5-1
-    file: Qwen_Image_Edit-Q5_1.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_1.gguf
-    sha256: "4006179697444691f31e0fbb7a8beb6d373d1a0d6ff4f34a2e3efa5e8d9c0f85"
-    size: 16536027136
+    file: qwen-image-edit-2511-Q5_1.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_1.gguf
+    sha256: ""
+    size: 15391717984
     format: gguf
     precision: q5_1
     vram_required: 16384
     vram_recommended: 20480
-    note: "GGUF Q5_1."
+    note: "GGUF Q5_1 (2511), unsloth Dynamic 2.0."
 
   - id: gguf-q4-k-m
-    file: Qwen_Image_Edit-Q4_K_M.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q4_K_M.gguf
-    sha256: "bee346224c34ec00991aa1d75a0fd4c259c4ac375ad346edf4c3fff7ec30be1c"
-    size: 14066032640
+    file: qwen-image-edit-2511-Q4_K_M.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_K_M.gguf
+    sha256: ""
+    size: 13244758624
     format: gguf
     precision: q4_k_m
     vram_required: 12288
     vram_recommended: 16384
-    note: "GGUF Q4_K_M — good for 12GB GPUs."
+    note: "GGUF Q4_K_M (2511) — good for 12GB GPUs, unsloth Dynamic 2.0."
 
   - id: gguf-q4-k-s
-    file: Qwen_Image_Edit-Q4_K_S.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q4_K_S.gguf
-    sha256: "44301250d40bfbe53c9d2b62028bab576c52605b471b1a11ea0f9f1036b19743"
-    size: 12994428928
+    file: qwen-image-edit-2511-Q4_K_S.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_K_S.gguf
+    sha256: ""
+    size: 12410747488
     format: gguf
     precision: q4_k_s
     vram_required: 12288
     vram_recommended: 16384
-    note: "GGUF Q4_K_S — smaller Q4 variant."
+    note: "GGUF Q4_K_S (2511) — smaller Q4, unsloth Dynamic 2.0."
 
   - id: gguf-q4-0
-    file: Qwen_Image_Edit-Q4_0.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q4_0.gguf
-    sha256: "40d9298d5a7881afdf62e9bfa9581cbbe435fb2038448dde8f0a127a48c49fbb"
-    size: 12776923136
+    file: qwen-image-edit-2511-Q4_0.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_0.gguf
+    sha256: ""
+    size: 11852773984
     format: gguf
     precision: q4_0
     vram_required: 12288
     vram_recommended: 16384
-    note: "GGUF Q4_0."
+    note: "GGUF Q4_0 (2511), unsloth Dynamic 2.0."
 
   - id: gguf-q4-1
-    file: Qwen_Image_Edit-Q4_1.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q4_1.gguf
-    sha256: "55ed396b0ed764a5f237b87307ec0679e4d59b71e984ef61ea89d46457017eb5"
-    size: 13743095808
+    file: qwen-image-edit-2511-Q4_1.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_1.gguf
+    sha256: ""
+    size: 12843678304
     format: gguf
     precision: q4_1
     vram_required: 12288
     vram_recommended: 16384
-    note: "GGUF Q4_1."
+    note: "GGUF Q4_1 (2511), unsloth Dynamic 2.0."
 
   - id: gguf-q3-k-m
-    file: Qwen_Image_Edit-Q3_K_M.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q3_K_M.gguf
-    sha256: "056411f536e5b6ef6efa08d3c773911d9ec0945dbfce9be0f43c5519c525b3ee"
-    size: 10394116096
+    file: qwen-image-edit-2511-Q3_K_M.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q3_K_M.gguf
+    sha256: ""
+    size: 9920805472
     format: gguf
     precision: q3_k_m
     vram_required: 10240
     vram_recommended: 12288
-    note: "GGUF Q3_K_M — for 10GB+ GPUs. Noticeable quality reduction."
+    note: "GGUF Q3_K_M (2511) — for 10GB+ GPUs, unsloth Dynamic 2.0."
 
   - id: gguf-q3-k-s
-    file: Qwen_Image_Edit-Q3_K_S.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q3_K_S.gguf
-    sha256: "c2e82411c73d1cc98db87bfc640381eb211f9c28ba57e943e3fe71283cf97cf6"
-    size: 9609625600
+    file: qwen-image-edit-2511-Q3_K_S.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q3_K_S.gguf
+    sha256: ""
+    size: 9218914912
     format: gguf
     precision: q3_k_s
     vram_required: 10240
     vram_recommended: 12288
-    note: "GGUF Q3_K_S — smaller Q3 variant."
+    note: "GGUF Q3_K_S (2511) — smaller Q3, unsloth Dynamic 2.0."
 
   - id: gguf-q2-k
-    file: Qwen_Image_Edit-Q2_K.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q2_K.gguf
-    sha256: "a449446a0fedad1949032f32f70ef5f8514e699ad0c3f27d8ab04b9f87b6d992"
-    size: 7580321792
+    file: qwen-image-edit-2511-Q2_K.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q2_K.gguf
+    sha256: ""
+    size: 7468022368
     format: gguf
     precision: q2_k
     vram_required: 8192
     vram_recommended: 10240
-    note: "GGUF Q2_K — minimum quality. Fits on 8GB GPUs but significant quality loss."
+    note: "GGUF Q2_K (2511) — minimum quality, unsloth Dynamic 2.0."
 
 requires:
   - id: qwen-image-vae
@@ -244,8 +245,8 @@ requires:
     reason: "Qwen 2.5 VL 7B text/vision encoder for prompt processing"
 
 defaults:
-  steps: 8
-  cfg: 1.0
+  steps: 50
+  cfg: 4.0
   sampler: euler
   scheduler: simple
 
@@ -253,4 +254,4 @@ tags: [qwen, image-editing, outpainting, scene-generation, comfyui, gguf]
 rating: 4.8
 downloads: 275000
 added: "2025-07-01"
-updated: "2026-01-15"
+updated: "2026-03-10"
