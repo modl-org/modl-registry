@@ -94,8 +94,8 @@ variants:
   - id: fp8-gen-4step-v1-bf16
     file: Qwen-Image-fp8-e4m3fn-Lightning-4steps-V1.0-bf16.safetensors
     url: https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/main/Qwen-Image-fp8-e4m3fn-Lightning-4steps-V1.0-bf16.safetensors
-    sha256: "a900d5b842a25451fbdd14361cf730a0870f2df5221cbadee855ff3ac91a7bdc"
-    size: 912680960
+    sha256: "11704ff6034a961b9569f9d3a502fb95b74a1b7cb8181dec089af3f0e2d0442c"
+    size: 849608296
     format: safetensors
     precision: bf16
     note: "Trained specifically for fp8 base model. 4-step, bf16."
@@ -103,8 +103,8 @@ variants:
   - id: fp8-gen-4step-v1-fp32
     file: Qwen-Image-fp8-e4m3fn-Lightning-4steps-V1.0-fp32.safetensors
     url: https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/main/Qwen-Image-fp8-e4m3fn-Lightning-4steps-V1.0-fp32.safetensors
-    sha256: "acafb9d389bb2ec78d94276da4ff2897ecc7436bef283d81d041199a03a17e03"
-    size: 1825361920
+    sha256: "a74d58821ed0d3388619a07be6edf1932ce33f9334226a8082370e08b567ec6b"
+    size: 1698951104
     format: safetensors
     precision: fp32
     note: "Trained specifically for fp8 base model. 4-step, fp32."

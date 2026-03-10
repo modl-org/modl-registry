@@ -1,0 +1,59 @@
+id: qwen-image-2512-lightning
+name: "Qwen Image 2512 Lightning LoRA"
+type: lora
+author: lightx2v
+license: apache-2.0
+homepage: https://huggingface.co/lightx2v/Qwen-Image-2512-Lightning
+description: |
+  Distillation LoRA for the standalone Qwen Image 2512 generation model.
+  Reduces inference from ~50 steps to 4-8 steps with minimal quality loss.
+  This is for the text-to-image model (Qwen/Qwen-Image-2512), NOT the edit model.
+  For the edit model, use qwen-image-edit-lightning instead.
+
+architecture: qwen-image
+base_models: [qwen-image]
+
+variants:
+  - id: 4step-bf16
+    file: Qwen-Image-2512-Lightning-4steps-V1.0-bf16.safetensors
+    url: https://huggingface.co/lightx2v/Qwen-Image-2512-Lightning/resolve/main/Qwen-Image-2512-Lightning-4steps-V1.0-bf16.safetensors
+    sha256: "de0d236e54ecf2c43b32447d13478c6eae0d361b1fed48c69675b084fa240d87"
+    size: 849608296
+    format: safetensors
+    precision: bf16
+    note: "4-step generation, bf16. Fastest variant."
+
+  - id: 4step-fp32
+    file: Qwen-Image-2512-Lightning-4steps-V1.0-fp32.safetensors
+    url: https://huggingface.co/lightx2v/Qwen-Image-2512-Lightning/resolve/main/Qwen-Image-2512-Lightning-4steps-V1.0-fp32.safetensors
+    sha256: "VERIFY_fp32_4step"
+    size: 1698951104
+    format: safetensors
+    precision: fp32
+    note: "4-step generation, fp32. Full precision."
+
+  - id: 8step-bf16
+    file: Qwen-Image-2512-Lightning-8steps-V1.0-bf16.safetensors
+    url: https://huggingface.co/lightx2v/Qwen-Image-2512-Lightning/resolve/main/Qwen-Image-2512-Lightning-8steps-V1.0-bf16.safetensors
+    sha256: "b48fb1a8edd939354579c1cf0b403c92f28879b32dddbaaa91b9d424bfc72081"
+    size: 849608296
+    format: safetensors
+    precision: bf16
+    note: "8-step generation, bf16. Better quality than 4-step."
+
+  - id: 8step-fp32
+    file: Qwen-Image-2512-Lightning-8steps-V1.0-fp32.safetensors
+    url: https://huggingface.co/lightx2v/Qwen-Image-2512-Lightning/resolve/main/Qwen-Image-2512-Lightning-8steps-V1.0-fp32.safetensors
+    sha256: "VERIFY_fp32_8step"
+    size: 1698951104
+    format: safetensors
+    precision: fp32
+    note: "8-step generation, fp32. Full precision."
+
+recommended_weight: 1.0
+weight_range: [0.8, 1.0]
+
+tags: [qwen, lora, lightning, distillation, fast-inference, txt2img]
+rating: 4.5
+downloads: 5000
+added: "2026-03-10"
