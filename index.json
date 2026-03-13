@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "generated_at": "2026-03-10T17:56:22Z",
-  "total_count": 76,
+  "generated_at": "2026-03-13T10:02:29Z",
+  "total_count": 77,
   "type_counts": {
     "upscaler": 3,
     "segmentation": 2,
     "vision_language": 3,
     "text_encoder": 10,
     "analysis": 4,
-    "diffusion_model": 17,
+    "diffusion_model": 18,
     "controlnet": 7,
     "checkpoint": 9,
     "recipe": 4,
@@ -512,6 +512,70 @@
       "downloads": 650000,
       "added": "2024-10-01",
       "updated": "2025-01-01"
+    },
+    {
+      "id": "flux-fill-dev-onereward",
+      "name": "FLUX.1 Fill Dev OneReward",
+      "type": "diffusion_model",
+      "architecture": "flux",
+      "author": "bytedance-research",
+      "license": "flux-1-dev-non-commercial-license",
+      "homepage": "https://huggingface.co/yichengup/flux.1-fill-dev-OneReward",
+      "description": "FLUX.1 Fill Dev fine-tuned with OneReward RLHF methodology from ByteDance Research.\nUses Qwen2.5-VL as a generative reward model for multi-task reinforcement learning.\nOutperforms closed-source FLUX.1 Fill Pro on inpainting and outpainting tasks.\nDrop-in replacement for FLUX.1 Fill Dev — same architecture, better quality.\n",
+      "variants": [
+        {
+          "id": "fp8",
+          "file": "flux-fill-dev-onereward-fp8.safetensors",
+          "url": "https://huggingface.co/yichengup/flux.1-fill-dev-OneReward/resolve/main/unet_fp8.safetensors",
+          "sha256": "dd5cc73df9d2fb1e5e9d8ec518bcb7ea1103f55f679ad58877aa192e00481d1a",
+          "size": 11902532704,
+          "format": "safetensors",
+          "precision": "fp8-e4m3fn",
+          "vram_required": 12288,
+          "vram_recommended": 16384,
+          "note": "FP8 quantized. Recommended — best VRAM/quality tradeoff."
+        },
+        {
+          "id": "bf16",
+          "file": "flux-fill-dev-onereward-bf16.safetensors",
+          "url": "https://huggingface.co/yichengup/flux.1-fill-dev-OneReward/resolve/main/unet_bf16.safetensors",
+          "sha256": "1403db15d1d182776315922334b4412ca343a26c3c0d1c77793ceda4792b20e9",
+          "size": 23804921664,
+          "format": "safetensors",
+          "precision": "bf16",
+          "vram_required": 24576,
+          "vram_recommended": 32768
+        }
+      ],
+      "requires": [
+        {
+          "id": "clip-l",
+          "type": "text_encoder",
+          "reason": "CLIP-L text encoder for FLUX"
+        },
+        {
+          "id": "t5-xxl-fp8",
+          "type": "text_encoder",
+          "reason": "T5-XXL text encoder for FLUX"
+        },
+        {
+          "id": "flux-vae",
+          "type": "vae",
+          "reason": "FLUX VAE"
+        }
+      ],
+      "tags": [
+        "flux",
+        "inpainting",
+        "outpainting",
+        "fill",
+        "rlhf",
+        "onereward"
+      ],
+      "rating": 4.9,
+      "downloads": 1080,
+      "added": "2025-08-28",
+      "updated": "2025-08-28"
     },
     {
       "id": "flux-kontext-dev",
