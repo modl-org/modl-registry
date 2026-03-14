@@ -26,6 +26,17 @@ variants:
     vram_recommended: 24576
     note: "Full precision bf16. Best quality."
 
+  - id: fp8
+    file: z_image_turbo_fp8_e4m3fn.safetensors
+    url: https://huggingface.co/drbaph/Z-Image-Turbo-FP8/resolve/main/z_image_turbo_fp8_e4m3fn.safetensors
+    sha256: "3fe5a273184d06510d2e7bc9f24b3091e7f4c9e82ff23993aee0f35e5733715a"
+    size: 6603515904
+    format: safetensors
+    precision: fp8
+    vram_required: 8192
+    vram_recommended: 12288
+    note: "FP8 e4m3fn quantization. Half the VRAM of bf16, ideal for ControlNet on 24GB."
+
   - id: nvfp4
     file: z_image_turbo_nvfp4.safetensors
     url: https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_nvfp4.safetensors

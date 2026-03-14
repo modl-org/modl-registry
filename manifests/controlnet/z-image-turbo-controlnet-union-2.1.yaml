@@ -1,0 +1,63 @@
+id: z-image-turbo-controlnet-union-2.1
+name: "Z-Image-Turbo Fun ControlNet Union 2.1"
+type: controlnet
+architecture: z-image
+author: alibaba-pai
+license: apache-2.0
+homepage: https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union-2.1
+description: |
+  ControlNet union model v2.1 for Z-Image-Turbo with 8-step distillation.
+  Supports Canny, HED, Depth, Pose, MLSD, Scribble, and Gray control conditions.
+  Latest 2602 version adds gray control mode.
+  Adjust control_context_scale (0.65-1.00) for best results.
+  Use detailed prompts for stability.
+
+  Available in full (15 control layers, stronger control) and lite
+  (3 control layers, more natural results, lower VRAM) variants.
+
+base_models: [z-image-turbo]
+
+variants:
+  - id: full-8steps
+    file: Z-Image-Turbo-Fun-Controlnet-Union-2.1-2602-8steps.safetensors
+    url: https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union-2.1/resolve/main/Z-Image-Turbo-Fun-Controlnet-Union-2.1-2602-8steps.safetensors
+    sha256: "d1251cc7bc3486bc61d25c3be498ef394c31c85ddf4ee9137d2e933411f4a689"
+    size: 7204102144
+    format: safetensors
+    precision: bf16
+    vram_required: 8192
+    vram_recommended: 16384
+    note: "Full 15-layer controlnet. Strongest control, best detail preservation. Needs ~7GB VRAM."
+
+  - id: lite-8steps
+    file: Z-Image-Turbo-Fun-Controlnet-Union-2.1-lite-2602-8steps.safetensors
+    url: https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union-2.1/resolve/main/Z-Image-Turbo-Fun-Controlnet-Union-2.1-lite-2602-8steps.safetensors
+    sha256: "3ea098db9bd145be525c7e2366920b6d76c5ffd46b3d7aa8169bbc943fdaee35"
+    size: 2169413632
+    format: safetensors
+    precision: bf16
+    vram_required: 2048
+    vram_recommended: 4096
+    note: "Lite 3-layer controlnet. Natural results, fits on 24GB with bf16 base model. ~2GB VRAM."
+
+requires:
+  - id: z-image-turbo
+    type: diffusion_model
+    reason: "Requires Z-Image-Turbo as the base diffusion model"
+
+tags:
+  - z-image
+  - controlnet
+  - canny
+  - depth
+  - pose
+  - hed
+  - mlsd
+  - scribble
+  - gray
+  - union
+  - comfyui
+
+rating: 4.8
+added: "2026-03-14"
+updated: "2026-03-14"

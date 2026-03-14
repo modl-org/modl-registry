@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "generated_at": "2026-03-14T13:02:40Z",
-  "total_count": 79,
+  "generated_at": "2026-03-14T22:23:44Z",
+  "total_count": 82,
   "type_counts": {
     "upscaler": 3,
     "segmentation": 2,
-    "vision_language": 5,
+    "vision_language": 7,
     "text_encoder": 10,
     "analysis": 4,
     "diffusion_model": 18,
-    "controlnet": 7,
+    "controlnet": 8,
     "checkpoint": 9,
     "recipe": 4,
     "ipadapter": 3,
@@ -2865,6 +2865,50 @@
       "updated": "2026-03-14"
     },
     {
+      "id": "qwen3-vl-2b",
+      "name": "Qwen3-VL 2B Instruct",
+      "type": "vision_language",
+      "architecture": "qwen3-vl",
+      "author": "Qwen",
+      "license": "Apache-2.0",
+      "homepage": "https://huggingface.co/Qwen/Qwen3-VL-2B-Instruct",
+      "description": "Qwen3-VL 2B — vision-language model for image understanding, grounding, captioning, and OCR.\n2B parameters, runs on 4GB consumer GPUs in fp16. Supports text-grounded object detection\n(find objects by name), detailed captioning, automatic tagging, and text extraction.\nDefault model for modl ground, modl describe, and modl vl-tag primitives.\n",
+      "huggingface_repo": "Qwen/Qwen3-VL-2B-Instruct",
+      "tags": [
+        "vision-language",
+        "grounding",
+        "captioning",
+        "tagging",
+        "ocr",
+        "qwen",
+        "analysis"
+      ],
+      "added": "2026-03-14",
+      "updated": "2026-03-14"
+    },
+    {
+      "id": "qwen3-vl-8b",
+      "name": "Qwen3-VL 8B Instruct",
+      "type": "vision_language",
+      "architecture": "qwen3-vl",
+      "author": "Qwen",
+      "license": "Apache-2.0",
+      "homepage": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct",
+      "description": "Qwen3-VL 8B — larger vision-language model for higher quality grounding,\ncaptioning, and OCR. 8B parameters, needs ~16GB VRAM in fp16.\nMore accurate than the 2B variant, especially for complex scenes\nand fine-grained object detection. Use --model qwen3-vl-8b for quality.\n",
+      "huggingface_repo": "Qwen/Qwen3-VL-8B-Instruct",
+      "tags": [
+        "vision-language",
+        "grounding",
+        "captioning",
+        "tagging",
+        "ocr",
+        "qwen",
+        "analysis"
+      ],
+      "added": "2026-03-14",
+      "updated": "2026-03-14"
+    },
+    {
       "id": "realesrgan-x4plus",
       "name": "RealESRGAN x4plus",
       "type": "upscaler",
@@ -4047,6 +4091,18 @@
           "note": "Full precision bf16. Best quality."
         },
         {
+          "id": "fp8",
+          "file": "z_image_turbo_fp8_e4m3fn.safetensors",
+          "url": "https://huggingface.co/drbaph/Z-Image-Turbo-FP8/resolve/main/z_image_turbo_fp8_e4m3fn.safetensors",
+          "sha256": "3fe5a273184d06510d2e7bc9f24b3091e7f4c9e82ff23993aee0f35e5733715a",
+          "size": 6603515904,
+          "format": "safetensors",
+          "precision": "fp8",
+          "vram_required": 8192,
+          "vram_recommended": 12288,
+          "note": "FP8 e4m3fn quantization. Half the VRAM of bf16, ideal for ControlNet on 24GB."
+        },
+        {
           "id": "nvfp4",
           "file": "z_image_turbo_nvfp4.safetensors",
           "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_nvfp4.safetensors",
@@ -4239,6 +4295,68 @@
       "rating": 4.6,
       "added": "2025-08-01",
       "updated": "2026-03-08"
+    },
+    {
+      "id": "z-image-turbo-controlnet-union-2.1",
+      "name": "Z-Image-Turbo Fun ControlNet Union 2.1",
+      "type": "controlnet",
+      "architecture": "z-image",
+      "author": "alibaba-pai",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union-2.1",
+      "description": "ControlNet union model v2.1 for Z-Image-Turbo with 8-step distillation.\nSupports Canny, HED, Depth, Pose, MLSD, Scribble, and Gray control conditions.\nLatest 2602 version adds gray control mode.\nAdjust control_context_scale (0.65-1.00) for best results.\nUse detailed prompts for stability.\n\nAvailable in full (15 control layers, stronger control) and lite\n(3 control layers, more natural results, lower VRAM) variants.\n",
+      "base_models": [
+        "z-image-turbo"
+      ],
+      "variants": [
+        {
+          "id": "full-8steps",
+          "file": "Z-Image-Turbo-Fun-Controlnet-Union-2.1-2602-8steps.safetensors",
+          "url": "https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union-2.1/resolve/main/Z-Image-Turbo-Fun-Controlnet-Union-2.1-2602-8steps.safetensors",
+          "sha256": "d1251cc7bc3486bc61d25c3be498ef394c31c85ddf4ee9137d2e933411f4a689",
+          "size": 7204102144,
+          "format": "safetensors",
+          "precision": "bf16",
+          "vram_required": 8192,
+          "vram_recommended": 16384,
+          "note": "Full 15-layer controlnet. Strongest control, best detail preservation. Needs ~7GB VRAM."
+        },
+        {
+          "id": "lite-8steps",
+          "file": "Z-Image-Turbo-Fun-Controlnet-Union-2.1-lite-2602-8steps.safetensors",
+          "url": "https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union-2.1/resolve/main/Z-Image-Turbo-Fun-Controlnet-Union-2.1-lite-2602-8steps.safetensors",
+          "sha256": "3ea098db9bd145be525c7e2366920b6d76c5ffd46b3d7aa8169bbc943fdaee35",
+          "size": 2169413632,
+          "format": "safetensors",
+          "precision": "bf16",
+          "vram_required": 2048,
+          "vram_recommended": 4096,
+          "note": "Lite 3-layer controlnet. Natural results, fits on 24GB with bf16 base model. ~2GB VRAM."
+        }
+      ],
+      "requires": [
+        {
+          "id": "z-image-turbo",
+          "type": "diffusion_model",
+          "reason": "Requires Z-Image-Turbo as the base diffusion model"
+        }
+      ],
+      "tags": [
+        "z-image",
+        "controlnet",
+        "canny",
+        "depth",
+        "pose",
+        "hed",
+        "mlsd",
+        "scribble",
+        "gray",
+        "union",
+        "comfyui"
+      ],
+      "rating": 4.8,
+      "added": "2026-03-14",
+      "updated": "2026-03-14"
     },
     {
       "id": "z-image-turbo-distill-lora",
