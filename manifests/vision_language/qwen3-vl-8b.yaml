@@ -1,0 +1,26 @@
+id: qwen3-vl-8b
+name: Qwen3-VL 8B Instruct
+type: vision_language
+architecture: qwen3-vl
+author: Qwen
+license: Apache-2.0
+homepage: https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct
+description: |
+  Qwen3-VL 8B — larger vision-language model for higher quality grounding,
+  captioning, and OCR. 8B parameters, needs ~16GB VRAM in fp16.
+  More accurate than the 2B variant, especially for complex scenes
+  and fine-grained object detection. Use --model qwen3-vl-8b for quality.
+
+huggingface_repo: Qwen/Qwen3-VL-8B-Instruct
+
+tags:
+  - vision-language
+  - grounding
+  - captioning
+  - tagging
+  - ocr
+  - qwen
+  - analysis
+
+added: "2026-03-14"
+updated: "2026-03-14"
