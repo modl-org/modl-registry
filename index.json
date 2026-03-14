@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "generated_at": "2026-03-14T12:27:28Z",
-  "total_count": 78,
+  "generated_at": "2026-03-14T13:02:40Z",
+  "total_count": 79,
   "type_counts": {
     "upscaler": 3,
     "segmentation": 2,
-    "vision_language": 4,
+    "vision_language": 5,
     "text_encoder": 10,
     "analysis": 4,
     "diffusion_model": 18,
@@ -2830,6 +2830,28 @@
       "homepage": "https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct",
       "description": "Qwen2.5-VL 3B — vision-language model for image understanding, grounding, captioning, and OCR.\n3.8B parameters, runs on 8GB consumer GPUs in fp16. Supports text-grounded object detection\n(find objects by name), detailed captioning, automatic tagging, and text extraction.\nUsed by modl ground, modl describe, and modl tag primitives.\n",
       "huggingface_repo": "Qwen/Qwen2.5-VL-3B-Instruct",
+      "tags": [
+        "vision-language",
+        "grounding",
+        "captioning",
+        "tagging",
+        "ocr",
+        "qwen",
+        "analysis"
+      ],
+      "added": "2026-03-14",
+      "updated": "2026-03-14"
+    },
+    {
+      "id": "qwen25-vl-7b",
+      "name": "Qwen2.5-VL 7B Instruct",
+      "type": "vision_language",
+      "architecture": "qwen2.5-vl",
+      "author": "Qwen",
+      "license": "Apache-2.0",
+      "homepage": "https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct",
+      "description": "Qwen2.5-VL 7B — larger vision-language model for higher quality grounding,\ncaptioning, and OCR. 8.3B parameters, needs ~16GB VRAM in fp16.\nMore accurate than the 3B variant, especially for complex scenes\nand fine-grained object detection. Use --model qwen25-vl-7b for quality.\n",
+      "huggingface_repo": "Qwen/Qwen2.5-VL-7B-Instruct",
       "tags": [
         "vision-language",
         "grounding",
