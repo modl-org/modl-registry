@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "generated_at": "2026-03-15T14:20:33Z",
-  "total_count": 84,
+  "generated_at": "2026-03-15T20:30:13Z",
+  "total_count": 85,
   "type_counts": {
     "upscaler": 3,
     "segmentation": 2,
     "vision_language": 7,
+    "checkpoint": 10,
     "text_encoder": 10,
     "analysis": 4,
     "diffusion_model": 18,
     "controlnet": 10,
-    "checkpoint": 9,
     "recipe": 4,
     "ipadapter": 3,
     "vae": 9,
@@ -119,6 +119,75 @@
       "downloads": 450000,
       "added": "2022-01-01",
       "updated": "2022-01-01"
+    },
+    {
+      "id": "chroma",
+      "name": "Chroma",
+      "type": "checkpoint",
+      "architecture": "chroma",
+      "author": "lodestones",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/lodestones/Chroma1-HD",
+      "description": "Open-source 8.9B text-to-image model based on Flux.1-schnell.\nApache 2.0 licensed, uncensored. Supports negative prompts.\nUses T5-XXL only (no CLIP text encoder needed).\nPruned from 12B to 8.9B by replacing modulation layers.\nCommunity-driven with active LoRA ecosystem.\n",
+      "variants": [
+        {
+          "id": "bf16",
+          "file": "Chroma1-HD.safetensors",
+          "url": "https://huggingface.co/lodestones/Chroma1-HD/resolve/main/Chroma1-HD.safetensors",
+          "sha256": "d446d9695d08276f61e53653e025289dd96f7a489c27982a1fa54ecabc06642a",
+          "size": 17800038288,
+          "format": "safetensors",
+          "precision": "bf16",
+          "vram_required": 20480,
+          "vram_recommended": 24576
+        },
+        {
+          "id": "fp8",
+          "file": "Chroma1-HD-fp8mixed.safetensors",
+          "url": "https://huggingface.co/Comfy-Org/Chroma1-HD_repackaged/resolve/main/split_files/diffusion_models/Chroma1-HD-fp8mixed.safetensors",
+          "sha256": "9be8cbfb2033bcbc97bbab9a611d3d1f0a0c1a1461b2921527c82b30d3bb6eaa",
+          "size": 9193379316,
+          "format": "safetensors",
+          "precision": "fp8-e4m3fn",
+          "vram_required": 10240,
+          "vram_recommended": 16384,
+          "note": "Quantized to fp8 mixed precision. Good balance of quality and VRAM."
+        }
+      ],
+      "requires": [
+        {
+          "id": "flux-vae",
+          "type": "vae",
+          "reason": "Chroma uses the same VAE as Flux (ae.safetensors)"
+        },
+        {
+          "id": "t5-xxl-fp16",
+          "type": "text_encoder",
+          "reason": "T5-XXL for prompt processing (no CLIP needed)",
+          "optional_variant": "t5-xxl-fp8"
+        }
+      ],
+      "defaults": {
+        "steps": 35,
+        "cfg": 5.0,
+        "sampler": "euler",
+        "scheduler": "normal"
+      },
+      "tags": [
+        "chroma",
+        "text-to-image",
+        "apache-2.0",
+        "open-source",
+        "flux-based",
+        "negative-prompts"
+      ],
+      "rating": 4.5,
+      "downloads": 500000,
+      "added": "2025-06-01",
+      "updated": "2026-03-01",
+      "preview_images": [
+        "https://huggingface.co/lodestones/Chroma/resolve/main/Alpha_Preview.png"
+      ]
     },
     {
       "id": "clip-l",
