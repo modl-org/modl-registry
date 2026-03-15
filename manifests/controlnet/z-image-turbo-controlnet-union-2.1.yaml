@@ -22,7 +22,7 @@ variants:
     file: Z-Image-Turbo-Fun-Controlnet-Union-2.1-2602-8steps.safetensors
     url: https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union-2.1/resolve/main/Z-Image-Turbo-Fun-Controlnet-Union-2.1-2602-8steps.safetensors
     sha256: "d1251cc7bc3486bc61d25c3be498ef394c31c85ddf4ee9137d2e933411f4a689"
-    size: 7204102144
+    size: 6712485600
     format: safetensors
     precision: bf16
     vram_required: 8192
