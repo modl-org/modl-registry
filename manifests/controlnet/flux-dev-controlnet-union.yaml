@@ -1,0 +1,39 @@
+id: flux-dev-controlnet-union
+name: "FLUX.1 Dev ControlNet Union Pro 2.0"
+type: controlnet
+architecture: flux
+author: Shakker-Labs
+license: flux-1-dev-non-commercial-license
+homepage: https://huggingface.co/Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro-2.0
+description: |
+  Union ControlNet for FLUX.1 Dev by Shakker-Labs. Supports multiple control
+  conditions in a single model: canny, depth, pose, gray, softedge.
+  Pro 2.0 version with improved quality and stability.
+
+base_models: [flux-dev, flux-schnell]
+
+file:
+  name: diffusion_pytorch_model.safetensors
+  url: https://huggingface.co/Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro-2.0/resolve/main/diffusion_pytorch_model.safetensors
+  sha256: "9d03f63f36206bab2f36aed5cfedc8693c2881397534e9d5f9ae9a0a41362517"
+  size: 4281779224
+  format: safetensors
+
+requires:
+  - id: flux-dev
+    type: diffusion_model
+    reason: "Requires FLUX.1 Dev as the base diffusion model"
+
+tags:
+  - flux
+  - controlnet
+  - canny
+  - depth
+  - pose
+  - union
+  - comfyui
+
+rating: 4.7
+downloads: 500000
+added: "2026-03-15"
+updated: "2026-03-15"

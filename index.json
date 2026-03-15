@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "generated_at": "2026-03-14T22:23:44Z",
-  "total_count": 82,
+  "generated_at": "2026-03-15T14:20:33Z",
+  "total_count": 84,
   "type_counts": {
     "upscaler": 3,
     "segmentation": 2,
@@ -9,7 +9,7 @@
     "text_encoder": 10,
     "analysis": 4,
     "diffusion_model": 18,
-    "controlnet": 8,
+    "controlnet": 10,
     "checkpoint": 9,
     "recipe": 4,
     "ipadapter": 3,
@@ -401,6 +401,47 @@
       "preview_images": [
         "https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/poster.png"
       ]
+    },
+    {
+      "id": "flux-dev-controlnet-union",
+      "name": "FLUX.1 Dev ControlNet Union Pro 2.0",
+      "type": "controlnet",
+      "architecture": "flux",
+      "author": "Shakker-Labs",
+      "license": "flux-1-dev-non-commercial-license",
+      "homepage": "https://huggingface.co/Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro-2.0",
+      "description": "Union ControlNet for FLUX.1 Dev by Shakker-Labs. Supports multiple control\nconditions in a single model: canny, depth, pose, gray, softedge.\nPro 2.0 version with improved quality and stability.\n",
+      "base_models": [
+        "flux-dev",
+        "flux-schnell"
+      ],
+      "file": {
+        "name": "diffusion_pytorch_model.safetensors",
+        "url": "https://huggingface.co/Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro-2.0/resolve/main/diffusion_pytorch_model.safetensors",
+        "sha256": "9d03f63f36206bab2f36aed5cfedc8693c2881397534e9d5f9ae9a0a41362517",
+        "size": 4281779224,
+        "format": "safetensors"
+      },
+      "requires": [
+        {
+          "id": "flux-dev",
+          "type": "diffusion_model",
+          "reason": "Requires FLUX.1 Dev as the base diffusion model"
+        }
+      ],
+      "tags": [
+        "flux",
+        "controlnet",
+        "canny",
+        "depth",
+        "pose",
+        "union",
+        "comfyui"
+      ],
+      "rating": 4.7,
+      "downloads": 500000,
+      "added": "2026-03-15",
+      "updated": "2026-03-15"
     },
     {
       "id": "flux-face-lora",
@@ -2351,7 +2392,10 @@
       "author": "InstantX",
       "license": "apache-2.0",
       "homepage": "https://huggingface.co/InstantX/Qwen-Image-ControlNet-Union",
-      "description": "ControlNet union model for Qwen Image by InstantX.\nSupports multiple control conditions in a single model: canny, depth, inpaint,\nlineart, softedge, normal, and openpose.\nWorks with the DiffSynth pipeline for structure-guided generation.\nUse with detailed prompts for best results.\n",
+      "base_models": [
+        "qwen-image"
+      ],
+      "description": "Unified ControlNet for Qwen-Image supporting 4 control types: canny,\nsoft edge, depth, and pose. 5 double blocks from the pretrained transformer.\nTrained from scratch for 50K steps on 10M images at 1328x1328.\nRecommended controlnet_conditioning_scale: 0.8-1.0 for all modes.\nUse detailed prompts, especially when including text elements.\n",
       "file": {
         "name": "diffusion_pytorch_model.safetensors",
         "url": "https://huggingface.co/InstantX/Qwen-Image-ControlNet-Union/resolve/main/diffusion_pytorch_model.safetensors",
@@ -2371,11 +2415,9 @@
         "controlnet",
         "canny",
         "depth",
-        "inpaint",
-        "openpose",
-        "lineart",
-        "union",
-        "comfyui"
+        "pose",
+        "softedge",
+        "union"
       ],
       "rating": 4.7,
       "added": "2026-03-09",
@@ -3250,6 +3292,58 @@
       "downloads": 1500000,
       "added": "2023-09-01",
       "updated": "2024-06-01"
+    },
+    {
+      "id": "sdxl-controlnet-union",
+      "name": "ControlNet Union (SDXL)",
+      "type": "controlnet",
+      "architecture": "sdxl",
+      "author": "xinsir",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/xinsir/controlnet-union-sdxl-1.0",
+      "description": "Unified ControlNet for SDXL by xinsir. Supports multiple control conditions\nin a single model: canny, depth, pose, softedge, tile, scribble, hed,\nmlsd, normal, segmentation, inpaint, and outpaint.\n",
+      "base_models": [
+        "sdxl-base-1.0"
+      ],
+      "variants": [
+        {
+          "id": "standard",
+          "file": "diffusion_pytorch_model.safetensors",
+          "url": "https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors",
+          "sha256": "a9e13fd61f3193887791c8a0dd07a07202174dc47d5ddaea94ea1344f07c7467",
+          "size": 2512030408,
+          "format": "safetensors"
+        },
+        {
+          "id": "promax",
+          "file": "diffusion_pytorch_model_promax.safetensors",
+          "url": "https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model_promax.safetensors",
+          "sha256": "9fae2e50cb431bfcbe05822b59ec2228df545ef27f711dea8949e9f4ed9f7cdc",
+          "size": 2513342408,
+          "format": "safetensors"
+        }
+      ],
+      "requires": [
+        {
+          "id": "sdxl-base-1.0",
+          "type": "checkpoint",
+          "reason": "Requires SDXL as the base model"
+        }
+      ],
+      "tags": [
+        "sdxl",
+        "controlnet",
+        "canny",
+        "depth",
+        "pose",
+        "tile",
+        "union",
+        "comfyui"
+      ],
+      "rating": 4.7,
+      "downloads": 126000,
+      "added": "2026-03-15",
+      "updated": "2026-03-15"
     },
     {
       "id": "sdxl-refiner-1.0",
@@ -4314,7 +4408,7 @@
           "file": "Z-Image-Turbo-Fun-Controlnet-Union-2.1-2602-8steps.safetensors",
           "url": "https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union-2.1/resolve/main/Z-Image-Turbo-Fun-Controlnet-Union-2.1-2602-8steps.safetensors",
           "sha256": "d1251cc7bc3486bc61d25c3be498ef394c31c85ddf4ee9137d2e933411f4a689",
-          "size": 7204102144,
+          "size": 6712485600,
           "format": "safetensors",
           "precision": "bf16",
           "vram_required": 8192,
