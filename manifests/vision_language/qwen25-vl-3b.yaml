@@ -1,0 +1,26 @@
+id: qwen25-vl-3b
+name: Qwen2.5-VL 3B Instruct
+type: vision_language
+architecture: qwen2.5-vl
+author: Qwen
+license: Apache-2.0
+homepage: https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct
+description: |
+  Qwen2.5-VL 3B — vision-language model for image understanding, grounding, captioning, and OCR.
+  3.8B parameters, runs on 8GB consumer GPUs in fp16. Supports text-grounded object detection
+  (find objects by name), detailed captioning, automatic tagging, and text extraction.
+  Used by modl ground, modl describe, and modl tag primitives.
+
+huggingface_repo: Qwen/Qwen2.5-VL-3B-Instruct
+
+tags:
+  - vision-language
+  - grounding
+  - captioning
+  - tagging
+  - ocr
+  - qwen
+  - analysis
+
+added: "2026-03-14"
+updated: "2026-03-14"

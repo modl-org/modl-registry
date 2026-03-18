@@ -12,8 +12,8 @@ description: |
 
 file:
   url: https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors
-  sha256: "bb534d41e8e6f92dc8636b914489b7167aeb950418183ffc10768c573185683a"
-  size: 336211292
+  sha256: "d64f3a68e1cc4f9f4e29b6e0da38a0204fe9a49f2d4053f0ec1fa1ca02f9c4b5"
+  size: 336213556
   format: safetensors
 
 tags: [flux2, vae, bfl]

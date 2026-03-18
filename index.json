@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "generated_at": "2026-03-10T14:22:40Z",
-  "total_count": 76,
+  "generated_at": "2026-03-17T18:24:02Z",
+  "total_count": 85,
   "type_counts": {
     "upscaler": 3,
     "segmentation": 2,
-    "vision_language": 3,
+    "vision_language": 7,
+    "checkpoint": 10,
     "text_encoder": 10,
     "analysis": 4,
-    "diffusion_model": 17,
-    "controlnet": 7,
-    "checkpoint": 9,
+    "diffusion_model": 18,
+    "controlnet": 10,
     "recipe": 4,
     "ipadapter": 3,
     "vae": 9,
@@ -119,6 +119,75 @@
       "downloads": 450000,
       "added": "2022-01-01",
       "updated": "2022-01-01"
+    },
+    {
+      "id": "chroma",
+      "name": "Chroma",
+      "type": "checkpoint",
+      "architecture": "chroma",
+      "author": "lodestones",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/lodestones/Chroma1-HD",
+      "description": "Open-source 8.9B text-to-image model based on Flux.1-schnell.\nApache 2.0 licensed, uncensored. Supports negative prompts.\nUses T5-XXL only (no CLIP text encoder needed).\nPruned from 12B to 8.9B by replacing modulation layers.\nCommunity-driven with active LoRA ecosystem.\n",
+      "variants": [
+        {
+          "id": "bf16",
+          "file": "Chroma1-HD.safetensors",
+          "url": "https://huggingface.co/lodestones/Chroma1-HD/resolve/main/Chroma1-HD.safetensors",
+          "sha256": "d446d9695d08276f61e53653e025289dd96f7a489c27982a1fa54ecabc06642a",
+          "size": 17800038288,
+          "format": "safetensors",
+          "precision": "bf16",
+          "vram_required": 20480,
+          "vram_recommended": 24576
+        },
+        {
+          "id": "fp8",
+          "file": "Chroma1-HD-fp8mixed.safetensors",
+          "url": "https://huggingface.co/Comfy-Org/Chroma1-HD_repackaged/resolve/main/split_files/diffusion_models/Chroma1-HD-fp8mixed.safetensors",
+          "sha256": "9be8cbfb2033bcbc97bbab9a611d3d1f0a0c1a1461b2921527c82b30d3bb6eaa",
+          "size": 9193379316,
+          "format": "safetensors",
+          "precision": "fp8-e4m3fn",
+          "vram_required": 10240,
+          "vram_recommended": 16384,
+          "note": "Quantized to fp8 mixed precision. Good balance of quality and VRAM."
+        }
+      ],
+      "requires": [
+        {
+          "id": "flux-vae",
+          "type": "vae",
+          "reason": "Chroma uses the same VAE as Flux (ae.safetensors)"
+        },
+        {
+          "id": "t5-xxl-fp16",
+          "type": "text_encoder",
+          "reason": "T5-XXL for prompt processing (no CLIP needed)",
+          "optional_variant": "t5-xxl-fp8"
+        }
+      ],
+      "defaults": {
+        "steps": 35,
+        "cfg": 5.0,
+        "sampler": "euler",
+        "scheduler": "normal"
+      },
+      "tags": [
+        "chroma",
+        "text-to-image",
+        "apache-2.0",
+        "open-source",
+        "flux-based",
+        "negative-prompts"
+      ],
+      "rating": 4.5,
+      "downloads": 500000,
+      "added": "2025-06-01",
+      "updated": "2026-03-01",
+      "preview_images": [
+        "https://huggingface.co/lodestones/Chroma/resolve/main/Alpha_Preview.png"
+      ]
     },
     {
       "id": "clip-l",
@@ -403,6 +472,47 @@
       ]
     },
     {
+      "id": "flux-dev-controlnet-union",
+      "name": "FLUX.1 Dev ControlNet Union Pro 2.0",
+      "type": "controlnet",
+      "architecture": "flux",
+      "author": "Shakker-Labs",
+      "license": "flux-1-dev-non-commercial-license",
+      "homepage": "https://huggingface.co/Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro-2.0",
+      "description": "Union ControlNet for FLUX.1 Dev by Shakker-Labs. Supports multiple control\nconditions in a single model: canny, depth, pose, gray, softedge.\nPro 2.0 version with improved quality and stability.\n",
+      "base_models": [
+        "flux-dev",
+        "flux-schnell"
+      ],
+      "file": {
+        "name": "diffusion_pytorch_model.safetensors",
+        "url": "https://huggingface.co/Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro-2.0/resolve/main/diffusion_pytorch_model.safetensors",
+        "sha256": "9d03f63f36206bab2f36aed5cfedc8693c2881397534e9d5f9ae9a0a41362517",
+        "size": 4281779224,
+        "format": "safetensors"
+      },
+      "requires": [
+        {
+          "id": "flux-dev",
+          "type": "diffusion_model",
+          "reason": "Requires FLUX.1 Dev as the base diffusion model"
+        }
+      ],
+      "tags": [
+        "flux",
+        "controlnet",
+        "canny",
+        "depth",
+        "pose",
+        "union",
+        "comfyui"
+      ],
+      "rating": 4.7,
+      "downloads": 500000,
+      "added": "2026-03-15",
+      "updated": "2026-03-15"
+    },
+    {
       "id": "flux-face-lora",
       "name": "Face/Portrait LoRA (Flux)",
       "type": "recipe",
@@ -512,6 +622,70 @@
       "downloads": 650000,
       "added": "2024-10-01",
       "updated": "2025-01-01"
+    },
+    {
+      "id": "flux-fill-dev-onereward",
+      "name": "FLUX.1 Fill Dev OneReward",
+      "type": "diffusion_model",
+      "architecture": "flux",
+      "author": "bytedance-research",
+      "license": "flux-1-dev-non-commercial-license",
+      "homepage": "https://huggingface.co/yichengup/flux.1-fill-dev-OneReward",
+      "description": "FLUX.1 Fill Dev fine-tuned with OneReward RLHF methodology from ByteDance Research.\nUses Qwen2.5-VL as a generative reward model for multi-task reinforcement learning.\nOutperforms closed-source FLUX.1 Fill Pro on inpainting and outpainting tasks.\nDrop-in replacement for FLUX.1 Fill Dev — same architecture, better quality.\n",
+      "variants": [
+        {
+          "id": "fp8",
+          "file": "flux-fill-dev-onereward-fp8.safetensors",
+          "url": "https://huggingface.co/yichengup/flux.1-fill-dev-OneReward/resolve/main/unet_fp8.safetensors",
+          "sha256": "dd5cc73df9d2fb1e5e9d8ec518bcb7ea1103f55f679ad58877aa192e00481d1a",
+          "size": 11902532704,
+          "format": "safetensors",
+          "precision": "fp8-e4m3fn",
+          "vram_required": 12288,
+          "vram_recommended": 16384,
+          "note": "FP8 quantized. Recommended — best VRAM/quality tradeoff."
+        },
+        {
+          "id": "bf16",
+          "file": "flux-fill-dev-onereward-bf16.safetensors",
+          "url": "https://huggingface.co/yichengup/flux.1-fill-dev-OneReward/resolve/main/unet_bf16.safetensors",
+          "sha256": "1403db15d1d182776315922334b4412ca343a26c3c0d1c77793ceda4792b20e9",
+          "size": 23804921664,
+          "format": "safetensors",
+          "precision": "bf16",
+          "vram_required": 24576,
+          "vram_recommended": 32768
+        }
+      ],
+      "requires": [
+        {
+          "id": "clip-l",
+          "type": "text_encoder",
+          "reason": "CLIP-L text encoder for FLUX"
+        },
+        {
+          "id": "t5-xxl-fp8",
+          "type": "text_encoder",
+          "reason": "T5-XXL text encoder for FLUX"
+        },
+        {
+          "id": "flux-vae",
+          "type": "vae",
+          "reason": "FLUX VAE"
+        }
+      ],
+      "tags": [
+        "flux",
+        "inpainting",
+        "outpainting",
+        "fill",
+        "rlhf",
+        "onereward"
+      ],
+      "rating": 4.9,
+      "downloads": 1080,
+      "added": "2025-08-28",
+      "updated": "2025-08-28"
     },
     {
       "id": "flux-kontext-dev",
@@ -1528,8 +1702,8 @@
       "description": "VAE for all FLUX.2 models (Dev, Klein 4B, Klein 9B).\nDifferent from FLUX.1 VAE — do not mix them.\nShared across all FLUX.2 model variants.\n",
       "file": {
         "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors",
-        "sha256": "bb534d41e8e6f92dc8636b914489b7167aeb950418183ffc10768c573185683a",
-        "size": 336211292,
+        "sha256": "d64f3a68e1cc4f9f4e29b6e0da38a0204fe9a49f2d4053f0ec1fa1ca02f9c4b5",
+        "size": 336213556,
         "format": "safetensors"
       },
       "tags": [
@@ -1985,97 +2159,133 @@
     },
     {
       "id": "qwen-image",
-      "name": "Qwen Image",
+      "name": "Qwen Image 2512",
       "type": "diffusion_model",
       "architecture": "qwen-image",
-      "author": "Qwen / city96",
+      "author": "Qwen / unsloth",
       "license": "apache-2.0",
-      "homepage": "https://huggingface.co/Qwen/Qwen-Image",
-      "description": "Qwen Image — 20B parameter text-to-image generation model by Qwen (Alibaba).\nBased on Qwen 2.5 VL architecture. Generates high-quality images from text prompts.\nThis is the base text-to-image model, distinct from Qwen Image Edit which is\nspecialized for image editing tasks. Apache 2.0 license — free for commercial use.\nGGUF variants require the ComfyUI-GGUF custom node.\n",
+      "homepage": "https://huggingface.co/Qwen/Qwen-Image-2512",
+      "description": "Qwen Image 2512 — 20B parameter text-to-image generation model by Qwen (Alibaba).\nUpdated 2512 revision with improved quality over the original Qwen-Image.\nBased on Qwen 2.5 VL architecture. Generates high-quality images from text prompts.\nThis is the base text-to-image model, distinct from Qwen Image Edit which is\nspecialized for image editing tasks. Apache 2.0 license — free for commercial use.\nAvailable as GGUF quantizations (Q2_K through Q8_0) via unsloth Dynamic 2.0.\n",
       "variants": [
         {
           "id": "bf16",
-          "file": "qwen-image-BF16.gguf",
-          "url": "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-BF16.gguf",
-          "sha256": "ebb2508748bc52ee5756fa5f43a4da1818bd495a3068c8d1021909f004976107",
+          "file": "qwen-image-2512-BF16.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-BF16.gguf",
+          "sha256": "",
           "size": 40872114720,
           "format": "gguf",
           "precision": "bf16",
           "vram_required": 40960,
           "vram_recommended": 49152,
-          "note": "Full precision bf16 GGUF. Best quality, needs A100 40GB+."
+          "note": "Full precision bf16 GGUF (2512). Best quality, needs A100 40GB+."
         },
         {
           "id": "gguf-q8-0",
-          "file": "qwen-image-Q8_0.gguf",
-          "url": "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-Q8_0.gguf",
-          "sha256": "d4e13114622b523027ec358e4d806f5c3db34dbcbeafaf0ce2420999a343f81d",
+          "file": "qwen-image-2512-Q8_0.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q8_0.gguf",
+          "sha256": "",
           "size": 21761817120,
           "format": "gguf",
           "precision": "q8_0",
           "vram_required": 24576,
           "vram_recommended": 32768,
-          "note": "GGUF Q8_0 — best quantized quality."
+          "note": "GGUF Q8_0 (2512) — best quantized quality, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q6-k",
-          "file": "qwen-image-Q6_K.gguf",
-          "url": "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-Q6_K.gguf",
-          "sha256": "1a35a094d6da1f1b170afcd93174db71d2d74adc5f1c99b3595961be507e99a5",
+          "file": "qwen-image-2512-Q6_K.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q6_K.gguf",
+          "sha256": "",
           "size": 16824990240,
           "format": "gguf",
           "precision": "q6_k",
           "vram_required": 20480,
           "vram_recommended": 24576,
-          "note": "GGUF Q6_K — great quality/size balance."
+          "note": "GGUF Q6_K (2512) — great quality/size balance, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q5-k-m",
-          "file": "qwen-image-Q5_K_M.gguf",
-          "url": "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-Q5_K_M.gguf",
-          "sha256": "196c8c14aaef4febd18432e8775104313439b842b9383d0b7d0d1c13f7eeca55",
-          "size": 14934899232,
+          "file": "qwen-image-2512-Q5_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q5_K_M.gguf",
+          "sha256": "",
+          "size": 15000074784,
           "format": "gguf",
           "precision": "q5_k_m",
           "vram_required": 16384,
           "vram_recommended": 20480,
-          "note": "GGUF Q5_K_M — recommended for 16GB+ GPUs."
+          "note": "GGUF Q5_K_M (2512) — recommended for 16GB+ GPUs, unsloth Dynamic 2.0."
+        },
+        {
+          "id": "gguf-q5-k-s",
+          "file": "qwen-image-2512-Q5_K_S.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q5_K_S.gguf",
+          "sha256": "",
+          "size": 14298184224,
+          "format": "gguf",
+          "precision": "q5_k_s",
+          "vram_required": 16384,
+          "vram_recommended": 20480,
+          "note": "GGUF Q5_K_S (2512) — smaller Q5, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q4-k-m",
-          "file": "qwen-image-Q4_K_M.gguf",
-          "url": "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-Q4_K_M.gguf",
-          "sha256": "a3cb9363825152ce6b7430d5cd7fe47dc84cbe6a30c6baffa1ba32b938c1e866",
-          "size": 13065746976,
+          "file": "qwen-image-2512-Q4_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q4_K_M.gguf",
+          "sha256": "",
+          "size": 13244758560,
           "format": "gguf",
           "precision": "q4_k_m",
           "vram_required": 12288,
           "vram_recommended": 16384,
-          "note": "GGUF Q4_K_M — good for 12GB GPUs."
+          "note": "GGUF Q4_K_M (2512) — good for 12GB GPUs, unsloth Dynamic 2.0."
+        },
+        {
+          "id": "gguf-q4-k-s",
+          "file": "qwen-image-2512-Q4_K_S.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q4_K_S.gguf",
+          "sha256": "",
+          "size": 12268010016,
+          "format": "gguf",
+          "precision": "q4_k_s",
+          "vram_required": 12288,
+          "vram_recommended": 16384,
+          "note": "GGUF Q4_K_S (2512) — smaller Q4, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q3-k-m",
-          "file": "qwen-image-Q3_K_M.gguf",
-          "url": "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-Q3_K_M.gguf",
-          "sha256": "f08d9e2cdc411cff1ca228eb5e8ea4c449a285d92545f81d4007100064b2c017",
-          "size": 9679567392,
+          "file": "qwen-image-2512-Q3_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q3_K_M.gguf",
+          "sha256": "",
+          "size": 9932896800,
           "format": "gguf",
           "precision": "q3_k_m",
           "vram_required": 10240,
           "vram_recommended": 12288,
-          "note": "GGUF Q3_K_M — budget option. Uses dynamic precision on first/last layers."
+          "note": "GGUF Q3_K_M (2512) — budget option, unsloth Dynamic 2.0."
+        },
+        {
+          "id": "gguf-q3-k-s",
+          "file": "qwen-image-2512-Q3_K_S.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q3_K_S.gguf",
+          "sha256": "",
+          "size": 9223928352,
+          "format": "gguf",
+          "precision": "q3_k_s",
+          "vram_required": 10240,
+          "vram_recommended": 12288,
+          "note": "GGUF Q3_K_S (2512) — smaller Q3, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q2-k",
-          "file": "qwen-image-Q2_K.gguf",
-          "url": "https://huggingface.co/city96/Qwen-Image-gguf/resolve/main/qwen-image-Q2_K.gguf",
-          "sha256": "ab2ae71efaa260f45b6f503af18dd560c24b499e4ef674821bcb56dc312badfe",
-          "size": 7062518304,
+          "file": "qwen-image-2512-Q2_K.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q2_K.gguf",
+          "sha256": "",
+          "size": 7333837344,
           "format": "gguf",
           "precision": "q2_k",
           "vram_required": 8192,
           "vram_recommended": 10240,
-          "note": "GGUF Q2_K — smallest. Dynamic precision keeps it usable."
+          "note": "GGUF Q2_K (2512) — smallest, unsloth Dynamic 2.0."
         }
       ],
       "requires": [
@@ -2091,8 +2301,10 @@
         }
       ],
       "defaults": {
-        "steps": 30,
-        "cfg": 7.0
+        "steps": 25,
+        "cfg": 3.0,
+        "sampler": "euler",
+        "scheduler": "simple"
       },
       "cloud_available": true,
       "cloud_training": {
@@ -2121,7 +2333,7 @@
       "rating": 4.8,
       "downloads": 12000,
       "added": "2026-02-24",
-      "updated": "2026-02-24"
+      "updated": "2026-03-10"
     },
     {
       "id": "qwen-image-2512-lightning",
@@ -2249,7 +2461,10 @@
       "author": "InstantX",
       "license": "apache-2.0",
       "homepage": "https://huggingface.co/InstantX/Qwen-Image-ControlNet-Union",
-      "description": "ControlNet union model for Qwen Image by InstantX.\nSupports multiple control conditions in a single model: canny, depth, inpaint,\nlineart, softedge, normal, and openpose.\nWorks with the DiffSynth pipeline for structure-guided generation.\nUse with detailed prompts for best results.\n",
+      "base_models": [
+        "qwen-image"
+      ],
+      "description": "Unified ControlNet for Qwen-Image supporting 4 control types: canny,\nsoft edge, depth, and pose. 5 double blocks from the pretrained transformer.\nTrained from scratch for 50K steps on 10M images at 1328x1328.\nRecommended controlnet_conditioning_scale: 0.8-1.0 for all modes.\nUse detailed prompts, especially when including text elements.\n",
       "file": {
         "name": "diffusion_pytorch_model.safetensors",
         "url": "https://huggingface.co/InstantX/Qwen-Image-ControlNet-Union/resolve/main/diffusion_pytorch_model.safetensors",
@@ -2269,11 +2484,9 @@
         "controlnet",
         "canny",
         "depth",
-        "inpaint",
-        "openpose",
-        "lineart",
-        "union",
-        "comfyui"
+        "pose",
+        "softedge",
+        "union"
       ],
       "rating": 4.7,
       "added": "2026-03-09",
@@ -2283,11 +2496,11 @@
       "id": "qwen-image-edit",
       "name": "Qwen Image Edit",
       "type": "checkpoint",
-      "architecture": "qwen-image",
-      "author": "Comfy-Org / QuantStack",
+      "architecture": "qwen-image-edit",
+      "author": "Comfy-Org / unsloth",
       "license": "apache-2.0",
       "homepage": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI",
-      "description": "AI-powered image editing model based on Qwen 2.5 VL architecture.\nSupports outpainting, format/ratio changes, AI scene generation, and in-place enhancement.\nBest with 8 steps using Lightning LoRA, euler sampler, CFG 1.0.\nAvailable as native safetensors (bf16/fp8) or GGUF quantizations (Q2_K through Q8_0).\n",
+      "description": "AI-powered image editing model based on Qwen 2.5 VL architecture.\nSupports outpainting, format/ratio changes, AI scene generation, and in-place enhancement.\nBest with 8 steps using Lightning LoRA, euler sampler, CFG 1.0.\nNative safetensors are original 2509 (Comfy-Org). GGUF quantizations are the improved\n2511 \"Plus\" version (unsloth Dynamic 2.0) with significantly better instruction following.\n",
       "variants": [
         {
           "id": "bf16",
@@ -2375,34 +2588,34 @@
         },
         {
           "id": "gguf-q8-0",
-          "file": "Qwen_Image_Edit-Q8_0.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q8_0.gguf",
-          "sha256": "e875c08781c562182cdc64939aab70ccfae3c44d9484e3c3d9429bad8682cf71",
+          "file": "qwen-image-edit-2511-Q8_0.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q8_0.gguf",
+          "sha256": "",
           "size": 23405215744,
           "format": "gguf",
           "precision": "q8_0",
           "vram_required": 24576,
           "vram_recommended": 32768,
-          "note": "GGUF Q8_0 — best GGUF quality. Requires ComfyUI-GGUF custom node."
+          "note": "GGUF Q8_0 (2511) — best GGUF quality, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q6-k",
-          "file": "Qwen_Image_Edit-Q6_K.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q6_K.gguf",
-          "sha256": "2a6952b23262b881dfb681791482f00cbd4dc2f59016e55c14a09d5c2a9cc8b2",
+          "file": "qwen-image-edit-2511-Q6_K.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q6_K.gguf",
+          "sha256": "",
           "size": 18039808000,
           "format": "gguf",
           "precision": "q6_k",
           "vram_required": 20480,
           "vram_recommended": 24576,
-          "note": "GGUF Q6_K — good quality/size balance."
+          "note": "GGUF Q6_K (2511) — good quality/size balance, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q5-k-m",
-          "file": "Qwen_Image_Edit-Q5_K_M.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_K_M.gguf",
-          "sha256": "b398a64e4334c2d8cae676ce64534a38d3ebdd3d0878b57071620485e56211ce",
-          "size": 16000204800,
+          "file": "qwen-image-edit-2511-Q5_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_K_M.gguf",
+          "sha256": "",
+          "size": 15027501664,
           "format": "gguf",
           "precision": "q5_k_m",
           "vram_required": 16384,
@@ -2411,123 +2624,123 @@
         },
         {
           "id": "gguf-q5-k-s",
-          "file": "Qwen_Image_Edit-Q5_K_S.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_K_S.gguf",
-          "sha256": "286571d761951e43853a1cec129c741cc7f541fb70b203f4131c84cafd8585f0",
-          "size": 15140249600,
+          "file": "qwen-image-edit-2511-Q5_K_S.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_K_S.gguf",
+          "sha256": "",
+          "size": 14325611104,
           "format": "gguf",
           "precision": "q5_k_s",
           "vram_required": 16384,
           "vram_recommended": 20480,
-          "note": "GGUF Q5_K_S — smaller Q5 variant."
+          "note": "GGUF Q5_K_S (2511) — smaller Q5, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q5-0",
-          "file": "Qwen_Image_Edit-Q5_0.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_0.gguf",
-          "sha256": "a8ace3d71b9b8e87859b330923f2d40421116a4548ad5fff180fad730cb29352",
-          "size": 15461882880,
+          "file": "qwen-image-edit-2511-Q5_0.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_0.gguf",
+          "sha256": "",
+          "size": 14400813664,
           "format": "gguf",
           "precision": "q5_0",
           "vram_required": 16384,
           "vram_recommended": 20480,
-          "note": "GGUF Q5_0."
+          "note": "GGUF Q5_0 (2511), unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q5-1",
-          "file": "Qwen_Image_Edit-Q5_1.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_1.gguf",
-          "sha256": "4006179697444691f31e0fbb7a8beb6d373d1a0d6ff4f34a2e3efa5e8d9c0f85",
-          "size": 16536027136,
+          "file": "qwen-image-edit-2511-Q5_1.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_1.gguf",
+          "sha256": "",
+          "size": 15391717984,
           "format": "gguf",
           "precision": "q5_1",
           "vram_required": 16384,
           "vram_recommended": 20480,
-          "note": "GGUF Q5_1."
+          "note": "GGUF Q5_1 (2511), unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q4-k-m",
-          "file": "Qwen_Image_Edit-Q4_K_M.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q4_K_M.gguf",
-          "sha256": "bee346224c34ec00991aa1d75a0fd4c259c4ac375ad346edf4c3fff7ec30be1c",
-          "size": 14066032640,
+          "file": "qwen-image-edit-2511-Q4_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_K_M.gguf",
+          "sha256": "",
+          "size": 13244758624,
           "format": "gguf",
           "precision": "q4_k_m",
           "vram_required": 12288,
           "vram_recommended": 16384,
-          "note": "GGUF Q4_K_M — good for 12GB GPUs."
+          "note": "GGUF Q4_K_M (2511) — good for 12GB GPUs, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q4-k-s",
-          "file": "Qwen_Image_Edit-Q4_K_S.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q4_K_S.gguf",
-          "sha256": "44301250d40bfbe53c9d2b62028bab576c52605b471b1a11ea0f9f1036b19743",
-          "size": 12994428928,
+          "file": "qwen-image-edit-2511-Q4_K_S.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_K_S.gguf",
+          "sha256": "",
+          "size": 12410747488,
           "format": "gguf",
           "precision": "q4_k_s",
           "vram_required": 12288,
           "vram_recommended": 16384,
-          "note": "GGUF Q4_K_S — smaller Q4 variant."
+          "note": "GGUF Q4_K_S (2511) — smaller Q4, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q4-0",
-          "file": "Qwen_Image_Edit-Q4_0.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q4_0.gguf",
-          "sha256": "40d9298d5a7881afdf62e9bfa9581cbbe435fb2038448dde8f0a127a48c49fbb",
-          "size": 12776923136,
+          "file": "qwen-image-edit-2511-Q4_0.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_0.gguf",
+          "sha256": "",
+          "size": 11852773984,
           "format": "gguf",
           "precision": "q4_0",
           "vram_required": 12288,
           "vram_recommended": 16384,
-          "note": "GGUF Q4_0."
+          "note": "GGUF Q4_0 (2511), unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q4-1",
-          "file": "Qwen_Image_Edit-Q4_1.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q4_1.gguf",
-          "sha256": "55ed396b0ed764a5f237b87307ec0679e4d59b71e984ef61ea89d46457017eb5",
-          "size": 13743095808,
+          "file": "qwen-image-edit-2511-Q4_1.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_1.gguf",
+          "sha256": "",
+          "size": 12843678304,
           "format": "gguf",
           "precision": "q4_1",
           "vram_required": 12288,
           "vram_recommended": 16384,
-          "note": "GGUF Q4_1."
+          "note": "GGUF Q4_1 (2511), unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q3-k-m",
-          "file": "Qwen_Image_Edit-Q3_K_M.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q3_K_M.gguf",
-          "sha256": "056411f536e5b6ef6efa08d3c773911d9ec0945dbfce9be0f43c5519c525b3ee",
-          "size": 10394116096,
+          "file": "qwen-image-edit-2511-Q3_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q3_K_M.gguf",
+          "sha256": "",
+          "size": 9920805472,
           "format": "gguf",
           "precision": "q3_k_m",
           "vram_required": 10240,
           "vram_recommended": 12288,
-          "note": "GGUF Q3_K_M — for 10GB+ GPUs. Noticeable quality reduction."
+          "note": "GGUF Q3_K_M (2511) — for 10GB+ GPUs, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q3-k-s",
-          "file": "Qwen_Image_Edit-Q3_K_S.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q3_K_S.gguf",
-          "sha256": "c2e82411c73d1cc98db87bfc640381eb211f9c28ba57e943e3fe71283cf97cf6",
-          "size": 9609625600,
+          "file": "qwen-image-edit-2511-Q3_K_S.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q3_K_S.gguf",
+          "sha256": "",
+          "size": 9218914912,
           "format": "gguf",
           "precision": "q3_k_s",
           "vram_required": 10240,
           "vram_recommended": 12288,
-          "note": "GGUF Q3_K_S — smaller Q3 variant."
+          "note": "GGUF Q3_K_S (2511) — smaller Q3, unsloth Dynamic 2.0."
         },
         {
           "id": "gguf-q2-k",
-          "file": "Qwen_Image_Edit-Q2_K.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q2_K.gguf",
-          "sha256": "a449446a0fedad1949032f32f70ef5f8514e699ad0c3f27d8ab04b9f87b6d992",
-          "size": 7580321792,
+          "file": "qwen-image-edit-2511-Q2_K.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q2_K.gguf",
+          "sha256": "",
+          "size": 7468022368,
           "format": "gguf",
           "precision": "q2_k",
           "vram_required": 8192,
           "vram_recommended": 10240,
-          "note": "GGUF Q2_K — minimum quality. Fits on 8GB GPUs but significant quality loss."
+          "note": "GGUF Q2_K (2511) — minimum quality, unsloth Dynamic 2.0."
         }
       ],
       "requires": [
@@ -2543,8 +2756,8 @@
         }
       ],
       "defaults": {
-        "steps": 8,
-        "cfg": 1.0,
+        "steps": 50,
+        "cfg": 4.0,
         "sampler": "euler",
         "scheduler": "simple"
       },
@@ -2559,7 +2772,7 @@
       "rating": 4.8,
       "downloads": 275000,
       "added": "2025-07-01",
-      "updated": "2026-01-15"
+      "updated": "2026-03-10"
     },
     {
       "id": "qwen-image-edit-lightning",
@@ -2717,6 +2930,94 @@
       "downloads": 275000,
       "added": "2025-07-01",
       "updated": "2025-07-01"
+    },
+    {
+      "id": "qwen25-vl-3b",
+      "name": "Qwen2.5-VL 3B Instruct",
+      "type": "vision_language",
+      "architecture": "qwen2.5-vl",
+      "author": "Qwen",
+      "license": "Apache-2.0",
+      "homepage": "https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct",
+      "description": "Qwen2.5-VL 3B — vision-language model for image understanding, grounding, captioning, and OCR.\n3.8B parameters, runs on 8GB consumer GPUs in fp16. Supports text-grounded object detection\n(find objects by name), detailed captioning, automatic tagging, and text extraction.\nUsed by modl ground, modl describe, and modl tag primitives.\n",
+      "huggingface_repo": "Qwen/Qwen2.5-VL-3B-Instruct",
+      "tags": [
+        "vision-language",
+        "grounding",
+        "captioning",
+        "tagging",
+        "ocr",
+        "qwen",
+        "analysis"
+      ],
+      "added": "2026-03-14",
+      "updated": "2026-03-14"
+    },
+    {
+      "id": "qwen25-vl-7b",
+      "name": "Qwen2.5-VL 7B Instruct",
+      "type": "vision_language",
+      "architecture": "qwen2.5-vl",
+      "author": "Qwen",
+      "license": "Apache-2.0",
+      "homepage": "https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct",
+      "description": "Qwen2.5-VL 7B — larger vision-language model for higher quality grounding,\ncaptioning, and OCR. 8.3B parameters, needs ~16GB VRAM in fp16.\nMore accurate than the 3B variant, especially for complex scenes\nand fine-grained object detection. Use --model qwen25-vl-7b for quality.\n",
+      "huggingface_repo": "Qwen/Qwen2.5-VL-7B-Instruct",
+      "tags": [
+        "vision-language",
+        "grounding",
+        "captioning",
+        "tagging",
+        "ocr",
+        "qwen",
+        "analysis"
+      ],
+      "added": "2026-03-14",
+      "updated": "2026-03-14"
+    },
+    {
+      "id": "qwen3-vl-2b",
+      "name": "Qwen3-VL 2B Instruct",
+      "type": "vision_language",
+      "architecture": "qwen3-vl",
+      "author": "Qwen",
+      "license": "Apache-2.0",
+      "homepage": "https://huggingface.co/Qwen/Qwen3-VL-2B-Instruct",
+      "description": "Qwen3-VL 2B — vision-language model for image understanding, grounding, captioning, and OCR.\n2B parameters, runs on 4GB consumer GPUs in fp16. Supports text-grounded object detection\n(find objects by name), detailed captioning, automatic tagging, and text extraction.\nDefault model for modl ground, modl describe, and modl vl-tag primitives.\n",
+      "huggingface_repo": "Qwen/Qwen3-VL-2B-Instruct",
+      "tags": [
+        "vision-language",
+        "grounding",
+        "captioning",
+        "tagging",
+        "ocr",
+        "qwen",
+        "analysis"
+      ],
+      "added": "2026-03-14",
+      "updated": "2026-03-14"
+    },
+    {
+      "id": "qwen3-vl-8b",
+      "name": "Qwen3-VL 8B Instruct",
+      "type": "vision_language",
+      "architecture": "qwen3-vl",
+      "author": "Qwen",
+      "license": "Apache-2.0",
+      "homepage": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct",
+      "description": "Qwen3-VL 8B — larger vision-language model for higher quality grounding,\ncaptioning, and OCR. 8B parameters, needs ~16GB VRAM in fp16.\nMore accurate than the 2B variant, especially for complex scenes\nand fine-grained object detection. Use --model qwen3-vl-8b for quality.\n",
+      "huggingface_repo": "Qwen/Qwen3-VL-8B-Instruct",
+      "tags": [
+        "vision-language",
+        "grounding",
+        "captioning",
+        "tagging",
+        "ocr",
+        "qwen",
+        "analysis"
+      ],
+      "added": "2026-03-14",
+      "updated": "2026-03-14"
     },
     {
       "id": "realesrgan-x4plus",
@@ -3062,6 +3363,58 @@
       "updated": "2024-06-01"
     },
     {
+      "id": "sdxl-controlnet-union",
+      "name": "ControlNet Union (SDXL)",
+      "type": "controlnet",
+      "architecture": "sdxl",
+      "author": "xinsir",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/xinsir/controlnet-union-sdxl-1.0",
+      "description": "Unified ControlNet for SDXL by xinsir. Supports multiple control conditions\nin a single model: canny, depth, pose, softedge, tile, scribble, hed,\nmlsd, normal, segmentation, inpaint, and outpaint.\n",
+      "base_models": [
+        "sdxl-base-1.0"
+      ],
+      "variants": [
+        {
+          "id": "standard",
+          "file": "diffusion_pytorch_model.safetensors",
+          "url": "https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors",
+          "sha256": "a9e13fd61f3193887791c8a0dd07a07202174dc47d5ddaea94ea1344f07c7467",
+          "size": 2512030408,
+          "format": "safetensors"
+        },
+        {
+          "id": "promax",
+          "file": "diffusion_pytorch_model_promax.safetensors",
+          "url": "https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model_promax.safetensors",
+          "sha256": "9fae2e50cb431bfcbe05822b59ec2228df545ef27f711dea8949e9f4ed9f7cdc",
+          "size": 2513342408,
+          "format": "safetensors"
+        }
+      ],
+      "requires": [
+        {
+          "id": "sdxl-base-1.0",
+          "type": "checkpoint",
+          "reason": "Requires SDXL as the base model"
+        }
+      ],
+      "tags": [
+        "sdxl",
+        "controlnet",
+        "canny",
+        "depth",
+        "pose",
+        "tile",
+        "union",
+        "comfyui"
+      ],
+      "rating": 4.7,
+      "downloads": 126000,
+      "added": "2026-03-15",
+      "updated": "2026-03-15"
+    },
+    {
       "id": "sdxl-refiner-1.0",
       "name": "SDXL Refiner 1.0",
       "type": "checkpoint",
@@ -3169,7 +3522,7 @@
       "description": "Fixed SDXL VAE that works correctly in fp16 precision.\nThe original SDXL VAE produces NaN values in fp16 mode — this version\nfixes that issue. Recommended for all SDXL workflows.\n",
       "file": {
         "url": "https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/diffusion_pytorch_model.safetensors",
-        "sha256": "63aeecb90ff7bc1c115395962d3e803571385b61938377bc7089b36e81e92e2e",
+        "sha256": "1b909373b28f2137098b0fd9dbc6f97f8410854f31f84ddc9fa04b077b0ace2c",
         "size": 334643268,
         "format": "safetensors"
       },
@@ -3901,6 +4254,18 @@
           "note": "Full precision bf16. Best quality."
         },
         {
+          "id": "fp8",
+          "file": "z_image_turbo_fp8_e4m3fn.safetensors",
+          "url": "https://huggingface.co/drbaph/Z-Image-Turbo-FP8/resolve/main/z_image_turbo_fp8_e4m3fn.safetensors",
+          "sha256": "3fe5a273184d06510d2e7bc9f24b3091e7f4c9e82ff23993aee0f35e5733715a",
+          "size": 6603515904,
+          "format": "safetensors",
+          "precision": "fp8",
+          "vram_required": 8192,
+          "vram_recommended": 12288,
+          "note": "FP8 e4m3fn quantization. Half the VRAM of bf16, ideal for ControlNet on 24GB."
+        },
+        {
           "id": "nvfp4",
           "file": "z_image_turbo_nvfp4.safetensors",
           "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_nvfp4.safetensors",
@@ -4093,6 +4458,68 @@
       "rating": 4.6,
       "added": "2025-08-01",
       "updated": "2026-03-08"
+    },
+    {
+      "id": "z-image-turbo-controlnet-union-2.1",
+      "name": "Z-Image-Turbo Fun ControlNet Union 2.1",
+      "type": "controlnet",
+      "architecture": "z-image",
+      "author": "alibaba-pai",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union-2.1",
+      "description": "ControlNet union model v2.1 for Z-Image-Turbo with 8-step distillation.\nSupports Canny, HED, Depth, Pose, MLSD, Scribble, and Gray control conditions.\nLatest 2602 version adds gray control mode.\nAdjust control_context_scale (0.65-1.00) for best results.\nUse detailed prompts for stability.\n\nAvailable in full (15 control layers, stronger control) and lite\n(3 control layers, more natural results, lower VRAM) variants.\n",
+      "base_models": [
+        "z-image-turbo"
+      ],
+      "variants": [
+        {
+          "id": "full-8steps",
+          "file": "Z-Image-Turbo-Fun-Controlnet-Union-2.1-2602-8steps.safetensors",
+          "url": "https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union-2.1/resolve/main/Z-Image-Turbo-Fun-Controlnet-Union-2.1-2602-8steps.safetensors",
+          "sha256": "d1251cc7bc3486bc61d25c3be498ef394c31c85ddf4ee9137d2e933411f4a689",
+          "size": 6712485600,
+          "format": "safetensors",
+          "precision": "bf16",
+          "vram_required": 8192,
+          "vram_recommended": 16384,
+          "note": "Full 15-layer controlnet. Strongest control, best detail preservation. Needs ~7GB VRAM."
+        },
+        {
+          "id": "lite-8steps",
+          "file": "Z-Image-Turbo-Fun-Controlnet-Union-2.1-lite-2602-8steps.safetensors",
+          "url": "https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union-2.1/resolve/main/Z-Image-Turbo-Fun-Controlnet-Union-2.1-lite-2602-8steps.safetensors",
+          "sha256": "3ea098db9bd145be525c7e2366920b6d76c5ffd46b3d7aa8169bbc943fdaee35",
+          "size": 2169413632,
+          "format": "safetensors",
+          "precision": "bf16",
+          "vram_required": 2048,
+          "vram_recommended": 4096,
+          "note": "Lite 3-layer controlnet. Natural results, fits on 24GB with bf16 base model. ~2GB VRAM."
+        }
+      ],
+      "requires": [
+        {
+          "id": "z-image-turbo",
+          "type": "diffusion_model",
+          "reason": "Requires Z-Image-Turbo as the base diffusion model"
+        }
+      ],
+      "tags": [
+        "z-image",
+        "controlnet",
+        "canny",
+        "depth",
+        "pose",
+        "hed",
+        "mlsd",
+        "scribble",
+        "gray",
+        "union",
+        "comfyui"
+      ],
+      "rating": 4.8,
+      "added": "2026-03-14",
+      "updated": "2026-03-14"
     },
     {
       "id": "z-image-turbo-distill-lora",

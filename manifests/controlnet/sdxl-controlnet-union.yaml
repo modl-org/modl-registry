@@ -1,0 +1,48 @@
+id: sdxl-controlnet-union
+name: "ControlNet Union (SDXL)"
+type: controlnet
+architecture: sdxl
+author: xinsir
+license: apache-2.0
+homepage: https://huggingface.co/xinsir/controlnet-union-sdxl-1.0
+description: |
+  Unified ControlNet for SDXL by xinsir. Supports multiple control conditions
+  in a single model: canny, depth, pose, softedge, tile, scribble, hed,
+  mlsd, normal, segmentation, inpaint, and outpaint.
+
+base_models: [sdxl-base-1.0]
+
+variants:
+  - id: standard
+    file: diffusion_pytorch_model.safetensors
+    url: https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors
+    sha256: "a9e13fd61f3193887791c8a0dd07a07202174dc47d5ddaea94ea1344f07c7467"
+    size: 2512030408
+    format: safetensors
+
+  - id: promax
+    file: diffusion_pytorch_model_promax.safetensors
+    url: https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model_promax.safetensors
+    sha256: "9fae2e50cb431bfcbe05822b59ec2228df545ef27f711dea8949e9f4ed9f7cdc"
+    size: 2513342408
+    format: safetensors
+
+requires:
+  - id: sdxl-base-1.0
+    type: checkpoint
+    reason: "Requires SDXL as the base model"
+
+tags:
+  - sdxl
+  - controlnet
+  - canny
+  - depth
+  - pose
+  - tile
+  - union
+  - comfyui
+
+rating: 4.7
+downloads: 126000
+added: "2026-03-15"
+updated: "2026-03-15"
