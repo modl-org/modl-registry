@@ -36,6 +36,17 @@ variants:
     note: "Undistilled base. Better for fine-tuning and maximum flexibility."
 
   - id: bf16
+    file: flux-2-klein-4b.safetensors
+    url: https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/resolve/main/flux-2-klein-4b.safetensors
+    sha256: "ec3d4e733a771f61c052fb4856c48b336c55eaf2c65487c2a1faeb9bbda7a343"
+    size: 7751105712
+    format: safetensors
+    precision: bf16
+    vram_required: 10240
+    vram_recommended: 12288
+    note: "Full precision bf16 safetensors. Best quality, MPS-compatible."
+
+  - id: bf16-gguf
     file: flux-2-klein-4b-BF16.gguf
     url: https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/resolve/main/flux-2-klein-4b-BF16.gguf
     sha256: "45e92cdad39270a6b4c6055daad75f5817c5ec81a93a7622082342b45e26a53c"
@@ -44,7 +55,7 @@ variants:
     precision: bf16
     vram_required: 10240
     vram_recommended: 12288
-    note: "Full precision bf16 GGUF. Best quality."
+    note: "Full precision bf16 in GGUF container."
 
   - id: gguf-q8-0
     file: flux-2-klein-4b-Q8_0.gguf
