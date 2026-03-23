@@ -2,7 +2,7 @@ id: qwen-image
 name: "Qwen Image 2512"
 type: diffusion_model
 architecture: qwen-image
-author: Qwen / unsloth
+author: Qwen / Comfy-Org / unsloth
 license: apache-2.0
 homepage: https://huggingface.co/Qwen/Qwen-Image-2512
 description: |
@@ -11,24 +11,48 @@ description: |
   Based on Qwen 2.5 VL architecture. Generates high-quality images from text prompts.
   This is the base text-to-image model, distinct from Qwen Image Edit which is
   specialized for image editing tasks. Apache 2.0 license — free for commercial use.
-  Available as GGUF quantizations (Q2_K through Q8_0) via unsloth Dynamic 2.0.
+  Available as native safetensors (Comfy-Org) and GGUF quantizations (unsloth Dynamic 2.0).
 
 variants:
+  # --- Native safetensors (Comfy-Org, 2512 version) ---
   - id: bf16
+    file: qwen_image_2512_bf16.safetensors
+    url: https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_2512_bf16.safetensors
+    sha256: "cbf55390fff27dbc785046d7007b04e0c5dd7421e7ef128f2831eacb53a8e075"
+    size: 40861031488
+    format: safetensors
+    precision: bf16
+    vram_required: 40960
+    vram_recommended: 49152
+    note: "Full precision bf16 (2512). Best quality, needs A100 40GB+."
+
+  - id: fp8
+    file: qwen_image_2512_fp8_e4m3fn.safetensors
+    url: https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_2512_fp8_e4m3fn.safetensors
+    sha256: "5dc80554d5d83390046a2f4a94ece06afb7700bf7b0aaf8bde9769793875876b"
+    size: 20430679144
+    format: safetensors
+    precision: fp8-e4m3fn
+    vram_required: 20480
+    vram_recommended: 24576
+    note: "fp8 quantized (2512). Good balance of quality vs VRAM."
+
+  # --- GGUF quantizations (unsloth Dynamic 2.0, 2512 version) ---
+  - id: gguf-bf16
     file: qwen-image-2512-BF16.gguf
     url: https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-BF16.gguf
-    sha256: ""
+    sha256: "dbcda31b4852c4e31d374b51f5e29d87fb9b31136c537010282d50f0ca2436b9"
     size: 40872114720
     format: gguf
     precision: bf16
     vram_required: 40960
     vram_recommended: 49152
-    note: "Full precision bf16 GGUF (2512). Best quality, needs A100 40GB+."
+    note: "Full precision bf16 GGUF (2512)."
 
   - id: gguf-q8-0
     file: qwen-image-2512-Q8_0.gguf
     url: https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q8_0.gguf
-    sha256: ""
+    sha256: "e285a0692582acf09bb4086d9b120eb0e357c4386565d169a033cb968c6fa9a5"
     size: 21761817120
     format: gguf
     precision: q8_0
@@ -39,7 +63,7 @@ variants:
   - id: gguf-q6-k
     file: qwen-image-2512-Q6_K.gguf
     url: https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q6_K.gguf
-    sha256: ""
+    sha256: "58c7fcea3d29eaee4dbe77041764a7de3ffe449f9758c8bc459f0b22a09536cf"
     size: 16824990240
     format: gguf
     precision: q6_k
@@ -50,7 +74,7 @@ variants:
   - id: gguf-q5-k-m
     file: qwen-image-2512-Q5_K_M.gguf
     url: https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q5_K_M.gguf
-    sha256: ""
+    sha256: "e9ea2c513cf25645829fcccbd0882e821b858f4fabfb48ae1b5f103da68ecd0f"
     size: 15000074784
     format: gguf
     precision: q5_k_m
@@ -61,7 +85,7 @@ variants:
   - id: gguf-q5-k-s
     file: qwen-image-2512-Q5_K_S.gguf
     url: https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q5_K_S.gguf
-    sha256: ""
+    sha256: "11404689c287be4f497704e177c6a2d3dc94cf7bf3ce79c6358877c0011d4355"
     size: 14298184224
     format: gguf
     precision: q5_k_s
@@ -72,7 +96,7 @@ variants:
   - id: gguf-q4-k-m
     file: qwen-image-2512-Q4_K_M.gguf
     url: https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q4_K_M.gguf
-    sha256: ""
+    sha256: "b2a5f6249eb58ee10c9e2ce8cb1114b89897db23de2fdf7dc49140800aa928fc"
     size: 13244758560
     format: gguf
     precision: q4_k_m
@@ -83,7 +107,7 @@ variants:
   - id: gguf-q4-k-s
     file: qwen-image-2512-Q4_K_S.gguf
     url: https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q4_K_S.gguf
-    sha256: ""
+    sha256: "8973959dbcc9d5775181f4dd351dd28064f3af8da0e28d7f5a999953c5358fc3"
     size: 12268010016
     format: gguf
     precision: q4_k_s
@@ -94,7 +118,7 @@ variants:
   - id: gguf-q3-k-m
     file: qwen-image-2512-Q3_K_M.gguf
     url: https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q3_K_M.gguf
-    sha256: ""
+    sha256: "db9842e93007b61d2e2a1ed5da52cf468cd1bb0c655a77926effa5220c2f1011"
     size: 9932896800
     format: gguf
     precision: q3_k_m
@@ -105,7 +129,7 @@ variants:
   - id: gguf-q3-k-s
     file: qwen-image-2512-Q3_K_S.gguf
     url: https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q3_K_S.gguf
-    sha256: ""
+    sha256: "53f96370cb07967dabeda531ce0838c5ebc3c5934903a683cbd65ba38f65fac4"
     size: 9223928352
     format: gguf
     precision: q3_k_s
@@ -116,7 +140,7 @@ variants:
   - id: gguf-q2-k
     file: qwen-image-2512-Q2_K.gguf
     url: https://huggingface.co/unsloth/Qwen-Image-2512-GGUF/resolve/main/qwen-image-2512-Q2_K.gguf
-    sha256: ""
+    sha256: "176678f0d4e6c613c5a318014f16d829438b8feec9454bde7b3070a520bf1728"
     size: 7333837344
     format: gguf
     precision: q2_k
@@ -152,11 +176,9 @@ tags:
   - qwen
   - text-to-image
   - 20b
-  - gguf
   - high-quality
-  - comfyui
 
 rating: 4.8
 downloads: 12000
 added: "2026-02-24"
-updated: "2026-03-10"
+updated: "2026-03-23"
