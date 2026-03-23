@@ -1,6 +1,7 @@
 id: ltx-2-vae
 name: "LTX-2 Video VAE"
 type: vae
+visibility: internal
 architecture: ltxv
 author: Lightricks
 license: ltx-video

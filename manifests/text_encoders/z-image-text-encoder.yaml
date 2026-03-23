@@ -1,6 +1,7 @@
 id: z-image-text-encoder
 name: "Z-Image Qwen 3 4B Text Encoder"
 type: text_encoder
+visibility: internal
 architecture: qwen3
 author: Comfy-Org
 license: apache-2.0

@@ -1,6 +1,7 @@
 id: sam-vit-base
 name: "Segment Anything (SAM) ViT-B"
 type: segmentation
+visibility: internal
 architecture: sam
 author: Meta
 license: Apache-2.0

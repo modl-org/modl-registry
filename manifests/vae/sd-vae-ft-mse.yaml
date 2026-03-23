@@ -1,6 +1,7 @@
 id: sd-vae-ft-mse
 name: "SD VAE ft-MSE"
 type: vae
+visibility: internal
 architecture: sd15
 author: stabilityai
 license: creativeml-openrail-m

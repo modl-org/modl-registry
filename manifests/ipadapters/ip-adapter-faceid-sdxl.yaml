@@ -1,6 +1,7 @@
 id: ip-adapter-faceid-sdxl
 name: "IP-Adapter FaceID (SDXL)"
 type: ipadapter
+visibility: internal
 architecture: sdxl
 author: h94
 license: apache-2.0

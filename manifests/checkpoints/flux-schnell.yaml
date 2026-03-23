@@ -42,6 +42,10 @@ requires:
   - id: clip-l
     type: text_encoder
     reason: "CLIP-L for secondary text encoding"
+  - id: flux-redux-dev
+    type: ipadapter
+    reason: "Required for --style-ref"
+    optional: true
 
 auth:
   provider: huggingface

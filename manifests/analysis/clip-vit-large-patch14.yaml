@@ -1,6 +1,7 @@
 id: clip-vit-large-patch14
 name: "CLIP ViT-L/14"
 type: analysis
+visibility: internal
 architecture: clip
 author: OpenAI
 license: MIT

@@ -25,7 +25,6 @@
         "text_encoder",
         "controlnet",
         "upscaler",
-        "embedding",
         "ipadapter",
         "segmentation",
         "vision_language",
@@ -262,6 +261,12 @@
       "type": "string",
       "format": "date",
       "description": "Date last updated (YYYY-MM-DD)."
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["user", "internal"],
+      "default": "user",
+      "description": "Whether this item is shown to users by default. Internal items (VAEs, text encoders, etc.) are hidden in modl ls and modl search unless --all is used."
     }
   },
   "oneOf": [
@@ -384,6 +389,11 @@
         "optional_variant": {
           "type": "string",
           "description": "Alternative variant that can substitute (e.g., fp8 version)."
+        },
+        "optional": {
+          "type": "boolean",
+          "default": false,
+          "description": "Lazy dependency — pulled on first use, not on modl pull."
         }
       }
     },

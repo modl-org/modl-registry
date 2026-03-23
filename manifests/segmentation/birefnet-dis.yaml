@@ -1,6 +1,7 @@
 id: birefnet-dis
 name: "BiRefNet DIS (Dichotomous Image Segmentation)"
 type: segmentation
+visibility: internal
 architecture: birefnet
 author: ViperYX
 license: mit

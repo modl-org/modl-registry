@@ -1,6 +1,7 @@
 id: laion-aesthetic-v2
 name: "LAION Aesthetic Predictor v2"
 type: analysis
+visibility: internal
 architecture: aesthetic-predictor
 author: LAION
 license: MIT

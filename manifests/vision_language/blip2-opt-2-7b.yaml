@@ -1,6 +1,7 @@
 id: blip2-opt-2-7b
 name: BLIP-2 OPT 2.7B
 type: vision_language
+visibility: internal
 architecture: blip2
 author: Salesforce
 license: MIT

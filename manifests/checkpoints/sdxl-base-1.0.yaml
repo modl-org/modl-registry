@@ -24,6 +24,10 @@ requires:
   - id: sdxl-vae-fp16-fix
     type: vae
     reason: "Recommended VAE for SDXL (fixes fp16 NaN issues)"
+  - id: ip-adapter-sdxl
+    type: ipadapter
+    reason: "Required for --style-ref"
+    optional: true
 
 defaults:
   steps: 30

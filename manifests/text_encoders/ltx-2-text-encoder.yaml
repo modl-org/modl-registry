@@ -1,6 +1,7 @@
 id: ltx-2-text-encoder
 name: "LTX-2 Embeddings Connector"
 type: text_encoder
+visibility: internal
 architecture: ltxv
 author: Lightricks
 license: ltx-video

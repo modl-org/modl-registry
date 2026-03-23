@@ -1,6 +1,7 @@
 id: insightface-buffalo-l
 name: "InsightFace Buffalo-L"
 type: analysis
+visibility: internal
 architecture: insightface
 author: InsightFace
 license: MIT

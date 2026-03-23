@@ -1,6 +1,7 @@
 id: flux2-qwen3-4b-text-encoder
 name: "FLUX.2 Qwen 3 4B Text Encoder"
 type: text_encoder
+visibility: internal
 architecture: qwen
 author: Comfy-Org
 license: apache-2.0
