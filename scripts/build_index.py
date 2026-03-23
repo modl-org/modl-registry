@@ -306,9 +306,10 @@ def build_index(output_path: Path = DEFAULT_OUTPUT) -> bool:
 
 
 if __name__ == "__main__":
-    output = Path(sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1] != "--output" else DEFAULT_OUTPUT
-    if len(sys.argv) > 2 and sys.argv[1] == "--output":
-        output = Path(sys.argv[2])
+    args = [a for a in sys.argv[1:] if a != "--strict"]
+    output = Path(args[0]) if len(args) > 0 and args[0] != "--output" else DEFAULT_OUTPUT
+    if len(args) > 1 and args[0] == "--output":
+        output = Path(args[1])
 
     print(f"Building index from {MANIFESTS_DIR}/")
     success = build_index(output)
