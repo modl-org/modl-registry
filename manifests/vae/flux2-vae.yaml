@@ -1,6 +1,7 @@
 id: flux2-vae
 name: "FLUX.2 VAE"
 type: vae
+visibility: internal
 architecture: flux2
 author: black-forest-labs / Comfy-Org
 license: apache-2.0

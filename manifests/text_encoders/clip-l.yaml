@@ -1,6 +1,7 @@
 id: clip-l
 name: "CLIP-L Text Encoder"
 type: text_encoder
+visibility: internal
 architecture: clip
 author: comfyanonymous
 license: apache-2.0

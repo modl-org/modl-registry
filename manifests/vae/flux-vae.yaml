@@ -1,6 +1,7 @@
 id: flux-vae
 name: "FLUX VAE (ae.safetensors)"
 type: vae
+visibility: internal
 architecture: flux
 author: black-forest-labs
 license: apache-2.0

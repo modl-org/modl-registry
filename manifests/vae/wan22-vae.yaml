@@ -1,6 +1,7 @@
 id: wan22-vae
 name: "Wan 2.2 VAE"
 type: vae
+visibility: internal
 architecture: wan
 author: Wan-AI
 license: apache-2.0

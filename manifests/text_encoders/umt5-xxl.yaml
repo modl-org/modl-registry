@@ -1,6 +1,7 @@
 id: umt5-xxl
 name: "UMT5-XXL Text Encoder"
 type: text_encoder
+visibility: internal
 architecture: umt5
 author: Comfy-Org
 license: apache-2.0

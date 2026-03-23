@@ -1,6 +1,7 @@
 id: t5-xxl-fp16
 name: "T5-XXL Text Encoder (fp16)"
 type: text_encoder
+visibility: internal
 architecture: t5
 author: comfyanonymous
 license: apache-2.0

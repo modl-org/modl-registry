@@ -1,6 +1,7 @@
 id: flux-redux-dev
 name: "FLUX.1 Redux Dev"
 type: ipadapter
+visibility: internal
 architecture: flux
 author: black-forest-labs
 license: flux-1-dev-non-commercial-license

@@ -1,6 +1,7 @@
 id: florence-2-large
 name: Florence-2 Large
 type: vision_language
+visibility: internal
 architecture: florence-2
 author: Microsoft
 license: MIT

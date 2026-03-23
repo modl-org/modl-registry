@@ -1,6 +1,7 @@
 id: sdxl-vae-fp16-fix
 name: "SDXL VAE (fp16 NaN fix)"
 type: vae
+visibility: internal
 architecture: sdxl
 author: madebyollin
 license: apache-2.0

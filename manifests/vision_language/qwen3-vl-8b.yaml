@@ -1,6 +1,7 @@
 id: qwen3-vl-8b
 name: Qwen3-VL 8B Instruct
 type: vision_language
+visibility: internal
 architecture: qwen3-vl
 author: Qwen
 license: Apache-2.0

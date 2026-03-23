@@ -1,6 +1,7 @@
 id: realesrgan-x4plus
 name: "RealESRGAN x4plus"
 type: upscaler
+visibility: internal
 author: xinntao
 license: bsd-3-clause
 homepage: https://github.com/xinntao/Real-ESRGAN

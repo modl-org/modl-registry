@@ -1,6 +1,7 @@
 id: bsrganx2
 name: "BSRGANx2 Upscaler"
 type: upscaler
+visibility: internal
 author: cszn
 license: apache-2.0
 homepage: https://github.com/cszn/BSRGAN

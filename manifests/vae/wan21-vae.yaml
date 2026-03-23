@@ -1,6 +1,7 @@
 id: wan21-vae
 name: "Wan 2.1 VAE"
 type: vae
+visibility: internal
 architecture: wan
 author: Wan-AI
 license: apache-2.0

@@ -1,6 +1,7 @@
 id: 4x-ultrasharp
 name: "4x UltraSharp Upscaler"
 type: upscaler
+visibility: internal
 author: Kim2091
 license: cc-by-nc-sa-4.0
 homepage: https://openmodeldb.info/models/4x-UltraSharp

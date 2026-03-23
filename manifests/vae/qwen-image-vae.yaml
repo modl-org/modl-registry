@@ -1,6 +1,7 @@
 id: qwen-image-vae
 name: "Qwen Image VAE"
 type: vae
+visibility: internal
 architecture: qwen-image
 author: Comfy-Org
 license: apache-2.0

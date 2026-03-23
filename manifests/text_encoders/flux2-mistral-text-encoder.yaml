@@ -1,6 +1,7 @@
 id: flux2-mistral-text-encoder
 name: "FLUX.2 Mistral 3 Small Text Encoder"
 type: text_encoder
+visibility: internal
 architecture: mistral
 author: Comfy-Org
 license: apache-2.0

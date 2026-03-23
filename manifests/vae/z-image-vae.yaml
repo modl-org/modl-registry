@@ -1,6 +1,7 @@
 id: z-image-vae
 name: "Z-Image VAE"
 type: vae
+visibility: internal
 architecture: z-image
 author: Comfy-Org
 license: apache-2.0

@@ -1,6 +1,7 @@
 id: codeformer
 name: "CodeFormer"
 type: analysis
+visibility: internal
 architecture: codeformer
 author: Shangchen Zhou
 license: Apache-2.0
