@@ -15,16 +15,28 @@ variants:
   # --- Original edit GGUF (QuantStack) — recommended default ---
   # GGUF is preferred over fp8 safetensors because the diffusers assembly
   # path for fp8 safetensors has conditioning issues with the edit model.
+  # Q5_K_M is default (not Q8_0) because it fits with Lightning LoRA on 24GB.
+  - id: gguf-q5-k-m
+    file: Qwen_Image_Edit-Q5_K_M.gguf
+    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_K_M.gguf
+    sha256: "b398a64e4334c2d8cae676ce64534a38d3ebdd3d0878b57071620485e56211ce"
+    size: 16003645440
+    format: gguf
+    precision: q5_k_m
+    vram_required: 16384
+    vram_recommended: 20480
+    note: "Original edit GGUF Q5_K_M — recommended default. Fits with Lightning LoRA on 24GB."
+
   - id: gguf-q8-0
     file: Qwen_Image_Edit-Q8_0.gguf
     url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q8_0.gguf
     sha256: "d881a65010b10f9a6aff6e0ab6d00eda0382ab939c833f7e1507b6ab6d309ac9"
-    size: 23405215744
+    size: 21761817120
     format: gguf
     precision: q8_0
     vram_required: 24576
     vram_recommended: 32768
-    note: "Original edit GGUF Q8_0 — best quality, recommended default."
+    note: "Original edit GGUF Q8_0 — best quality but OOMs with Lightning LoRA on 24GB."
 
   # --- Original edit model safetensors (Comfy-Org) ---
   - id: fp8
@@ -106,17 +118,7 @@ variants:
     vram_recommended: 24576
     note: "2511 Plus revision, mixed fp8."
 
-  # --- Original edit GGUF (QuantStack) ---
-  - id: gguf-q5-k-m
-    file: Qwen_Image_Edit-Q5_K_M.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_K_M.gguf
-    sha256: "b398a64e4334c2d8cae676ce64534a38d3ebdd3d0878b57071620485e56211ce"
-    size: 16003645440
-    format: gguf
-    precision: q5_k_m
-    vram_required: 16384
-    vram_recommended: 20480
-    note: "Original edit GGUF Q5_K_M — recommended for 16GB+ GPUs."
+  # --- Additional original edit GGUF variants (QuantStack) ---
 
   - id: gguf-q4-k-m
     file: Qwen_Image_Edit-Q4_K_M.gguf
