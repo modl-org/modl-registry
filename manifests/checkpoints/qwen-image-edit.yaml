@@ -12,6 +12,20 @@ description: |
   Three versions: original (2509 base), 2509 revision, and 2511 "Plus".
 
 variants:
+  # --- Original edit GGUF (QuantStack) — recommended default ---
+  # GGUF is preferred over fp8 safetensors because the diffusers assembly
+  # path for fp8 safetensors has conditioning issues with the edit model.
+  - id: gguf-q8-0
+    file: Qwen_Image_Edit-Q8_0.gguf
+    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q8_0.gguf
+    sha256: "d881a65010b10f9a6aff6e0ab6d00eda0382ab939c833f7e1507b6ab6d309ac9"
+    size: 23405215744
+    format: gguf
+    precision: q8_0
+    vram_required: 24576
+    vram_recommended: 32768
+    note: "Original edit GGUF Q8_0 — best quality, recommended default."
+
   # --- Original edit model safetensors (Comfy-Org) ---
   - id: fp8
     file: qwen_image_edit_fp8_e4m3fn.safetensors
@@ -22,7 +36,7 @@ variants:
     precision: fp8-e4m3fn
     vram_required: 20480
     vram_recommended: 24576
-    note: "Original edit model, fp8. Good balance of quality vs VRAM."
+    note: "Original edit model, fp8. May have conditioning issues — prefer GGUF."
 
   - id: bf16
     file: qwen_image_edit_bf16.safetensors
@@ -93,17 +107,6 @@ variants:
     note: "2511 Plus revision, mixed fp8."
 
   # --- Original edit GGUF (QuantStack) ---
-  - id: gguf-q8-0
-    file: Qwen_Image_Edit-Q8_0.gguf
-    url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q8_0.gguf
-    sha256: "d881a65010b10f9a6aff6e0ab6d00eda0382ab939c833f7e1507b6ab6d309ac9"
-    size: 23405215744
-    format: gguf
-    precision: q8_0
-    vram_required: 24576
-    vram_recommended: 32768
-    note: "Original edit GGUF Q8_0 — best GGUF quality."
-
   - id: gguf-q5-k-m
     file: Qwen_Image_Edit-Q5_K_M.gguf
     url: https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q5_K_M.gguf
