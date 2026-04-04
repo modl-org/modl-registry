@@ -1,0 +1,25 @@
+id: ltx2-vae
+name: "LTX 2.3 Video VAE"
+type: vae
+architecture: ltx2_vae
+author: Lightricks
+license: ltx-video
+homepage: https://huggingface.co/dg845/LTX-2.3-Diffusers
+description: |
+  AutoencoderKLLTX2 — video VAE for LTX Video 2.3.
+  32x spatial compression, 8x temporal compression.
+  Redesigned decoder with extra upsample block (4 stages vs 3 in LTX 2.0).
+
+variants:
+  - id: bf16
+    file: vae/
+    url: https://huggingface.co/dg845/LTX-2.3-Diffusers/resolve/main/vae/
+    sha256: "VERIFY_ltx2_vae"
+    size: 500000000
+    format: hf_directory
+    precision: bf16
+    vram_required: 2048
+
+tags: [ltx-2.3, vae, video]
+added: "2026-04-04"
+updated: "2026-04-04"

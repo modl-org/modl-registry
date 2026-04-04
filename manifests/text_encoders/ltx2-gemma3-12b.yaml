@@ -1,0 +1,24 @@
+id: ltx2-gemma3-12b
+name: "Gemma 3 12B (LTX 2.3)"
+type: text_encoder
+architecture: gemma3
+author: Google / Lightricks
+license: apache-2.0
+homepage: https://huggingface.co/dg845/LTX-2.3-Diffusers
+description: |
+  Gemma 3 12B text encoder used by LTX Video 2.3 for prompt processing.
+  Packaged in diffusers format. ~24GB bf16, ~12GB fp8.
+
+variants:
+  - id: bf16
+    file: text_encoder/
+    url: https://huggingface.co/dg845/LTX-2.3-Diffusers/resolve/main/text_encoder/
+    sha256: "VERIFY_gemma3_12b_bf16"
+    size: 24000000000
+    format: hf_directory
+    precision: bf16
+    vram_required: 24576
+
+tags: [gemma3, text-encoder, ltx-2.3, 12b]
+added: "2026-04-04"
+updated: "2026-04-04"
