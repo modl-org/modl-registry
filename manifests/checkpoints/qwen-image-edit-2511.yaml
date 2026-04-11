@@ -1,0 +1,90 @@
+id: qwen-image-edit-2511
+name: "Qwen Image Edit 2511"
+type: checkpoint
+architecture: qwen-image-edit-2511
+author: Qwen / Comfy-Org / unsloth
+license: apache-2.0
+homepage: https://huggingface.co/Qwen/Qwen-Image-Edit-2511
+description: |
+  Enhanced "Plus" revision of Qwen Image Edit with improved consistency,
+  reduced image drift, better character preservation, integrated LoRA
+  capabilities, and stronger geometric reasoning.
+  Uses QwenImageEditPlusPipeline (different from the original).
+
+variants:
+  # --- 2511 GGUF (unsloth Dynamic 2.0) — recommended for consumer GPUs ---
+  - id: gguf-q5-k-m
+    file: qwen-image-edit-2511-Q5_K_M.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_K_M.gguf
+    sha256: "c257def934d25562e1dcb7e8710eb5457a23c1ae7218f7a5ea3174e773421d29"
+    size: 15027501664
+    format: gguf
+    precision: q5_k_m
+    vram_required: 16384
+    vram_recommended: 20480
+    note: "GGUF Q5_K_M — recommended for 16GB+ GPUs. unsloth Dynamic 2.0."
+
+  - id: gguf-q8-0
+    file: qwen-image-edit-2511-Q8_0.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q8_0.gguf
+    sha256: "ab4f0622fb002fccaaa679a2ecce6fd1b3190d8ea28a5b7b2b17b8669bc24afa"
+    size: 23405215744
+    format: gguf
+    precision: q8_0
+    vram_required: 24576
+    vram_recommended: 32768
+    note: "GGUF Q8_0 — best GGUF quality. unsloth Dynamic 2.0."
+
+  - id: gguf-q4-k-m
+    file: qwen-image-edit-2511-Q4_K_M.gguf
+    url: https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_K_M.gguf
+    sha256: "8677bac90627adbbc11efab87b1870e701c4eb3689ee865a3de8ab81b705a723"
+    size: 13244758624
+    format: gguf
+    precision: q4_k_m
+    vram_required: 12288
+    vram_recommended: 16384
+    note: "GGUF Q4_K_M — good for 12GB GPUs. unsloth Dynamic 2.0."
+
+  # --- 2511 safetensors (Comfy-Org) ---
+  - id: bf16
+    file: qwen_image_edit_2511_bf16.safetensors
+    url: https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2511_bf16.safetensors
+    sha256: "ae42d927b5fac4f278b9a894554c727e619727a63622976f2d95625be4bce08c"
+    size: 40861031560
+    format: safetensors
+    precision: bf16
+    vram_required: 40960
+    vram_recommended: 49152
+    note: "2511 Plus, full bf16. Best quality, needs A100 40GB+."
+
+  - id: fp8mixed
+    file: qwen_image_edit_2511_fp8mixed.safetensors
+    url: https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors
+    sha256: "c9fdc158e46d3b61ef75f21ae866ca2fe808bf4a53643120d1c1e87c19280a4e"
+    size: 20533762817
+    format: safetensors
+    precision: fp8-e4m3fn
+    vram_required: 20480
+    vram_recommended: 24576
+    note: "2511 Plus, mixed fp8. Sensitive layers kept in high precision."
+
+requires:
+  - id: qwen-image-vae
+    type: vae
+    reason: "Qwen Image Edit requires the Qwen-specific VAE"
+  - id: qwen-image-clip
+    type: text_encoder
+    reason: "Qwen 2.5 VL 7B text/vision encoder for prompt processing"
+
+defaults:
+  steps: 40
+  cfg: 4.0
+  sampler: euler
+  scheduler: simple
+
+tags: [qwen, image-editing, outpainting, scene-generation, comfyui, gguf, 2511]
+rating: 4.9
+downloads: 110000
+added: "2026-04-08"
+updated: "2026-04-08"

@@ -1,0 +1,59 @@
+id: qwen-image-edit-2511-lightning
+name: "Qwen Image Edit 2511 Lightning LoRA"
+type: lora
+author: lightx2v
+license: apache-2.0
+homepage: https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning
+description: |
+  Distillation LoRA for Qwen Image Edit 2511 that reduces inference from ~40 steps to 4-8 steps.
+  Trained specifically against the 2511 Plus model weights — use with qwen-image-edit-2511.
+  For the original model, use qwen-image-edit-lightning instead.
+
+architecture: qwen-image
+base_models: [qwen-image-edit-2511]
+
+variants:
+  - id: 4step-bf16
+    file: Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors
+    url: https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors
+    sha256: "22226e8d05d354bb356627d428809f5afd7819399b077238a2b70a82883a904f"
+    size: 849608296
+    format: safetensors
+    precision: bf16
+    note: "4-step, bf16. Fastest inference, half the size."
+
+  - id: 4step-fp32
+    file: Qwen-Image-Edit-2511-Lightning-4steps-V1.0-fp32.safetensors
+    url: https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-fp32.safetensors
+    sha256: ""
+    size: 1698951104
+    format: safetensors
+    precision: fp32
+    note: "4-step, fp32 weights."
+
+  - id: 8step-bf16
+    file: Qwen-Image-Edit-2511-Lightning-8steps-V1.0-bf16.safetensors
+    url: https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-8steps-V1.0-bf16.safetensors
+    sha256: ""
+    size: 849608296
+    format: safetensors
+    precision: bf16
+    note: "8-step, bf16. Better quality than 4-step."
+
+  - id: 8step-fp32
+    file: Qwen-Image-Edit-2511-Lightning-8steps-V1.0-fp32.safetensors
+    url: https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-8steps-V1.0-fp32.safetensors
+    sha256: ""
+    size: 1698951104
+    format: safetensors
+    precision: fp32
+    note: "8-step, fp32 weights."
+
+recommended_weight: 1.0
+weight_range: [0.8, 1.0]
+
+tags: [qwen, lora, lightning, distillation, fast-inference, 2511, edit]
+rating: 4.8
+downloads: 45000
+added: "2026-04-08"
+updated: "2026-04-08"
