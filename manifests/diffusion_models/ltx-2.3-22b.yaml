@@ -1,0 +1,68 @@
+id: ltx-2.3-22b
+name: "LTX Video 2.3 22B"
+type: diffusion_model
+architecture: ltx2_video
+author: Lightricks
+license: ltx-video
+homepage: https://huggingface.co/Lightricks/LTX-2.3
+description: |
+  LTX Video 2.3 — 22B parameter DiT for joint video+audio generation.
+  Supports text-to-video, image-to-video, keyframe conditioning.
+  768x512 base resolution, up to 20s at 24fps. Requires Gemma 3 12B text encoder.
+  Dev model: 30 steps, high quality.
+
+variants:
+  - id: fp8-dev
+    file: ltx-2.3-22b-dev-fp8.safetensors
+    url: https://huggingface.co/Lightricks/LTX-2.3-fp8/resolve/main/ltx-2.3-22b-dev-fp8.safetensors
+    sha256: "VERIFY_ltx23_dev_fp8"
+    size: 30508171264
+    format: safetensors
+    precision: fp8
+    vram_required: 36864
+  - id: fp8-distilled
+    file: ltx-2.3-22b-distilled-fp8.safetensors
+    url: https://huggingface.co/Lightricks/LTX-2.3-fp8/resolve/main/ltx-2.3-22b-distilled-fp8.safetensors
+    sha256: "VERIFY_ltx23_distilled_fp8"
+    size: 30927667200
+    format: safetensors
+    precision: fp8
+    vram_required: 36864
+  - id: gguf-q5-k-m
+    file: LTX-2.3-22B-Dev-Q5_K_M.gguf
+    url: https://huggingface.co/unsloth/LTX-2.3-GGUF/resolve/main/LTX-2.3-22B-Dev-Q5_K_M.gguf
+    sha256: "VERIFY_ltx23_q5km"
+    size: 16890724352
+    format: gguf
+    precision: q5_k_m
+    vram_required: 20480
+  - id: gguf-q4-k-m
+    file: LTX-2.3-22B-Dev-Q4_K_M.gguf
+    url: https://huggingface.co/unsloth/LTX-2.3-GGUF/resolve/main/LTX-2.3-22B-Dev-Q4_K_M.gguf
+    sha256: "VERIFY_ltx23_q4km"
+    size: 15016460288
+    format: gguf
+    precision: q4_k_m
+    vram_required: 16384
+  - id: gguf-q8-0
+    file: LTX-2.3-22B-Dev-Q8_0.gguf
+    url: https://huggingface.co/unsloth/LTX-2.3-GGUF/resolve/main/LTX-2.3-22B-Dev-Q8_0.gguf
+    sha256: "VERIFY_ltx23_q8"
+    size: 23940005888
+    format: gguf
+    precision: q8_0
+    vram_required: 28672
+
+requires:
+  - id: ltx2-gemma3-12b
+    type: text_encoder
+    reason: "Gemma 3 12B for prompt processing"
+  - id: ltx2-vae
+    type: vae
+    reason: "LTX 2.3 video VAE for decoding"
+
+tags: [ltx, ltx-2.3, video, text-to-video, image-to-video, 22b, audio]
+rating: 4.9
+downloads: 150000
+added: "2026-04-04"
+updated: "2026-04-04"

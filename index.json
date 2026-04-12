@@ -1,20 +1,20 @@
 {
   "version": 2,
-  "generated_at": "2026-03-28T14:32:44Z",
-  "total_count": 86,
+  "generated_at": "2026-04-12T16:44:17Z",
+  "total_count": 91,
   "type_counts": {
     "upscaler": 3,
     "segmentation": 2,
     "vision_language": 7,
-    "checkpoint": 10,
-    "text_encoder": 10,
+    "checkpoint": 11,
+    "text_encoder": 11,
     "analysis": 4,
-    "diffusion_model": 19,
+    "diffusion_model": 20,
     "controlnet": 10,
     "recipe": 4,
     "ipadapter": 3,
-    "vae": 9,
-    "lora": 5
+    "vae": 10,
+    "lora": 6
   },
   "cloud_available_count": 8,
   "schema_url": "https://registry.modl.run/schemas/manifest.schema.json",
@@ -2155,6 +2155,93 @@
       "updated": "2025-06-01"
     },
     {
+      "id": "ltx-2.3-22b",
+      "name": "LTX Video 2.3 22B",
+      "type": "diffusion_model",
+      "architecture": "ltx2_video",
+      "author": "Lightricks",
+      "license": "ltx-video",
+      "homepage": "https://huggingface.co/Lightricks/LTX-2.3",
+      "description": "LTX Video 2.3 — 22B parameter DiT for joint video+audio generation.\nSupports text-to-video, image-to-video, keyframe conditioning.\n768x512 base resolution, up to 20s at 24fps. Requires Gemma 3 12B text encoder.\nDev model: 30 steps, high quality.\n",
+      "variants": [
+        {
+          "id": "fp8-dev",
+          "file": "ltx-2.3-22b-dev-fp8.safetensors",
+          "url": "https://huggingface.co/Lightricks/LTX-2.3-fp8/resolve/main/ltx-2.3-22b-dev-fp8.safetensors",
+          "sha256": "VERIFY_ltx23_dev_fp8",
+          "size": 30508171264,
+          "format": "safetensors",
+          "precision": "fp8",
+          "vram_required": 36864
+        },
+        {
+          "id": "fp8-distilled",
+          "file": "ltx-2.3-22b-distilled-fp8.safetensors",
+          "url": "https://huggingface.co/Lightricks/LTX-2.3-fp8/resolve/main/ltx-2.3-22b-distilled-fp8.safetensors",
+          "sha256": "VERIFY_ltx23_distilled_fp8",
+          "size": 30927667200,
+          "format": "safetensors",
+          "precision": "fp8",
+          "vram_required": 36864
+        },
+        {
+          "id": "gguf-q5-k-m",
+          "file": "LTX-2.3-22B-Dev-Q5_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/LTX-2.3-GGUF/resolve/main/LTX-2.3-22B-Dev-Q5_K_M.gguf",
+          "sha256": "VERIFY_ltx23_q5km",
+          "size": 16890724352,
+          "format": "gguf",
+          "precision": "q5_k_m",
+          "vram_required": 20480
+        },
+        {
+          "id": "gguf-q4-k-m",
+          "file": "LTX-2.3-22B-Dev-Q4_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/LTX-2.3-GGUF/resolve/main/LTX-2.3-22B-Dev-Q4_K_M.gguf",
+          "sha256": "VERIFY_ltx23_q4km",
+          "size": 15016460288,
+          "format": "gguf",
+          "precision": "q4_k_m",
+          "vram_required": 16384
+        },
+        {
+          "id": "gguf-q8-0",
+          "file": "LTX-2.3-22B-Dev-Q8_0.gguf",
+          "url": "https://huggingface.co/unsloth/LTX-2.3-GGUF/resolve/main/LTX-2.3-22B-Dev-Q8_0.gguf",
+          "sha256": "VERIFY_ltx23_q8",
+          "size": 23940005888,
+          "format": "gguf",
+          "precision": "q8_0",
+          "vram_required": 28672
+        }
+      ],
+      "requires": [
+        {
+          "id": "ltx2-gemma3-12b",
+          "type": "text_encoder",
+          "reason": "Gemma 3 12B for prompt processing"
+        },
+        {
+          "id": "ltx2-vae",
+          "type": "vae",
+          "reason": "LTX 2.3 video VAE for decoding"
+        }
+      ],
+      "tags": [
+        "ltx",
+        "ltx-2.3",
+        "video",
+        "text-to-video",
+        "image-to-video",
+        "22b",
+        "audio"
+      ],
+      "rating": 4.9,
+      "downloads": 150000,
+      "added": "2026-04-04",
+      "updated": "2026-04-04"
+    },
+    {
       "id": "ltx-video-13b",
       "name": "LTX-Video 13B",
       "type": "diffusion_model",
@@ -2261,6 +2348,65 @@
       "downloads": 1400000,
       "added": "2024-12-01",
       "updated": "2025-04-01"
+    },
+    {
+      "id": "ltx2-gemma3-12b",
+      "name": "Gemma 3 12B (LTX 2.3)",
+      "type": "text_encoder",
+      "architecture": "gemma3",
+      "author": "Google / Lightricks",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/dg845/LTX-2.3-Diffusers",
+      "description": "Gemma 3 12B text encoder used by LTX Video 2.3 for prompt processing.\nPackaged in diffusers format. ~24GB bf16, ~12GB fp8.\n",
+      "variants": [
+        {
+          "id": "bf16",
+          "file": "text_encoder/",
+          "url": "https://huggingface.co/dg845/LTX-2.3-Diffusers/resolve/main/text_encoder/",
+          "sha256": "VERIFY_gemma3_12b_bf16",
+          "size": 24000000000,
+          "format": "hf_directory",
+          "precision": "bf16",
+          "vram_required": 24576
+        }
+      ],
+      "tags": [
+        "gemma3",
+        "text-encoder",
+        "ltx-2.3",
+        "12b"
+      ],
+      "added": "2026-04-04",
+      "updated": "2026-04-04"
+    },
+    {
+      "id": "ltx2-vae",
+      "name": "LTX 2.3 Video VAE",
+      "type": "vae",
+      "architecture": "ltx2_vae",
+      "author": "Lightricks",
+      "license": "ltx-video",
+      "homepage": "https://huggingface.co/dg845/LTX-2.3-Diffusers",
+      "description": "AutoencoderKLLTX2 — video VAE for LTX Video 2.3.\n32x spatial compression, 8x temporal compression.\nRedesigned decoder with extra upsample block (4 stages vs 3 in LTX 2.0).\n",
+      "variants": [
+        {
+          "id": "bf16",
+          "file": "vae/",
+          "url": "https://huggingface.co/dg845/LTX-2.3-Diffusers/resolve/main/vae/",
+          "sha256": "VERIFY_ltx2_vae",
+          "size": 500000000,
+          "format": "hf_directory",
+          "precision": "bf16",
+          "vram_required": 2048
+        }
+      ],
+      "tags": [
+        "ltx-2.3",
+        "vae",
+        "video"
+      ],
+      "added": "2026-04-04",
+      "updated": "2026-04-04"
     },
     {
       "id": "qwen-image",
@@ -2625,10 +2771,10 @@
       "name": "Qwen Image Edit",
       "type": "checkpoint",
       "architecture": "qwen-image-edit",
-      "author": "Qwen / Comfy-Org / QuantStack / unsloth",
+      "author": "Qwen / Comfy-Org / QuantStack",
       "license": "apache-2.0",
       "homepage": "https://huggingface.co/Qwen/Qwen-Image-Edit",
-      "description": "AI-powered image editing model based on Qwen 2.5 VL architecture.\nSupports instruction-based editing, outpainting, format/ratio changes,\nAI scene generation, and in-place enhancement.\nThree versions: original (2509 base), 2509 revision, and 2511 \"Plus\".\n",
+      "description": "Original AI-powered image editing model based on Qwen 2.5 VL architecture.\nSupports instruction-based editing, outpainting, format/ratio changes,\nAI scene generation, and in-place enhancement.\nFor improved consistency and less drift, use qwen-image-edit-2511 instead.\n",
       "variants": [
         {
           "id": "gguf-q5-k-m",
@@ -2640,7 +2786,7 @@
           "precision": "q5_k_m",
           "vram_required": 16384,
           "vram_recommended": 20480,
-          "note": "Original edit GGUF Q5_K_M — recommended default. Fits with Lightning LoRA on 24GB."
+          "note": "GGUF Q5_K_M — recommended default. Fits with Lightning LoRA on 24GB."
         },
         {
           "id": "gguf-q8-0",
@@ -2652,7 +2798,19 @@
           "precision": "q8_0",
           "vram_required": 24576,
           "vram_recommended": 32768,
-          "note": "Original edit GGUF Q8_0 — best quality but OOMs with Lightning LoRA on 24GB."
+          "note": "GGUF Q8_0 — best quality but OOMs with Lightning LoRA on 24GB."
+        },
+        {
+          "id": "gguf-q4-k-m",
+          "file": "Qwen_Image_Edit-Q4_K_M.gguf",
+          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q4_K_M.gguf",
+          "sha256": "bee346224c34ec00991aa1d75a0fd4c259c4ac375ad346edf4c3fff7ec30be1c",
+          "size": 14075047936,
+          "format": "gguf",
+          "precision": "q4_k_m",
+          "vram_required": 12288,
+          "vram_recommended": 16384,
+          "note": "GGUF Q4_K_M — good for 12GB GPUs."
         },
         {
           "id": "fp8",
@@ -2664,7 +2822,7 @@
           "precision": "fp8-e4m3fn",
           "vram_required": 20480,
           "vram_recommended": 24576,
-          "note": "Original edit model, fp8. May have conditioning issues — prefer GGUF."
+          "note": "Original edit model, fp8."
         },
         {
           "id": "bf16",
@@ -2677,114 +2835,6 @@
           "vram_required": 40960,
           "vram_recommended": 49152,
           "note": "Original edit model, full bf16. Best quality, needs A100 40GB+."
-        },
-        {
-          "id": "2509-fp8",
-          "file": "qwen_image_edit_2509_fp8_e4m3fn.safetensors",
-          "url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2509_fp8_e4m3fn.safetensors",
-          "sha256": "318568f61951ab9da21100c7b896e3c1da67f0d2efad6421545e022cfaa2b2b4",
-          "size": 20430698424,
-          "format": "safetensors",
-          "precision": "fp8-e4m3fn",
-          "vram_required": 20480,
-          "vram_recommended": 24576,
-          "note": "2509 revision, fp8. Improved over original."
-        },
-        {
-          "id": "2509-bf16",
-          "file": "qwen_image_edit_2509_bf16.safetensors",
-          "url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2509_bf16.safetensors",
-          "sha256": "94d4920e93f2efff2a4e3b51da0a8a25335d2fcec19e6771869450871b905e40",
-          "size": 40861031560,
-          "format": "safetensors",
-          "precision": "bf16",
-          "vram_required": 40960,
-          "vram_recommended": 49152,
-          "note": "2509 revision, full bf16."
-        },
-        {
-          "id": "2509-fp8mixed",
-          "file": "qwen_image_edit_2509_fp8mixed.safetensors",
-          "url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2509_fp8mixed.safetensors",
-          "sha256": "fc0ea1d69753df1b8723da1bb3c6c47c1eec2971df79ab87d62b4a2fbacb75b3",
-          "size": 20533762817,
-          "format": "safetensors",
-          "precision": "fp8-e4m3fn",
-          "vram_required": 20480,
-          "vram_recommended": 24576,
-          "note": "2509 revision, mixed fp8. Sensitive layers kept in high precision."
-        },
-        {
-          "id": "2511-bf16",
-          "file": "qwen_image_edit_2511_bf16.safetensors",
-          "url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2511_bf16.safetensors",
-          "sha256": "ae42d927b5fac4f278b9a894554c727e619727a63622976f2d95625be4bce08c",
-          "size": 40861031560,
-          "format": "safetensors",
-          "precision": "bf16",
-          "vram_required": 40960,
-          "vram_recommended": 49152,
-          "note": "2511 Plus revision, bf16. Better consistency + multi-image support."
-        },
-        {
-          "id": "2511-fp8mixed",
-          "file": "qwen_image_edit_2511_fp8mixed.safetensors",
-          "url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
-          "sha256": "c9fdc158e46d3b61ef75f21ae866ca2fe808bf4a53643120d1c1e87c19280a4e",
-          "size": 20533762817,
-          "format": "safetensors",
-          "precision": "fp8-e4m3fn",
-          "vram_required": 20480,
-          "vram_recommended": 24576,
-          "note": "2511 Plus revision, mixed fp8."
-        },
-        {
-          "id": "gguf-q4-k-m",
-          "file": "Qwen_Image_Edit-Q4_K_M.gguf",
-          "url": "https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q4_K_M.gguf",
-          "sha256": "bee346224c34ec00991aa1d75a0fd4c259c4ac375ad346edf4c3fff7ec30be1c",
-          "size": 14075047936,
-          "format": "gguf",
-          "precision": "q4_k_m",
-          "vram_required": 12288,
-          "vram_recommended": 16384,
-          "note": "Original edit GGUF Q4_K_M — good for 12GB GPUs."
-        },
-        {
-          "id": "2511-gguf-q8-0",
-          "file": "qwen-image-edit-2511-Q8_0.gguf",
-          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q8_0.gguf",
-          "sha256": "ab4f0622fb002fccaaa679a2ecce6fd1b3190d8ea28a5b7b2b17b8669bc24afa",
-          "size": 23405215744,
-          "format": "gguf",
-          "precision": "q8_0",
-          "vram_required": 24576,
-          "vram_recommended": 32768,
-          "note": "2511 GGUF Q8_0 — best GGUF quality, unsloth Dynamic 2.0."
-        },
-        {
-          "id": "2511-gguf-q5-k-m",
-          "file": "qwen-image-edit-2511-Q5_K_M.gguf",
-          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_K_M.gguf",
-          "sha256": "c257def934d25562e1dcb7e8710eb5457a23c1ae7218f7a5ea3174e773421d29",
-          "size": 15027501664,
-          "format": "gguf",
-          "precision": "q5_k_m",
-          "vram_required": 16384,
-          "vram_recommended": 20480,
-          "note": "2511 GGUF Q5_K_M — recommended for 16GB+ GPUs."
-        },
-        {
-          "id": "2511-gguf-q4-k-m",
-          "file": "qwen-image-edit-2511-Q4_K_M.gguf",
-          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_K_M.gguf",
-          "sha256": "8677bac90627adbbc11efab87b1870e701c4eb3689ee865a3de8ab81b705a723",
-          "size": 13244758624,
-          "format": "gguf",
-          "precision": "q4_k_m",
-          "vram_required": 12288,
-          "vram_recommended": 16384,
-          "note": "2511 GGUF Q4_K_M — good for 12GB GPUs, unsloth Dynamic 2.0."
         }
       ],
       "requires": [
@@ -2816,7 +2866,183 @@
       "rating": 4.8,
       "downloads": 275000,
       "added": "2025-07-01",
-      "updated": "2026-03-24"
+      "updated": "2026-04-08"
+    },
+    {
+      "id": "qwen-image-edit-2511",
+      "name": "Qwen Image Edit 2511",
+      "type": "checkpoint",
+      "architecture": "qwen-image-edit-2511",
+      "author": "Qwen / Comfy-Org / unsloth",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/Qwen/Qwen-Image-Edit-2511",
+      "description": "Enhanced \"Plus\" revision of Qwen Image Edit with improved consistency,\nreduced image drift, better character preservation, integrated LoRA\ncapabilities, and stronger geometric reasoning.\nUses QwenImageEditPlusPipeline (different from the original).\n",
+      "variants": [
+        {
+          "id": "gguf-q5-k-m",
+          "file": "qwen-image-edit-2511-Q5_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q5_K_M.gguf",
+          "sha256": "c257def934d25562e1dcb7e8710eb5457a23c1ae7218f7a5ea3174e773421d29",
+          "size": 15027501664,
+          "format": "gguf",
+          "precision": "q5_k_m",
+          "vram_required": 16384,
+          "vram_recommended": 20480,
+          "note": "GGUF Q5_K_M — recommended for 16GB+ GPUs. unsloth Dynamic 2.0."
+        },
+        {
+          "id": "gguf-q8-0",
+          "file": "qwen-image-edit-2511-Q8_0.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q8_0.gguf",
+          "sha256": "ab4f0622fb002fccaaa679a2ecce6fd1b3190d8ea28a5b7b2b17b8669bc24afa",
+          "size": 23405215744,
+          "format": "gguf",
+          "precision": "q8_0",
+          "vram_required": 24576,
+          "vram_recommended": 32768,
+          "note": "GGUF Q8_0 — best GGUF quality. unsloth Dynamic 2.0."
+        },
+        {
+          "id": "gguf-q4-k-m",
+          "file": "qwen-image-edit-2511-Q4_K_M.gguf",
+          "url": "https://huggingface.co/unsloth/Qwen-Image-Edit-2511-GGUF/resolve/main/qwen-image-edit-2511-Q4_K_M.gguf",
+          "sha256": "8677bac90627adbbc11efab87b1870e701c4eb3689ee865a3de8ab81b705a723",
+          "size": 13244758624,
+          "format": "gguf",
+          "precision": "q4_k_m",
+          "vram_required": 12288,
+          "vram_recommended": 16384,
+          "note": "GGUF Q4_K_M — good for 12GB GPUs. unsloth Dynamic 2.0."
+        },
+        {
+          "id": "bf16",
+          "file": "qwen_image_edit_2511_bf16.safetensors",
+          "url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2511_bf16.safetensors",
+          "sha256": "ae42d927b5fac4f278b9a894554c727e619727a63622976f2d95625be4bce08c",
+          "size": 40861031560,
+          "format": "safetensors",
+          "precision": "bf16",
+          "vram_required": 40960,
+          "vram_recommended": 49152,
+          "note": "2511 Plus, full bf16. Best quality, needs A100 40GB+."
+        },
+        {
+          "id": "fp8mixed",
+          "file": "qwen_image_edit_2511_fp8mixed.safetensors",
+          "url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
+          "sha256": "c9fdc158e46d3b61ef75f21ae866ca2fe808bf4a53643120d1c1e87c19280a4e",
+          "size": 20533762817,
+          "format": "safetensors",
+          "precision": "fp8-e4m3fn",
+          "vram_required": 20480,
+          "vram_recommended": 24576,
+          "note": "2511 Plus, mixed fp8. Sensitive layers kept in high precision."
+        }
+      ],
+      "requires": [
+        {
+          "id": "qwen-image-vae",
+          "type": "vae",
+          "reason": "Qwen Image Edit requires the Qwen-specific VAE"
+        },
+        {
+          "id": "qwen-image-clip",
+          "type": "text_encoder",
+          "reason": "Qwen 2.5 VL 7B text/vision encoder for prompt processing"
+        }
+      ],
+      "defaults": {
+        "steps": 40,
+        "cfg": 4.0,
+        "sampler": "euler",
+        "scheduler": "simple"
+      },
+      "tags": [
+        "qwen",
+        "image-editing",
+        "outpainting",
+        "scene-generation",
+        "comfyui",
+        "gguf",
+        2511
+      ],
+      "rating": 4.9,
+      "downloads": 110000,
+      "added": "2026-04-08",
+      "updated": "2026-04-08"
+    },
+    {
+      "id": "qwen-image-edit-2511-lightning",
+      "name": "Qwen Image Edit 2511 Lightning LoRA",
+      "type": "lora",
+      "author": "lightx2v",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning",
+      "description": "Distillation LoRA for Qwen Image Edit 2511 that reduces inference from ~40 steps to 4-8 steps.\nTrained specifically against the 2511 Plus model weights — use with qwen-image-edit-2511.\nFor the original model, use qwen-image-edit-lightning instead.\n",
+      "architecture": "qwen-image",
+      "base_models": [
+        "qwen-image-edit-2511"
+      ],
+      "variants": [
+        {
+          "id": "4step-bf16",
+          "file": "Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+          "url": "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+          "sha256": "22226e8d05d354bb356627d428809f5afd7819399b077238a2b70a82883a904f",
+          "size": 849608296,
+          "format": "safetensors",
+          "precision": "bf16",
+          "note": "4-step, bf16. Fastest inference, half the size."
+        },
+        {
+          "id": "4step-fp32",
+          "file": "Qwen-Image-Edit-2511-Lightning-4steps-V1.0-fp32.safetensors",
+          "url": "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-fp32.safetensors",
+          "sha256": "",
+          "size": 1698951104,
+          "format": "safetensors",
+          "precision": "fp32",
+          "note": "4-step, fp32 weights."
+        },
+        {
+          "id": "8step-bf16",
+          "file": "Qwen-Image-Edit-2511-Lightning-8steps-V1.0-bf16.safetensors",
+          "url": "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-8steps-V1.0-bf16.safetensors",
+          "sha256": "",
+          "size": 849608296,
+          "format": "safetensors",
+          "precision": "bf16",
+          "note": "8-step, bf16. Better quality than 4-step."
+        },
+        {
+          "id": "8step-fp32",
+          "file": "Qwen-Image-Edit-2511-Lightning-8steps-V1.0-fp32.safetensors",
+          "url": "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-8steps-V1.0-fp32.safetensors",
+          "sha256": "",
+          "size": 1698951104,
+          "format": "safetensors",
+          "precision": "fp32",
+          "note": "8-step, fp32 weights."
+        }
+      ],
+      "recommended_weight": 1.0,
+      "weight_range": [
+        0.8,
+        1.0
+      ],
+      "tags": [
+        "qwen",
+        "lora",
+        "lightning",
+        "distillation",
+        "fast-inference",
+        2511,
+        "edit"
+      ],
+      "rating": 4.8,
+      "downloads": 45000,
+      "added": "2026-04-08",
+      "updated": "2026-04-08"
     },
     {
       "id": "qwen-image-edit-lightning",
