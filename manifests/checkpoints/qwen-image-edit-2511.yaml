@@ -83,7 +83,7 @@ defaults:
   sampler: euler
   scheduler: simple
 
-tags: [qwen, image-editing, outpainting, scene-generation, comfyui, gguf, 2511]
+tags: [qwen, image-editing, outpainting, scene-generation, comfyui, gguf, "2511"]
 rating: 4.9
 downloads: 110000
 added: "2026-04-08"

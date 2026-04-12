@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-04-12T16:44:17Z",
+  "generated_at": "2026-04-12T16:45:48Z",
   "total_count": 91,
   "type_counts": {
     "upscaler": 3,
@@ -2964,7 +2964,7 @@
         "scene-generation",
         "comfyui",
         "gguf",
-        2511
+        "2511"
       ],
       "rating": 4.9,
       "downloads": 110000,
