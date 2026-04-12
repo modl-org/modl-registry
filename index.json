@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-04-12T16:45:48Z",
+  "generated_at": "2026-04-12T16:47:03Z",
   "total_count": 91,
   "type_counts": {
     "upscaler": 3,
@@ -3036,7 +3036,7 @@
         "lightning",
         "distillation",
         "fast-inference",
-        2511,
+        "2511",
         "edit"
       ],
       "rating": 4.8,

@@ -52,7 +52,7 @@ variants:
 recommended_weight: 1.0
 weight_range: [0.8, 1.0]
 
-tags: [qwen, lora, lightning, distillation, fast-inference, 2511, edit]
+tags: [qwen, lora, lightning, distillation, fast-inference, "2511", edit]
 rating: 4.8
 downloads: 45000
 added: "2026-04-08"
