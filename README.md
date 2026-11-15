@@ -2,7 +2,7 @@
 
 Model registry for [modl](https://github.com/modl-org/modl) — the CLI model manager for AI image generation.
 
-**[Website](https://modl.run)** · **[Browse Models](https://modl.run/models)** · **[CLI Docs](https://modl.run/docs)** · **[CLI Repo](https://github.com/modl-org/modl)**
+**[Website](https://modl.pedroalonso.net)** · **[Browse Models](https://modl.pedroalonso.net/models)** · **[CLI Docs](https://modl.pedroalonso.net/docs)** · **[CLI Repo](https://github.com/modl-org/modl)**
 
 This repository contains YAML manifest files that describe models, LoRAs, VAEs, text encoders, recipes, and other assets. The `modl` CLI fetches a compiled index from this registry to know what's available and how to download it.
 
@@ -21,16 +21,6 @@ This repository contains YAML manifest files that describe models, LoRAs, VAEs, 
 | Segmentation | 1 | BiRefNet DIS |
 | **Recipes** | **4** | **Flux Face, Flux Style, Flux Product, Z-Image Face** |
 
-### Cloud-Available Models
-
-These models are available on [modl cloud](https://modl.run/docs/cloud) for training and inference:
-
-| Model | Training GPU | Est. Time | Inference GPU |
-|-------|-------------|-----------|---------------|
-| FLUX.1 Schnell | A100 80GB | ~10 min | A10G |
-| FLUX.1 Dev | A100 80GB | ~25 min | A100 80GB |
-| Z-Image Turbo | A100 80GB | ~10 min | A10G |
-| Qwen Image | A100 80GB | ~15 min | A100 80GB |
 
 ## Recipes
 
