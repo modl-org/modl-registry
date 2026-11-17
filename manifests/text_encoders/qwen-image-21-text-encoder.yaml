@@ -1,0 +1,25 @@
+id: qwen-image-21-text-encoder
+name: "Qwen Image 2.1 Qwen3-VL 8B Text Encoder"
+type: text_encoder
+visibility: internal
+architecture: qwen3_vl
+author: Qwen
+license: qwen-research
+homepage: https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo
+description: |
+  Qwen3-VL-8B (bf16) text encoder of Qwen-Image-2.1, single file from the
+  official Turbo checkpoint (diffusers key layout). Identical weights in
+  Qwen-Image-2.1 and Qwen-Image-2.1-Turbo; it also reads the reference
+  images for edits.
+
+file:
+  url: https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo/resolve/main/text_encoder/model.safetensors
+  sha256: "a1eee8233f3063466dd3b06e857b0a2cf13a77c543908374771d51a546beb2e0"
+  size: 17534340584
+  format: safetensors
+
+tags: [qwen, text-encoder, qwen3-vl]
+rating: 5.0
+downloads: 0
+added: "2026-11-17"
+updated: "2026-11-17"
