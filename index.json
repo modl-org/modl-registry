@@ -1,19 +1,19 @@
 {
   "version": 2,
-  "generated_at": "2026-11-17T12:21:56Z",
-  "total_count": 104,
+  "generated_at": "2026-11-17T17:27:17Z",
+  "total_count": 108,
   "type_counts": {
     "upscaler": 3,
     "segmentation": 2,
     "vision_language": 7,
     "checkpoint": 11,
-    "text_encoder": 14,
+    "text_encoder": 15,
     "analysis": 4,
-    "diffusion_model": 25,
+    "diffusion_model": 27,
     "controlnet": 10,
     "recipe": 4,
     "ipadapter": 3,
-    "vae": 11,
+    "vae": 12,
     "lora": 10
   },
   "cloud_available_count": 8,
@@ -3186,6 +3186,167 @@
       "downloads": 12000,
       "added": "2026-02-24",
       "updated": "2026-03-23"
+    },
+    {
+      "id": "qwen-image-2-1",
+      "name": "Qwen Image 2.1",
+      "type": "diffusion_model",
+      "architecture": "qwen_image_21",
+      "author": "Qwen / Comfy-Org",
+      "license": "qwen-research",
+      "homepage": "https://huggingface.co/Qwen/Qwen-Image-2.1",
+      "description": "Qwen-Image-2.1 — a 7B single-stream DiT on a Qwen3-VL-8B text encoder. One\ncheckpoint generates, edits (up to 10 reference images) and produces\ntransparent RGBA images. Strong typography and portrait lighting. 40 steps\nat CFG 1 by default. Non-commercial: Qwen Research License.\nSingle file is the Comfy-Org repackage (SwiGLU gate/up fused; split at\nload time).\n",
+      "variants": [
+        {
+          "id": "bf16",
+          "file": "qwen_image_2.1_bf16.safetensors",
+          "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_bf16.safetensors",
+          "sha256": "89f4158d066cc33906a199fca85634f766892dd78f49b6698dabf187ac86c4bc",
+          "size": 14230280616,
+          "format": "safetensors",
+          "precision": "bf16",
+          "vram_required": 22528,
+          "vram_recommended": 24576,
+          "note": "bf16 — the 17.5GB text encoder is swapped in only for the prompt encode."
+        }
+      ],
+      "requires": [
+        {
+          "id": "qwen-image-21-text-encoder",
+          "type": "text_encoder",
+          "reason": "Qwen3-VL 8B text encoder (reads prompts and reference images)"
+        },
+        {
+          "id": "qwen-image-21-vae",
+          "type": "vae",
+          "reason": "Qwen-Image-2.1 VAE (16x, 64 channels, RGBA)"
+        }
+      ],
+      "defaults": {
+        "steps": 40,
+        "cfg": 1.0,
+        "sampler": "euler",
+        "scheduler": "flowmatch"
+      },
+      "tags": [
+        "qwen",
+        "text-to-image",
+        "image-editing",
+        "rgba",
+        "text-rendering",
+        "dit"
+      ],
+      "rating": 4.8,
+      "downloads": 0,
+      "added": "2026-11-17",
+      "updated": "2026-11-17"
+    },
+    {
+      "id": "qwen-image-2-1-turbo",
+      "name": "Qwen Image 2.1 Turbo",
+      "type": "diffusion_model",
+      "architecture": "qwen_image_21",
+      "author": "Qwen / Comfy-Org",
+      "license": "qwen-research",
+      "homepage": "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo",
+      "description": "The official 8-step checkpoint of Qwen-Image-2.1: same text-to-image,\nediting (up to 10 references) and RGBA output at CFG 1, with the\ncheckpoint's own 8-step schedule (applied automatically). Shares the text\nencoder and VAE with qwen-image-2-1. Non-commercial: Qwen Research License.\nSingle file is the Comfy-Org repackage (SwiGLU gate/up fused; split at\nload time).\n",
+      "variants": [
+        {
+          "id": "bf16",
+          "file": "qwen_image_2.1_turbo_bf16.safetensors",
+          "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_turbo_bf16.safetensors",
+          "sha256": "8b74237a7f505773e2c66726fa696444b4c704585c93a347cff9044937f7914a",
+          "size": 14230280616,
+          "format": "safetensors",
+          "precision": "bf16",
+          "vram_required": 22528,
+          "vram_recommended": 24576,
+          "note": "bf16 — the 17.5GB text encoder is swapped in only for the prompt encode."
+        }
+      ],
+      "requires": [
+        {
+          "id": "qwen-image-21-text-encoder",
+          "type": "text_encoder",
+          "reason": "Qwen3-VL 8B text encoder (reads prompts and reference images)"
+        },
+        {
+          "id": "qwen-image-21-vae",
+          "type": "vae",
+          "reason": "Qwen-Image-2.1 VAE (16x, 64 channels, RGBA)"
+        }
+      ],
+      "defaults": {
+        "steps": 8,
+        "cfg": 1.0,
+        "sampler": "euler",
+        "scheduler": "flowmatch"
+      },
+      "tags": [
+        "qwen",
+        "text-to-image",
+        "image-editing",
+        "rgba",
+        "text-rendering",
+        "dit",
+        "fast-inference"
+      ],
+      "rating": 4.8,
+      "downloads": 0,
+      "added": "2026-11-17",
+      "updated": "2026-11-17"
+    },
+    {
+      "id": "qwen-image-21-text-encoder",
+      "name": "Qwen Image 2.1 Qwen3-VL 8B Text Encoder",
+      "type": "text_encoder",
+      "visibility": "internal",
+      "architecture": "qwen3_vl",
+      "author": "Qwen",
+      "license": "qwen-research",
+      "homepage": "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo",
+      "description": "Qwen3-VL-8B (bf16) text encoder of Qwen-Image-2.1, single file from the\nofficial Turbo checkpoint (diffusers key layout). Identical weights in\nQwen-Image-2.1 and Qwen-Image-2.1-Turbo; it also reads the reference\nimages for edits.\n",
+      "file": {
+        "url": "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo/resolve/main/text_encoder/model.safetensors",
+        "sha256": "a1eee8233f3063466dd3b06e857b0a2cf13a77c543908374771d51a546beb2e0",
+        "size": 17534340584,
+        "format": "safetensors"
+      },
+      "tags": [
+        "qwen",
+        "text-encoder",
+        "qwen3-vl"
+      ],
+      "rating": 5.0,
+      "downloads": 0,
+      "added": "2026-11-17",
+      "updated": "2026-11-17"
+    },
+    {
+      "id": "qwen-image-21-vae",
+      "name": "Qwen Image 2.1 VAE",
+      "type": "vae",
+      "visibility": "internal",
+      "architecture": "qwen_image_21",
+      "author": "Qwen",
+      "license": "qwen-research",
+      "homepage": "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo",
+      "description": "AutoencoderKLQwenImage21 (16x spatial, 64 latent channels, RGBA in and\nout), bf16 file from the official Turbo checkpoint — the bf16 cast of the\nfp32 VAE in Qwen-Image-2.1. Shared by both models.\n",
+      "file": {
+        "url": "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo/resolve/main/vae/diffusion_pytorch_model.safetensors",
+        "sha256": "71879ffd5321e6d10c3c87513e2b474b1252efa7f3dec2969214a9bf06a6dd5c",
+        "size": 675508656,
+        "format": "safetensors"
+      },
+      "tags": [
+        "qwen",
+        "vae",
+        "rgba"
+      ],
+      "rating": 5.0,
+      "downloads": 0,
+      "added": "2026-11-17",
+      "updated": "2026-11-17"
     },
     {
       "id": "qwen-image-2512-lightning",

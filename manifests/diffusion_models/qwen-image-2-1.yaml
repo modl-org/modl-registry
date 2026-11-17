@@ -1,0 +1,47 @@
+id: qwen-image-2-1
+name: "Qwen Image 2.1"
+type: diffusion_model
+architecture: qwen_image_21
+author: Qwen / Comfy-Org
+license: qwen-research
+homepage: https://huggingface.co/Qwen/Qwen-Image-2.1
+description: |
+  Qwen-Image-2.1 — a 7B single-stream DiT on a Qwen3-VL-8B text encoder. One
+  checkpoint generates, edits (up to 10 reference images) and produces
+  transparent RGBA images. Strong typography and portrait lighting. 40 steps
+  at CFG 1 by default. Non-commercial: Qwen Research License.
+  Single file is the Comfy-Org repackage (SwiGLU gate/up fused; split at
+  load time).
+
+variants:
+  - id: bf16
+    file: qwen_image_2.1_bf16.safetensors
+    url: https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_bf16.safetensors
+    sha256: "89f4158d066cc33906a199fca85634f766892dd78f49b6698dabf187ac86c4bc"
+    size: 14230280616
+    format: safetensors
+    precision: bf16
+    vram_required: 22528
+    vram_recommended: 24576
+    note: "bf16 — the 17.5GB text encoder is swapped in only for the prompt encode."
+
+requires:
+  - id: qwen-image-21-text-encoder
+    type: text_encoder
+    reason: "Qwen3-VL 8B text encoder (reads prompts and reference images)"
+  - id: qwen-image-21-vae
+    type: vae
+    reason: "Qwen-Image-2.1 VAE (16x, 64 channels, RGBA)"
+
+defaults:
+  steps: 40
+  cfg: 1.0
+  sampler: euler
+  scheduler: flowmatch
+
+tags: [qwen, text-to-image, image-editing, rgba, text-rendering, dit]
+
+rating: 4.8
+downloads: 0
+added: "2026-11-17"
+updated: "2026-11-17"

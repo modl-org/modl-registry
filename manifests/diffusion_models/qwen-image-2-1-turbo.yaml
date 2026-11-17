@@ -1,0 +1,47 @@
+id: qwen-image-2-1-turbo
+name: "Qwen Image 2.1 Turbo"
+type: diffusion_model
+architecture: qwen_image_21
+author: Qwen / Comfy-Org
+license: qwen-research
+homepage: https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo
+description: |
+  The official 8-step checkpoint of Qwen-Image-2.1: same text-to-image,
+  editing (up to 10 references) and RGBA output at CFG 1, with the
+  checkpoint's own 8-step schedule (applied automatically). Shares the text
+  encoder and VAE with qwen-image-2-1. Non-commercial: Qwen Research License.
+  Single file is the Comfy-Org repackage (SwiGLU gate/up fused; split at
+  load time).
+
+variants:
+  - id: bf16
+    file: qwen_image_2.1_turbo_bf16.safetensors
+    url: https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_turbo_bf16.safetensors
+    sha256: "8b74237a7f505773e2c66726fa696444b4c704585c93a347cff9044937f7914a"
+    size: 14230280616
+    format: safetensors
+    precision: bf16
+    vram_required: 22528
+    vram_recommended: 24576
+    note: "bf16 — the 17.5GB text encoder is swapped in only for the prompt encode."
+
+requires:
+  - id: qwen-image-21-text-encoder
+    type: text_encoder
+    reason: "Qwen3-VL 8B text encoder (reads prompts and reference images)"
+  - id: qwen-image-21-vae
+    type: vae
+    reason: "Qwen-Image-2.1 VAE (16x, 64 channels, RGBA)"
+
+defaults:
+  steps: 8
+  cfg: 1.0
+  sampler: euler
+  scheduler: flowmatch
+
+tags: [qwen, text-to-image, image-editing, rgba, text-rendering, dit, fast-inference]
+
+rating: 4.8
+downloads: 0
+added: "2026-11-17"
+updated: "2026-11-17"
