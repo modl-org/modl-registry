@@ -1,0 +1,24 @@
+id: flux2-vae-small
+name: "FLUX.2 VAE (small decoder)"
+type: vae
+visibility: internal
+architecture: flux2
+author: black-forest-labs / Comfy-Org
+license: apache-2.0
+homepage: https://huggingface.co/Comfy-Org/MOSS-Image
+description: |
+  FLUX.2 VAE with the reduced-width decoder (96/192/384/384 channels) that
+  MOSS-Image ships. Same encoder and latent space as flux2-vae, but a
+  different decoder — not interchangeable as a file.
+
+file:
+  url: https://huggingface.co/Comfy-Org/MOSS-Image/resolve/main/vae/flux2-vae_small.safetensors
+  sha256: "d8d52ba036475f5fb07c8b435e176d3d97ebfa82f0d1a1c317f9cc1e25bd013b"
+  size: 249521340
+  format: safetensors
+
+tags: [flux2, vae, moss]
+rating: 5.0
+downloads: 0
+added: "2026-11-17"
+updated: "2026-11-17"

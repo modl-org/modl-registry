@@ -1,20 +1,20 @@
 {
   "version": 2,
-  "generated_at": "2026-07-17T17:53:51Z",
-  "total_count": 97,
+  "generated_at": "2026-11-17T08:43:56Z",
+  "total_count": 102,
   "type_counts": {
     "upscaler": 3,
     "segmentation": 2,
     "vision_language": 7,
     "checkpoint": 11,
-    "text_encoder": 13,
+    "text_encoder": 14,
     "analysis": 4,
-    "diffusion_model": 22,
+    "diffusion_model": 24,
     "controlnet": 10,
     "recipe": 4,
     "ipadapter": 3,
-    "vae": 10,
-    "lora": 8
+    "vae": 11,
+    "lora": 9
   },
   "cloud_available_count": 8,
   "schema_url": "https://registry.modl.run/schemas/manifest.schema.json",
@@ -1816,6 +1816,32 @@
       "updated": "2025-07-01"
     },
     {
+      "id": "flux2-vae-small",
+      "name": "FLUX.2 VAE (small decoder)",
+      "type": "vae",
+      "visibility": "internal",
+      "architecture": "flux2",
+      "author": "black-forest-labs / Comfy-Org",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/Comfy-Org/MOSS-Image",
+      "description": "FLUX.2 VAE with the reduced-width decoder (96/192/384/384 channels) that\nMOSS-Image ships. Same encoder and latent space as flux2-vae, but a\ndifferent decoder — not interchangeable as a file.\n",
+      "file": {
+        "url": "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/main/vae/flux2-vae_small.safetensors",
+        "sha256": "d8d52ba036475f5fb07c8b435e176d3d97ebfa82f0d1a1c317f9cc1e25bd013b",
+        "size": 249521340,
+        "format": "safetensors"
+      },
+      "tags": [
+        "flux2",
+        "vae",
+        "moss"
+      ],
+      "rating": 5.0,
+      "downloads": 0,
+      "added": "2026-11-17",
+      "updated": "2026-11-17"
+    },
+    {
       "id": "insightface-buffalo-l",
       "name": "InsightFace Buffalo-L",
       "type": "analysis",
@@ -2692,6 +2718,179 @@
       ],
       "added": "2026-04-04",
       "updated": "2026-04-04"
+    },
+    {
+      "id": "moss-image",
+      "name": "MOSS-Image",
+      "type": "diffusion_model",
+      "architecture": "moss_image",
+      "author": "OpenMOSS / Comfy-Org",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT",
+      "description": "MOSS-Image SFT — OpenMOSS's 5B single-stream DiT conditioned on the final\nhidden state of Qwen3.5-9B, decoded by the FLUX.2 small-decoder VAE.\nAesthetic-tuned: clean, polished look, very strong prompt adherence and\ntext rendering. Upstream defaults: 50 steps, CFG 3, Euler (shift 5), DiT\nblock 22 skipped in the negative branch. Apache-2.0.\nSingle file is the Comfy-Org repackage (attention q/k/v fused into\nproj.qkv; split back at load time by the modl worker).\n",
+      "variants": [
+        {
+          "id": "bf16",
+          "file": "moss_image_sft_bf16.safetensors",
+          "url": "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/main/diffusion_models/moss_image_sft_bf16.safetensors",
+          "sha256": "f96738d8116d78b7316b57c663d8c98591ddafab7488f48e3099b7655e34ab6f",
+          "size": 10164655808,
+          "format": "safetensors",
+          "precision": "bf16",
+          "vram_required": 20480,
+          "vram_recommended": 24576,
+          "note": "bf16 — the 19GB text encoder is swapped in only for the prompt encode."
+        }
+      ],
+      "requires": [
+        {
+          "id": "moss-qwen3.5-9b-text-encoder",
+          "type": "text_encoder",
+          "reason": "Qwen3.5 9B text encoder (final hidden state) for prompt conditioning"
+        },
+        {
+          "id": "flux2-vae-small",
+          "type": "vae",
+          "reason": "FLUX.2 VAE with the small decoder, used by MOSS-Image"
+        }
+      ],
+      "defaults": {
+        "steps": 50,
+        "cfg": 3.0,
+        "sampler": "euler",
+        "scheduler": "flowmatch"
+      },
+      "tags": [
+        "moss",
+        "text-to-image",
+        "dit",
+        "photographic",
+        "text-rendering"
+      ],
+      "rating": 4.7,
+      "downloads": 0,
+      "added": "2026-11-17",
+      "updated": "2026-11-17"
+    },
+    {
+      "id": "moss-image-base",
+      "name": "MOSS-Image Base",
+      "type": "diffusion_model",
+      "architecture": "moss_image",
+      "author": "OpenMOSS / Comfy-Org",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
+      "description": "MOSS-Image Base — the pre-SFT checkpoint of OpenMOSS's 5B single-stream DiT\n(Qwen3.5-9B text encoder, FLUX.2 small-decoder VAE). Less polished and more\ndocumentary/photographic than SFT, with much higher seed variety; the\ncommunity's pick for realism and the base LoRAs are trained against.\nmodl runs it at CFG 3 with DiT blocks 22 and 24 skipped in the negative\nbranch. Pair with moss-image-base-dmd-lora for `--fast 8`. Apache-2.0.\nSingle file is the Comfy-Org repackage (q/k/v fused; split at load time).\n",
+      "variants": [
+        {
+          "id": "bf16",
+          "file": "moss_image_base_bf16.safetensors",
+          "url": "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/main/diffusion_models/moss_image_base_bf16.safetensors",
+          "sha256": "cacd158728a1fb9e57c408a922b54752ec71fceb566b3821269927964e62b41f",
+          "size": 10164655808,
+          "format": "safetensors",
+          "precision": "bf16",
+          "vram_required": 20480,
+          "vram_recommended": 24576,
+          "note": "bf16 — the 19GB text encoder is swapped in only for the prompt encode."
+        }
+      ],
+      "requires": [
+        {
+          "id": "moss-qwen3.5-9b-text-encoder",
+          "type": "text_encoder",
+          "reason": "Qwen3.5 9B text encoder (final hidden state) for prompt conditioning"
+        },
+        {
+          "id": "flux2-vae-small",
+          "type": "vae",
+          "reason": "FLUX.2 VAE with the small decoder, used by MOSS-Image"
+        }
+      ],
+      "defaults": {
+        "steps": 50,
+        "cfg": 3.0,
+        "sampler": "euler",
+        "scheduler": "flowmatch"
+      },
+      "tags": [
+        "moss",
+        "text-to-image",
+        "base-model",
+        "dit",
+        "photographic",
+        "text-rendering"
+      ],
+      "rating": 4.7,
+      "downloads": 0,
+      "added": "2026-11-17",
+      "updated": "2026-11-17"
+    },
+    {
+      "id": "moss-image-base-dmd-lora",
+      "name": "MOSS-Image Base 8-step DMD LoRA",
+      "type": "lora",
+      "architecture": "moss_image",
+      "author": "lodestones",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/lodestones/MOSS-Image-Base-8-steps-dmd",
+      "description": "Data-space DMD distillation of MOSS-Image Base (50 steps, CFG 3) down to\n8 steps without CFG, packaged as a rank-128 fp32 LoRA on every block's\nattention and FFN projections. Use with the stock sampler at CFG 1 and\n4–8 steps (8 is noticeably sharper). The delta is smaller than bf16's\nrounding step, so it must be applied unmerged — modl does this\nautomatically. Wired to `--fast` / workflow `fast:` on moss-image-base.\nWork-in-progress checkpoint (update 12000, EMA); hash-pinned.\n",
+      "variants": [
+        {
+          "id": "rank128",
+          "file": "moss_image_base_dmd_8step_lora.safetensors",
+          "url": "https://huggingface.co/lodestones/MOSS-Image-Base-8-steps-dmd/resolve/main/lora.safetensors",
+          "sha256": "f0e6cd07f222dfaea798afe3b796e2c2995cadfd44ad56e02ca616f0467aec28",
+          "size": 1189176800,
+          "format": "safetensors",
+          "note": "Rank 128 / alpha 128, fp32."
+        }
+      ],
+      "base_models": [
+        "moss-image-base"
+      ],
+      "category": "acceleration",
+      "recommended_weight": 1.0,
+      "weight_range": [
+        0.7,
+        1.0
+      ],
+      "tags": [
+        "moss",
+        "lora",
+        "distillation",
+        "fast-inference"
+      ],
+      "rating": 4.3,
+      "downloads": 0,
+      "added": "2026-11-17",
+      "updated": "2026-11-17"
+    },
+    {
+      "id": "moss-qwen3.5-9b-text-encoder",
+      "name": "MOSS-Image Qwen3.5 9B Text Encoder",
+      "type": "text_encoder",
+      "visibility": "internal",
+      "architecture": "qwen3.5",
+      "author": "Qwen / Comfy-Org",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/Comfy-Org/MOSS-Image",
+      "description": "Qwen3.5-9B (bf16) as repackaged by Comfy-Org for MOSS-Image. Keys are\n\"model.\"-prefixed and include lm_head/mtp tensors; the modl worker strips\nthe prefix and ignores the extras when loading into Qwen3_5Model.\n",
+      "file": {
+        "url": "https://huggingface.co/Comfy-Org/MOSS-Image/resolve/main/text_encoders/qwen3.5_9b_bf16.safetensors",
+        "sha256": "7e6e9f08d598f829cb940e60ac0c698e1f1c27a47daffd7e598cd78c78b4cc53",
+        "size": 19306312328,
+        "format": "safetensors"
+      },
+      "tags": [
+        "moss",
+        "text-encoder",
+        "qwen3.5"
+      ],
+      "rating": 5.0,
+      "downloads": 0,
+      "added": "2026-11-17",
+      "updated": "2026-11-17"
     },
     {
       "id": "qwen-image",

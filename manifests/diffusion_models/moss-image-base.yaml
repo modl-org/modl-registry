@@ -1,0 +1,48 @@
+id: moss-image-base
+name: "MOSS-Image Base"
+type: diffusion_model
+architecture: moss_image
+author: OpenMOSS / Comfy-Org
+license: apache-2.0
+homepage: https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base
+description: |
+  MOSS-Image Base — the pre-SFT checkpoint of OpenMOSS's 5B single-stream DiT
+  (Qwen3.5-9B text encoder, FLUX.2 small-decoder VAE). Less polished and more
+  documentary/photographic than SFT, with much higher seed variety; the
+  community's pick for realism and the base LoRAs are trained against.
+  modl runs it at CFG 3 with DiT blocks 22 and 24 skipped in the negative
+  branch. Pair with moss-image-base-dmd-lora for `--fast 8`. Apache-2.0.
+  Single file is the Comfy-Org repackage (q/k/v fused; split at load time).
+
+variants:
+  - id: bf16
+    file: moss_image_base_bf16.safetensors
+    url: https://huggingface.co/Comfy-Org/MOSS-Image/resolve/main/diffusion_models/moss_image_base_bf16.safetensors
+    sha256: "cacd158728a1fb9e57c408a922b54752ec71fceb566b3821269927964e62b41f"
+    size: 10164655808
+    format: safetensors
+    precision: bf16
+    vram_required: 20480
+    vram_recommended: 24576
+    note: "bf16 — the 19GB text encoder is swapped in only for the prompt encode."
+
+requires:
+  - id: moss-qwen3.5-9b-text-encoder
+    type: text_encoder
+    reason: "Qwen3.5 9B text encoder (final hidden state) for prompt conditioning"
+  - id: flux2-vae-small
+    type: vae
+    reason: "FLUX.2 VAE with the small decoder, used by MOSS-Image"
+
+defaults:
+  steps: 50
+  cfg: 3.0
+  sampler: euler
+  scheduler: flowmatch
+
+tags: [moss, text-to-image, base-model, dit, photographic, text-rendering]
+
+rating: 4.7
+downloads: 0
+added: "2026-11-17"
+updated: "2026-11-17"

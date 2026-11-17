@@ -1,0 +1,24 @@
+id: moss-qwen3.5-9b-text-encoder
+name: "MOSS-Image Qwen3.5 9B Text Encoder"
+type: text_encoder
+visibility: internal
+architecture: qwen3.5
+author: Qwen / Comfy-Org
+license: apache-2.0
+homepage: https://huggingface.co/Comfy-Org/MOSS-Image
+description: |
+  Qwen3.5-9B (bf16) as repackaged by Comfy-Org for MOSS-Image. Keys are
+  "model."-prefixed and include lm_head/mtp tensors; the modl worker strips
+  the prefix and ignores the extras when loading into Qwen3_5Model.
+
+file:
+  url: https://huggingface.co/Comfy-Org/MOSS-Image/resolve/main/text_encoders/qwen3.5_9b_bf16.safetensors
+  sha256: "7e6e9f08d598f829cb940e60ac0c698e1f1c27a47daffd7e598cd78c78b4cc53"
+  size: 19306312328
+  format: safetensors
+
+tags: [moss, text-encoder, qwen3.5]
+rating: 5.0
+downloads: 0
+added: "2026-11-17"
+updated: "2026-11-17"
