@@ -1,0 +1,38 @@
+id: moss-image-base-dmd-lora
+name: "MOSS-Image Base 8-step DMD LoRA"
+type: lora
+architecture: moss_image
+author: lodestones
+license: apache-2.0
+homepage: https://huggingface.co/lodestones/MOSS-Image-Base-8-steps-dmd
+description: |
+  Data-space DMD distillation of MOSS-Image Base (50 steps, CFG 3) down to
+  8 steps without CFG, packaged as a rank-128 fp32 LoRA on every block's
+  attention and FFN projections. Use with the stock sampler at CFG 1 and
+  4–8 steps (8 is noticeably sharper). The delta is smaller than bf16's
+  rounding step, so it must be applied unmerged — modl does this
+  automatically. Wired to `--fast` / workflow `fast:` on moss-image-base.
+  Work-in-progress checkpoint (update 12000, EMA); hash-pinned.
+
+variants:
+  - id: rank128
+    file: moss_image_base_dmd_8step_lora.safetensors
+    url: https://huggingface.co/lodestones/MOSS-Image-Base-8-steps-dmd/resolve/main/lora.safetensors
+    sha256: "f0e6cd07f222dfaea798afe3b796e2c2995cadfd44ad56e02ca616f0467aec28"
+    size: 1189176800
+    format: safetensors
+    note: "Rank 128 / alpha 128, fp32."
+
+base_models: [moss-image-base]
+
+category: acceleration
+
+recommended_weight: 1.0
+weight_range: [0.7, 1.0]
+
+tags: [moss, lora, distillation, fast-inference]
+
+rating: 4.3
+downloads: 0
+added: "2026-11-17"
+updated: "2026-11-17"
