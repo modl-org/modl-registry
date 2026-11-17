@@ -1,0 +1,37 @@
+id: moss-image-dmd2-lora
+name: "MOSS-Image 8-step DMD2 LoRA"
+type: lora
+architecture: moss_image
+author: lodestones
+license: apache-2.0
+homepage: https://huggingface.co/lodestones/Kromoss
+description: |
+  lodestones' MOSS-Image Base DMD distillation (see moss-image-base-dmd-lora)
+  continued for 3000 updates with DMD2's GAN stage against real images:
+  slightly more contrast and detail, and the author's recommended turbo LoRA.
+  8 steps (4 works), CFG 1, stock sampler. Distilled from MOSS-Image Base and
+  transfers to Kromoss. Rank 128 fp32; must be applied unmerged — modl does
+  this automatically. Wired to `--fast` / workflow `fast:` on kromoss.
+
+variants:
+  - id: rank128
+    file: moss_image_dmd2_8step_lora.safetensors
+    url: https://huggingface.co/lodestones/Kromoss/resolve/main/8-steps-dmd2-lora.safetensors
+    sha256: "7683fe1fb51f73f5d690f24dd6b7f46f31ab9a9873729a854ac5c9a420ffe6f2"
+    size: 1189176800
+    format: safetensors
+    note: "Rank 128 / alpha 128, fp32."
+
+base_models: [kromoss, moss-image-base]
+
+category: acceleration
+
+recommended_weight: 1.0
+weight_range: [0.7, 1.0]
+
+tags: [moss, lora, distillation, fast-inference]
+
+rating: 4.4
+downloads: 0
+added: "2026-11-17"
+updated: "2026-11-17"
