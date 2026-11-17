@@ -1,0 +1,47 @@
+id: kromoss
+name: "Kromoss"
+type: diffusion_model
+architecture: moss_image
+author: lodestones
+license: apache-2.0
+homepage: https://huggingface.co/lodestones/Kromoss
+description: |
+  Kromoss — lodestones' full fine-tune of MOSS-Image Base at 1024px (704k
+  images, EMA weights, update 11000). Same 5B single-stream DiT, Qwen3.5-9B
+  text encoder and FLUX.2 small-decoder VAE as MOSS-Image, so it shares their
+  files and only adds a transformer. Upstream settings: 50 steps, CFG 3, DiT
+  block 22 skipped in the negative branch. `--fast 8` uses the DMD2 LoRA.
+  Apache-2.0. Single file in the Comfy layout (q/k/v fused; split at load time).
+
+variants:
+  - id: bf16
+    file: kromoss_bf16.safetensors
+    url: https://huggingface.co/lodestones/Kromoss/resolve/main/diffusion_models/kromoss_bf16.safetensors
+    sha256: "54c863b9392f7b6a02f557d32a416b22765b4ffbee322ade9945e379f09adaba"
+    size: 10164655808
+    format: safetensors
+    precision: bf16
+    vram_required: 20480
+    vram_recommended: 24576
+    note: "bf16 — the 19GB text encoder is swapped in only for the prompt encode."
+
+requires:
+  - id: moss-qwen3.5-9b-text-encoder
+    type: text_encoder
+    reason: "Qwen3.5 9B text encoder (final hidden state) for prompt conditioning"
+  - id: flux2-vae-small
+    type: vae
+    reason: "FLUX.2 VAE with the small decoder, used by MOSS-Image"
+
+defaults:
+  steps: 50
+  cfg: 3.0
+  sampler: euler
+  scheduler: flowmatch
+
+tags: [moss, text-to-image, finetune, dit, photographic, text-rendering]
+
+rating: 4.6
+downloads: 0
+added: "2026-11-17"
+updated: "2026-11-17"
