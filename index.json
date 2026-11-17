@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "generated_at": "2026-11-17T13:48:59Z",
-  "total_count": 106,
+  "generated_at": "2026-11-17T17:27:17Z",
+  "total_count": 108,
   "type_counts": {
     "upscaler": 3,
     "segmentation": 2,
@@ -9,12 +9,12 @@
     "checkpoint": 11,
     "text_encoder": 15,
     "analysis": 4,
-    "diffusion_model": 26,
+    "diffusion_model": 27,
     "controlnet": 10,
     "recipe": 4,
     "ipadapter": 3,
     "vae": 12,
-    "lora": 9
+    "lora": 10
   },
   "cloud_available_count": 8,
   "schema_url": "https://registry.modl.run/schemas/manifest.schema.json",
@@ -2208,6 +2208,60 @@
       "updated": "2026-07-17"
     },
     {
+      "id": "kromoss",
+      "name": "Kromoss",
+      "type": "diffusion_model",
+      "architecture": "moss_image",
+      "author": "lodestones",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/lodestones/Kromoss",
+      "description": "Kromoss — lodestones' full fine-tune of MOSS-Image Base at 1024px (704k\nimages, EMA weights, update 11000). Same 5B single-stream DiT, Qwen3.5-9B\ntext encoder and FLUX.2 small-decoder VAE as MOSS-Image, so it shares their\nfiles and only adds a transformer. Upstream settings: 50 steps, CFG 3, DiT\nblock 22 skipped in the negative branch. `--fast 8` uses the DMD2 LoRA.\nApache-2.0. Single file in the Comfy layout (q/k/v fused; split at load time).\n",
+      "variants": [
+        {
+          "id": "bf16",
+          "file": "kromoss_bf16.safetensors",
+          "url": "https://huggingface.co/lodestones/Kromoss/resolve/main/diffusion_models/kromoss_bf16.safetensors",
+          "sha256": "54c863b9392f7b6a02f557d32a416b22765b4ffbee322ade9945e379f09adaba",
+          "size": 10164655808,
+          "format": "safetensors",
+          "precision": "bf16",
+          "vram_required": 20480,
+          "vram_recommended": 24576,
+          "note": "bf16 — the 19GB text encoder is swapped in only for the prompt encode."
+        }
+      ],
+      "requires": [
+        {
+          "id": "moss-qwen3.5-9b-text-encoder",
+          "type": "text_encoder",
+          "reason": "Qwen3.5 9B text encoder (final hidden state) for prompt conditioning"
+        },
+        {
+          "id": "flux2-vae-small",
+          "type": "vae",
+          "reason": "FLUX.2 VAE with the small decoder, used by MOSS-Image"
+        }
+      ],
+      "defaults": {
+        "steps": 50,
+        "cfg": 3.0,
+        "sampler": "euler",
+        "scheduler": "flowmatch"
+      },
+      "tags": [
+        "moss",
+        "text-to-image",
+        "finetune",
+        "dit",
+        "photographic",
+        "text-rendering"
+      ],
+      "rating": 4.6,
+      "downloads": 0,
+      "added": "2026-11-17",
+      "updated": "2026-11-17"
+    },
+    {
       "id": "laion-aesthetic-v2",
       "name": "LAION Aesthetic Predictor v2",
       "type": "analysis",
@@ -2862,6 +2916,47 @@
         "fast-inference"
       ],
       "rating": 4.3,
+      "downloads": 0,
+      "added": "2026-11-17",
+      "updated": "2026-11-17"
+    },
+    {
+      "id": "moss-image-dmd2-lora",
+      "name": "MOSS-Image 8-step DMD2 LoRA",
+      "type": "lora",
+      "architecture": "moss_image",
+      "author": "lodestones",
+      "license": "apache-2.0",
+      "homepage": "https://huggingface.co/lodestones/Kromoss",
+      "description": "lodestones' MOSS-Image Base DMD distillation (see moss-image-base-dmd-lora)\ncontinued for 3000 updates with DMD2's GAN stage against real images:\nslightly more contrast and detail, and the author's recommended turbo LoRA.\n8 steps (4 works), CFG 1, stock sampler. Distilled from MOSS-Image Base and\ntransfers to Kromoss. Rank 128 fp32; must be applied unmerged — modl does\nthis automatically. Wired to `--fast` / workflow `fast:` on kromoss.\n",
+      "variants": [
+        {
+          "id": "rank128",
+          "file": "moss_image_dmd2_8step_lora.safetensors",
+          "url": "https://huggingface.co/lodestones/Kromoss/resolve/main/8-steps-dmd2-lora.safetensors",
+          "sha256": "7683fe1fb51f73f5d690f24dd6b7f46f31ab9a9873729a854ac5c9a420ffe6f2",
+          "size": 1189176800,
+          "format": "safetensors",
+          "note": "Rank 128 / alpha 128, fp32."
+        }
+      ],
+      "base_models": [
+        "kromoss",
+        "moss-image-base"
+      ],
+      "category": "acceleration",
+      "recommended_weight": 1.0,
+      "weight_range": [
+        0.7,
+        1.0
+      ],
+      "tags": [
+        "moss",
+        "lora",
+        "distillation",
+        "fast-inference"
+      ],
+      "rating": 4.4,
       "downloads": 0,
       "added": "2026-11-17",
       "updated": "2026-11-17"
