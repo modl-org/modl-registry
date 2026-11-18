@@ -1,0 +1,23 @@
+id: minimax-h3-image-vae
+name: "MiniMax H3 Image VAE"
+type: vae
+visibility: internal
+architecture: minimax_h3_image
+author: MiniMax
+license: minimax-h3-image-community-license
+homepage: https://huggingface.co/MiniMaxAI/MiniMax-H3-Image
+description: |
+  AutoencoderKLMiniMaxH3Image (16x spatial, 24 latent channels), fp32 file
+  from the official release; modl runs it in bf16.
+
+file:
+  url: https://huggingface.co/MiniMaxAI/MiniMax-H3-Image/resolve/main/vae_diffusers/diffusion_pytorch_model.safetensors
+  sha256: "5bb2809698c3989033f719ece2243f277fefedef1dd9a1d05f3d4136b2f93b35"
+  size: 2336973400
+  format: safetensors
+
+tags: [minimax, vae]
+rating: 5.0
+downloads: 0
+added: "2026-11-18"
+updated: "2026-11-18"

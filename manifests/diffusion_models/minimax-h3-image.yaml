@@ -1,0 +1,52 @@
+id: minimax-h3-image
+name: "MiniMax H3 Image"
+type: diffusion_model
+architecture: minimax_h3_image
+author: MiniMax / Unsloth
+license: minimax-h3-image-community-license
+homepage: https://huggingface.co/MiniMaxAI/MiniMax-H3-Image
+description: |
+  MiniMax's 6-step, guidance-distilled image model: text-to-image at up to
+  4 MP and multi-reference editing (<Picture 1>, <Picture 2>... in the prompt)
+  with one checkpoint. Strong typography and scene-preserving edits.
+  Unsloth's INT8 ConvRot build of the pruned ~20B DiT, run W8A8 by modl.
+  Runs on a 24GB GPU, but needs about 48GB of free system RAM: the 27GB INT8
+  Qwen3-VL-32B text encoder is held in pinned memory and streamed through the
+  GPU per prompt while the DiT stays resident.
+  LICENSE: MiniMax-H3-Image Community License. It does not permit use in the
+  European Union, the United Kingdom, South Korea or the United States, and it
+  carries further conditions. Read it before pulling:
+  https://huggingface.co/MiniMaxAI/MiniMax-H3-Image
+
+variants:
+  - id: int8-convrot
+    file: MiniMax-H3-Image-INT8-ConvRot.safetensors
+    url: https://huggingface.co/unsloth/MiniMax-H3-Image-FP8/resolve/main/MiniMax-H3-Image-INT8-ConvRot.safetensors
+    sha256: "b4d94247ec1292f3fb9aafc738c8eb5961b63685f19f5e5275630b53721e8da5"
+    size: 20272349984
+    format: safetensors
+    precision: int8
+    vram_required: 22528
+    vram_recommended: 24576
+    note: "INT8 W8A8 with ConvRot; DiT + VAE resident (~21GB), text encoder streamed from RAM."
+
+requires:
+  - id: minimax-h3-text-encoder-int8
+    type: text_encoder
+    reason: "Qwen3-VL 32B text encoder, INT8, truncated to the 50 layers H3 reads"
+  - id: minimax-h3-image-vae
+    type: vae
+    reason: "MiniMax-H3-Image VAE (16x, 24 channels)"
+
+defaults:
+  steps: 6
+  cfg: 1.0
+  sampler: euler
+  scheduler: flowmatch
+
+tags: [minimax, text-to-image, image-editing, multi-reference, text-rendering, high-resolution, dit, int8, fast-inference]
+
+rating: 4.8
+downloads: 0
+added: "2026-11-18"
+updated: "2026-11-18"
